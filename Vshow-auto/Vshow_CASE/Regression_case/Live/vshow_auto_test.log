@@ -1,0 +1,12 @@
+2026-01-09 19:08:57 [ INFO ] test_VshowBase_Live10.py:23 | 获取设备相关信息和第二个用户信息
+2026-01-09 19:08:57 [ INFO ] test_VshowBase_Live10.py:32 | 实例化第二个用户进行登录，开启直播间
+2026-01-09 19:08:57 [ INFO ] more_devices.py:27 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-01-09 19:09:04 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
+2026-01-09 19:09:12 [ INFO ] common_actions.py:29 | --- 进如【我的】页面 ---
+2026-01-09 19:09:13 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-01-09 19:09:16 [ INFO ] test_VshowBase_Live11.py:21 | 获取设备相关信息和第二个用户信息
+2026-01-09 19:09:16 [ INFO ] test_VshowBase_Live11.py:33 | 实例化主播用户进行登录，开启直播间
+2026-01-09 19:09:16 [ INFO ] more_devices.py:27 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-01-09 19:09:21 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.

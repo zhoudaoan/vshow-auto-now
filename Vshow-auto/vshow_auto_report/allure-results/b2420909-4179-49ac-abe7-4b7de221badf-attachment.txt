@@ -1,0 +1,27 @@
+INFO     test_VshowBase_My02:test_VshowBase_My02.py:15 获取设备的udid和设备包名用作最后的清除动作
+INFO     test_VshowBase_My02:test_VshowBase_My02.py:21 
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:65 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:32 ✅ Force-stopped com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:50 🧹 Removed 10 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:90 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:100 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_My02:test_VshowBase_My02.py:33 登录app,修改头像
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 1/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 2/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进入到我的详情页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进入到我的详情页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进入我的详情编辑页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进入我的详情编辑页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击头像 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击头像
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击选择图片的下一步 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击选择图片的下一步
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 对头像进行裁剪 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 对头像进行裁剪
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:113 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:117 ✅ Appium driver quit successfully.
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu

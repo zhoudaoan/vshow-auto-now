@@ -1,0 +1,7 @@
+INFO     test_VshowBase_Live28:test_VshowBase_Live28.py:21 获取设备相关信息和第二个用户信息
+INFO     test_VshowBase_Live28:test_VshowBase_Live28.py:33 实例化主播用户进行登录，开启直播间，开启随机PK
+INFO     Vshow_TOOLS.more_devices:more_devices.py:27 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:45 ✅ Appium driver initialized successfully.
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进入直播间开播页 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进入直播间开播页

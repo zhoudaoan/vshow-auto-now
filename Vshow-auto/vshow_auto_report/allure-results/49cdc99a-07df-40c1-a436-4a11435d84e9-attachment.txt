@@ -1,0 +1,22 @@
+INFO     test_VshowBase_Search01:test_VshowBase_Search01.py:18 初始化--获取app的配置信息用于退出后台
+INFO     test_VshowBase_Search01:test_VshowBase_Search01.py:27 主播端--登录app，进入首页获取userid
+INFO     Vshow_TOOLS.more_devices:more_devices.py:27 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:45 ✅ Appium driver initialized successfully.
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【直播】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【直播】页面
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:65 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:32 ✅ Force-stopped com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:50 🧹 Removed 10 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:90 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:100 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_Search01:test_VshowBase_Search01.py:38 观众端--登录app，搜索发布动态的用户-由详情页进行
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:113 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:117 ✅ Appium driver quit successfully.
+INFO     test_VshowBase_Search01:test_VshowBase_Search01.py:47 清除手机后台指定APP应用
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu

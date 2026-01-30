@@ -1,0 +1,47 @@
+INFO     test_VshowBase_Dynamic06:test_VshowBase_Dynamic06.py:23 初始化--获取app的配置信息用于退出后台
+INFO     test_VshowBase_Dynamic06:test_VshowBase_Dynamic06.py:32 主播端--登录app，进入动态，发布动态
+INFO     Vshow_TOOLS.more_devices:more_devices.py:27 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:45 ✅ Appium driver initialized successfully.
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【直播】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【直播】页面
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:65 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:32 ✅ Force-stopped com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:50 🧹 Removed 10 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:90 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:100 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_Dynamic06:test_VshowBase_Dynamic06.py:43 观众端--登录app，搜索发布动态的用户-由详情页进行
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【直播】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【直播】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击主播头像进入详情页 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击主播头像进入详情页
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:38 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.qingshu:id/ivCommentCount')
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:73 🔍 开始滑动查找元素: ('id', 'com.baitu.qingshu:id/ivCommentCount')，方向: up，最多 10 次
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:80 ✅ 第 1 次尝试：成功找到可点击元素！
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:52 ⏳ 等待元素变为可点击状态...
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:56 🖱️ 执行点击操作 (text='', displayed=True, enabled=True)
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:59 ✅ 点击成功
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击动态发布成功按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击动态发布成功按钮
+INFO     test_VshowBase_Dynamic06:test_VshowBase_Dynamic06.py:60 主播端--查看收到的评论信息通知
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击底部的消息按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击底部的消息按钮
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:38 🔍 开始滚动查找并点击元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:73 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:80 ✅ 第 1 次尝试：成功找到可点击元素！
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:52 ⏳ 等待元素变为可点击状态...
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:56 🖱️ 执行点击操作 (text='互动消息', displayed=True, enabled=True)
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:59 ✅ 点击成功
+INFO     Vshow_TOOLS.common_actions:common_actions.py:499 🔍 当前屏幕共找到 3 张卡片
+INFO     Vshow_TOOLS.common_actions:common_actions.py:533 ✅ 第 1 张卡片匹配全部文本: ['评论了你的动态', 'P84063']
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:113 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:117 ✅ Appium driver quit successfully.
+INFO     test_VshowBase_Dynamic06:test_VshowBase_Dynamic06.py:74 清除手机后台指定APP应用
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu

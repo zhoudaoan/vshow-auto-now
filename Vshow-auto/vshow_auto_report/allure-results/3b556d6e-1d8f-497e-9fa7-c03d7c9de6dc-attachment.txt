@@ -1,0 +1,58 @@
+INFO     test_VshowBase_Login09:test_VshowBase_Login09.py:24 生成随机的手机号，以中国区域生成
+INFO     test_VshowBase_Login09:test_VshowBase_Login09.py:29 获取二次登录时的设备信息
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:65 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:32 ✅ Force-stopped com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:50 🧹 Removed 10 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:90 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:100 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_Login09:test_VshowBase_Login09.py:40 初始化APP，使用新账号进行注册登录
+INFO     Vshow_TOOLS.common_actions:common_actions.py:233 ✅ 页面加载成功，所有文本已出现: ['探索新后台修改一下']
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.dismiss_known_popups:dismiss_known_popups.py:131 ✅ 关闭弹窗: 右上角X | (id=com.baitu.qingshu:id/iv_close)
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击进入设置页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击进入设置页面
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:38 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.qingshu:id/tv_logout_label')
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:73 🔍 开始滑动查找元素: ('id', 'com.baitu.qingshu:id/tv_logout_label')，方向: up，最多 10 次
+WARNING  Vshow_TOOLS.scroll_to_element:scroll_to_element.py:84 第 1/10 次：未找到可点击元素，准备滑动...
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:80 ✅ 第 2 次尝试：成功找到可点击元素！
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:52 ⏳ 等待元素变为可点击状态...
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:56 🖱️ 执行点击操作 (text='退出登录', displayed=True, enabled=True)
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:59 ✅ 点击成功
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:142 
+--- Setup: Logout in ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 进如【我的】页面 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 1/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 2/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 3/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.50s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 4/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.65s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 5/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.80s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 6/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.95s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 7/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，1.10s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 8/11 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，1.25s 后重试...
+ERROR    Vshow_TOOLS.common_actions:common_actions.py:51 💥 所有重试失败或超时: 进如【我的】页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:113 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:117 ✅ Appium driver quit successfully.
+INFO     Vshow_TOOLS.more_devices:more_devices.py:27 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:45 ✅ Appium driver initialized successfully.
+INFO     Vshow_TOOLS.register_and_nweDevices:register_and_nweDevices.py:19 
+🔁 第 1 次尝试：执行登录前置步骤...
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击测试环境 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击测试环境
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击我已阅读并同意 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击我已阅读并同意
+INFO     Vshow_TOOLS.register_and_nweDevices:register_and_nweDevices.py:40 🔍 等待 'tvCountry' 元素出现...
+INFO     Vshow_TOOLS.register_and_nweDevices:register_and_nweDevices.py:45 ✅ 'tvCountry' 已出现，继续后续登录流程
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击输入手机号 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击输入手机号
+INFO     Vshow_TOOLS.common_actions:common_actions.py:29 --- 点击下一步 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击下一步

@@ -1,0 +1,25 @@
+2025-12-23 18:51:22 [ INFO ] test_VshowBase_Search01.py:18 | 初始化--获取app的配置信息用于退出后台
+2025-12-23 18:51:22 [ INFO ] test_VshowBase_Search01.py:27 | 主播端--登录app，进入首页获取userid
+2025-12-23 18:51:22 [ INFO ] more_devices.py:27 | 
+--- Setup: Initializing  More Appium Driver ---
+2025-12-23 18:51:35 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
+2025-12-23 18:51:35 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2025-12-23 18:51:40 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进如【我的】页面
+2025-12-23 18:51:44 [ INFO ] common_actions.py:30 | --- 进如【直播】页面 ---
+2025-12-23 18:51:46 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进如【直播】页面
+2025-12-23 18:51:46 [ INFO ] vshow_conf.py:61 | 
+--- Setup: Initializing Appium Driver ---
+2025-12-23 18:51:46 [ INFO ] vshow_conf.py:29 | ✅ Force-stopped com.baitu.qingshu
+2025-12-23 18:51:46 [ INFO ] vshow_conf.py:47 | 🧹 Removed 1 recent/hidden tasks for com.baitu.qingshu
+2025-12-23 18:51:52 [ INFO ] vshow_conf.py:89 | ✅ Appium driver initialized successfully.
+2025-12-23 18:51:52 [ INFO ] test_VshowBase_Search01.py:38 | 观众端--登录app，搜索发布动态的用户-由详情页进行
+2025-12-23 18:52:03 [ INFO ] common_actions.py:229 | ✅ 页面加载成功，所有文本已出现: ['LUlvMnz860', '37147244']
+2025-12-23 18:52:03 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
+2025-12-23 18:52:03 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击主播头像进入详情页
+2025-12-23 18:52:05 [ INFO ] common_actions.py:229 | ✅ 页面加载成功，所有文本已出现: ['LUlvMnz860', '37147244', '财富等级', '直播等级', '资料', '荣誉墙']
+2025-12-23 18:52:05 [ INFO ] vshow_conf.py:95 | 
+--- Teardown: Quitting Appium Driver ---
+2025-12-23 18:52:05 [ INFO ] vshow_conf.py:99 | ✅ Appium driver quit successfully.
+2025-12-23 18:52:05 [ INFO ] test_VshowBase_Search01.py:46 | 清除手机后台指定APP应用
+2025-12-23 18:52:05 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2025-12-23 18:52:06 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu

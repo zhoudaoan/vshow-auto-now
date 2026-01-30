@@ -1,0 +1,22 @@
+{
+      "taskType": "Live",
+      "taskTag": "live",
+      "baseSalaryShowOnly": 0,
+      "taskAction": "dating_luck",
+      "taskIcon": "bcp/1506815860894/common/20250908/jpg/124eae207a6e43f591d5e22746942e35.jpg",
+      "cycle": "none",
+      "weekCycleDisplay": "none",
+      "maxNumber": 99,
+      "isSeries": 0,
+      "riskType": 0,
+      "riskDevice": 0,
+      "drawNeedFacebookReAuth": 0,
+      "taskCondition": "{\"gender\":\"0\",\"face_auth\":\"0\",\"register_time\":0,\"reg_days\":0,\"reg_days_min\":0,\"women_reg_min_at\":0,\"live_income_min\":0,\"hour_salary\":\"0\",\"level\":1,\"income_days\":7,\"app\":[],\"reg_app\":[]}",
+      "taskTarget": "{\"time\":60,\"count\":0,\"origin\":\"none\",\"is_win\":\"0\",\"time_types\":[\"live\",\"party_host_video\"]}",
+      "distributionType": 2,
+      "drawNeedFacebook": 0,
+      "drawNeedAuth": 0,
+      "receivePrizeMutexGroupId": 0,
+      "taskActionExt": "{}",
+      "awardNotifyAction": ""
+    }
