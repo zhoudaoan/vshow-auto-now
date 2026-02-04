@@ -5,7 +5,7 @@ from Vshow_TOOLS.read_cfg import get_config
 from Vshow_TOOLS.more_devices import more_driver
 import random
 from Vshow_Page.vshow_conf import driver, logout
-from Vshow_TOOLS.register_and_nweDevices import register, new_login
+from Vshow_TOOLS.register_and_nweDevices import  new_login
 from Vshow_TOOLS.clear_app import clear_app_background
 from Vshow_TOOLS.uid_login import uid_login
 

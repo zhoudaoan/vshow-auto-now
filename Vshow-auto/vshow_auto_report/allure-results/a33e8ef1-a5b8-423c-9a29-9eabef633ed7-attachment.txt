@@ -1,0 +1,52 @@
+INFO     test_VshowBase_Dynamic04:test_VshowBase_Dynamic04.py:21 初始化--获取app的配置信息用于退出后台
+INFO     Vshow_TOOLS.more_devices:more_devices.py:26 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:44 ✅ Appium driver initialized successfully.
+INFO     test_VshowBase_Dynamic04:test_VshowBase_Dynamic04.py:28 登录app，进入动态，选择话题正常@好友且发布
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击底部发布动态的按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击底部发布动态的按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:754 --- 点击广场按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:762 ✅ 成功点击: 点击广场按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:754 --- 点击广场动态发布页面的发布按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:762 ✅ 成功点击: 点击广场动态发布页面的发布按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:72 --- 输入发布内容 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:85 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+INFO     Vshow_TOOLS.common_actions:common_actions.py:89 ✅ 输入发布内容: 输入完成 -> '駯垗鴰嗲唿瘪簖峖暼嵐促鶷恂鮴瞜阼櫳刬虍斄罶箭忤螰鰥孾磠醅瑓峘寢恖烔腴铰燨飥蔭痦瘗鮱樿飄鱟訐篰閍嶡拉偲仲'
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击发布动态页面的@按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击发布动态页面的@按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 选择好友 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 选择好友
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击完成按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击完成按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击发布按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击发布按钮
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:64 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:31 ✅ Force-stopped com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:49 🧹 Removed 8 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:89 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:99 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_Dynamic04:test_VshowBase_Dynamic04.py:50 登录app，进入消息查看消息通知
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 进如【我的】页面 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:448 --- 尝试获取文本 (ID: com.baitu.qingshu:id/tv_nickname) ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:462 ✅ 通过 .text 获取到文本: '邀请3' (ID: com.baitu.qingshu:id/tv_nickname)
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击底部的消息按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击底部的消息按钮
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:38 🔍 开始滚动查找并点击元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:73 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:80 ✅ 第 1 次尝试：成功找到可点击元素！
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:52 ⏳ 等待元素变为可点击状态...
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:56 🖱️ 执行点击操作 (text='互动消息', displayed=True, enabled=True)
+INFO     Vshow_TOOLS.scroll_to_element:scroll_to_element.py:59 ✅ 点击成功
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击消息进入动态详情 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击消息进入动态详情
+INFO     Vshow_TOOLS.common_actions:common_actions.py:448 --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvContent) ---
+ERROR    Vshow_TOOLS.common_actions:common_actions.py:486 ❌ 超时 10 秒或耗尽 6 次尝试，未能获取文本 (ID: com.baitu.qingshu:id/tvContent)
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:112 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:116 ✅ Appium driver quit successfully.
+INFO     test_VshowBase_Dynamic04:test_VshowBase_Dynamic04.py:66 清除手机后台指定APP应用
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu

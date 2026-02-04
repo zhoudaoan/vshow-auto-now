@@ -1,7 +1,7 @@
 import logging
 import time
 
-from Vshow_TOOLS.common_actions import click_element_by_id, safe_hide_keyboard, XPathHelper
+from Vshow_TOOLS.common_actions import click_element_by_id, safe_hide_keyboard
 from Vshow_TOOLS.read_cfg import get_config
 
 logger = logging.getLogger(__name__)

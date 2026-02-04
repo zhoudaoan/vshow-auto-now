@@ -1,10 +1,12 @@
 import logging
 import pytest
 import allure
-
+from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from Vshow_Page.Vshow_H5.vshow_task_h5 import join_fedd
 from Vshow_TOOLS.common_actions import click_element_by_id, send_keys_to_element, get_text_by_id, \
-    click_text_by_resource_id, is_text_count_greater_than_safe, wait_for_page_text, XPathHelper, click
+    click_text_by_resource_id, is_text_count_greater_than_safe, wait_for_page_text, click
 from Vshow_TOOLS.more_devices import more_driver
 from Vshow_TOOLS.random_str import generate_random_chinese
 from Vshow_TOOLS.read_cfg import get_config
@@ -42,7 +44,11 @@ class Test_VSHOWBASE_Dynamic03:
         topic = get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTag")
         click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTag","选择话题并点击")
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/topBarRightBtnTxt", step_name="点击发布按钮")
-        # wait_for_toast(new_driver, "发布成功", "发布动态成功，返回发布动态页面")
+        # 去我的页面进行访问话题详情页面
+        click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/navMe", step_name="进如【我的】页面")
+        click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/mine_user_info_view", step_name="进入到我的详情页面")
+        WebDriverWait(new_driver, 15).until(
+            EC.element_to_be_clickable((AppiumBy.XPATH, "//*[contains(@text, '动态(')]"))).click()
         if get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTopic") == topic:
             click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTopic","选择话题并点击")
             if not wait_for_page_text(new_driver, topic):
