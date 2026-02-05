@@ -1,35 +1,15 @@
-2026-02-04 20:49:20 [ INFO ] test_VshowBase_Dynamic03.py:23 | 获取app的配置信息用于退出后台
-2026-02-04 20:49:20 [ INFO ] test_VshowBase_Dynamic03.py:34 | 登录app，进入动态，选择话题发布
-2026-02-04 20:49:20 [ INFO ] more_devices.py:26 | 
+2026-02-04 22:39:37 [ INFO ] test_VshowBase_Topic02.py:23 | 获取app的配置信息用于退出后台
+2026-02-04 22:39:37 [ INFO ] test_VshowBase_Topic02.py:34 | 登录app，进入动态，选择话题发布
+2026-02-04 22:39:37 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-04 20:49:26 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-04 20:49:35 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
-2026-02-04 20:49:35 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
-2026-02-04 20:49:40 [ INFO ] common_actions.py:754 | --- 点击广场按钮 ---
-2026-02-04 20:49:41 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场按钮
-2026-02-04 20:49:43 [ INFO ] common_actions.py:754 | --- 点击广场动态发布页面的发布按钮 ---
-2026-02-04 20:49:44 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
-2026-02-04 20:49:47 [ INFO ] common_actions.py:72 | --- 输入发布内容 ---
-2026-02-04 20:49:50 [ WARNING ] common_actions.py:85 | 输入发布内容: clear() failed, fallback to backspace: clear() did not work
-2026-02-04 20:49:53 [ INFO ] common_actions.py:89 | ✅ 输入发布内容: 输入完成 -> '甈晱瞓琓蠥媎偆翕耹叨茇務寶耦鍥椘雀嚈擡歞詫扟行鲓犪瘉挒涽鯎桇潋郙蛝嶂攓絔逘缉轛謸搆茆炓演抲駋驚倳捉蟱敘'
-2026-02-04 20:49:56 [ INFO ] common_actions.py:448 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTag) ---
-2026-02-04 20:49:57 [ INFO ] common_actions.py:462 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tvTag)
-2026-02-04 20:49:59 [ INFO ] common_actions.py:317 | --- 选择话题并点击 ---
-2026-02-04 20:50:02 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTag" and @text="hazel-test3"]
-2026-02-04 20:50:05 [ INFO ] common_actions.py:30 | --- 点击发布按钮 ---
-2026-02-04 20:50:05 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击发布按钮
-2026-02-04 20:50:08 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
-2026-02-04 20:50:09 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
-2026-02-04 20:50:15 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
-2026-02-04 20:50:16 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
-2026-02-04 20:50:25 [ INFO ] common_actions.py:448 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTopic) ---
-2026-02-04 20:50:25 [ INFO ] common_actions.py:462 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tvTopic)
-2026-02-04 20:50:29 [ INFO ] common_actions.py:317 | --- 选择话题并点击 ---
-2026-02-04 20:50:31 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTopic" and @text="hazel-test3"]
-2026-02-04 20:50:35 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['hazel-test3']] ---
-2026-02-04 20:50:36 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.87s）: ['hazel-test3']
-2026-02-04 20:50:44 [ INFO ] common_actions.py:606 | 获取到的话题数量文本超过2个，判断是在详情页，话题数量文本：4
-2026-02-04 20:50:48 [ INFO ] common_actions.py:448 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tv_title) ---
-2026-02-04 20:50:49 [ INFO ] common_actions.py:462 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tv_title)
-2026-02-04 20:50:49 [ INFO ] test_VshowBase_Dynamic03.py:61 | 清除手机后台指定APP应用
-2026-02-04 20:50:49 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-02-04 22:39:43 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-02-04 22:39:47 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-02-04 22:39:47 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-02-04 22:39:52 [ INFO ] common_actions.py:754 | --- 点击话题按钮 ---
+2026-02-04 22:39:59 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击话题按钮
+2026-02-04 22:40:03 [ INFO ] common_actions.py:187 | --- [检查当前页面是否出现话题title的ID] 等待 2 个元素全部可见 ---
+2026-02-04 22:40:05 [ INFO ] common_actions.py:214 | ✅ [检查当前页面是否出现话题title的ID] 所有元素已满足（等待 2.00s）
+2026-02-04 22:40:11 [ INFO ] common_actions.py:375 | --- [检查当前页面是否有2个参加] ---
+2026-02-04 22:40:12 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.80s）: ['参加', '参加']
+2026-02-04 22:40:12 [ INFO ] test_VshowBase_Topic02.py:49 | 清除手机后台指定APP应用
+2026-02-04 22:40:12 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu

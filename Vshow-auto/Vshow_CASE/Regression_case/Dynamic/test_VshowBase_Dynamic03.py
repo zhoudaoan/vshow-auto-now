@@ -51,6 +51,7 @@ class Test_VSHOWBASE_Dynamic03:
             EC.element_to_be_clickable((AppiumBy.XPATH, "//*[contains(@text, '动态(')]"))).click()
         if get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTopic") == topic:
             click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTopic","选择话题并点击")
+            # 处理点击话题跳转到发布页面
             if not wait_for_page_text(new_driver, topic):
                 click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/top_left_back_img",
                                     step_name="点击返回按钮，返回至话题详情页")
