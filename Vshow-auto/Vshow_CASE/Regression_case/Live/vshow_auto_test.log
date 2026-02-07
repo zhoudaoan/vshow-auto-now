@@ -1,12 +1,115 @@
-2026-01-09 19:08:57 [ INFO ] test_VshowBase_Live10.py:23 | 获取设备相关信息和第二个用户信息
-2026-01-09 19:08:57 [ INFO ] test_VshowBase_Live10.py:32 | 实例化第二个用户进行登录，开启直播间
-2026-01-09 19:08:57 [ INFO ] more_devices.py:27 | 
+2026-02-06 19:16:36 [ INFO ] test_VshowBase_Live10.py:20 | 获取设备相关信息和第二个用户信息
+2026-02-06 19:16:36 [ INFO ] test_VshowBase_Live10.py:28 | 实例化第二个用户进行登录，开启直播间
+2026-02-06 19:16:36 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-01-09 19:09:04 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
-2026-01-09 19:09:12 [ INFO ] common_actions.py:29 | --- 进如【我的】页面 ---
-2026-01-09 19:09:13 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
-2026-01-09 19:09:16 [ INFO ] test_VshowBase_Live11.py:21 | 获取设备相关信息和第二个用户信息
-2026-01-09 19:09:16 [ INFO ] test_VshowBase_Live11.py:33 | 实例化主播用户进行登录，开启直播间
-2026-01-09 19:09:16 [ INFO ] more_devices.py:27 | 
+2026-02-06 19:16:42 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-02-06 19:16:51 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-02-06 19:16:51 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-02-06 19:16:51 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
+2026-02-06 19:16:51 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
+2026-02-06 19:16:54 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 2/21 次获取用户信息失败 (NoSuchElementException)，0.35s 后重试...
+2026-02-06 19:16:56 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
+2026-02-06 19:17:01 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
+2026-02-06 19:17:02 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
+2026-02-06 19:17:09 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-02-06 19:17:10 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-02-06 19:17:15 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-02-06 19:17:15 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/textView" and @text="聊天"]
+2026-02-06 19:17:19 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-02-06 19:17:20 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-02-06 19:17:21 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-02-06 19:17:25 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.50s）: ['所有', '房间', '聊天']
+2026-02-06 19:17:25 [ INFO ] vshow_task_h5.py:70 | ✅ 直播间创建成功
+2026-02-06 19:17:25 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-02-06 19:17:25 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-02-06 19:17:26 [ INFO ] vshow_conf.py:49 | 🧹 Removed 8 recent/hidden tasks for com.baitu.qingshu
+2026-02-06 19:17:37 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-02-06 19:17:40 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-02-06 19:17:40 [ INFO ] test_VshowBase_Live10.py:42 | 初始化APP，用户登录进去进入直播间
+2026-02-06 19:17:54 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-02-06 19:17:55 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-02-06 19:18:00 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-02-06 19:18:02 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-02-06 19:18:05 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146283'
+2026-02-06 19:18:10 [ INFO ] common_actions.py:30 | --- 点击头像进入直播间 ---
+2026-02-06 19:18:11 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像进入直播间
+2026-02-06 19:18:11 [ INFO ] test_VshowBase_Live10.py:46 | 主播操作直播间点击观众的头像弹出用户信息
+2026-02-06 19:18:26 [ INFO ] common_actions.py:30 | --- 点击在线人数 ---
+2026-02-06 19:18:26 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击在线人数
+2026-02-06 19:18:28 [ INFO ] common_actions.py:30 | --- 点击直播间用户头像弹出用户卡片 ---
+2026-02-06 19:18:29 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间用户头像弹出用户卡片
+2026-02-06 19:18:33 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['礼物展馆', '勋章', '粉丝团', '财富等级', '直播等级']] ---
+2026-02-06 19:18:43 [ ERROR ] common_actions.py:424 | ❌ 页面加载超时 10s，未满足文本条件 | 期望: ['礼物展馆', '勋章', '粉丝团', '财富等级', '直播等级'] | 缺失: ['财富等级', '直播等级']
+2026-02-06 19:18:43 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-02-06 19:18:44 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-02-06 19:18:44 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-02-06 19:18:44 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-02-06 19:18:44 [ INFO ] test_VshowBase_Live11.py:21 | 获取设备相关信息和第二个用户信息
+2026-02-06 19:18:44 [ INFO ] test_VshowBase_Live11.py:32 | 实例化主播用户进行登录，开启直播间
+2026-02-06 19:18:44 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-01-09 19:09:21 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
+2026-02-06 19:18:49 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-02-06 19:18:58 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-02-06 19:18:58 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-02-06 19:18:58 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
+2026-02-06 19:18:58 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
+2026-02-06 19:19:00 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 2/21 次获取用户信息失败 (NoSuchElementException)，0.35s 后重试...
+2026-02-06 19:19:02 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 3/21 次获取用户信息失败 (NoSuchElementException)，0.50s 后重试...
+2026-02-06 19:19:03 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 4/21 次获取用户信息失败 (NoSuchElementException)，0.65s 后重试...
+2026-02-06 19:19:04 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 5/21 次获取用户信息失败 (NoSuchElementException)，0.80s 后重试...
+2026-02-06 19:19:05 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
+2026-02-06 19:19:14 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-02-06 19:19:14 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-02-06 19:19:16 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-02-06 19:19:17 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-02-06 19:19:18 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-02-06 19:19:19 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-02-06 19:19:21 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-02-06 19:19:23 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-02-06 19:19:24 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-02-06 19:19:26 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-02-06 19:19:28 [ WARNING ] common_actions.py:45 | ⚠️ 第 10/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.55s 后重试...
+2026-02-06 19:19:31 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入直播间开播页 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-02-06 19:19:31 [ INFO ] test_VshowBase_Live12.py:20 | 获取设备相关信息和第二个用户信息
+2026-02-06 19:19:31 [ INFO ] test_VshowBase_Live12.py:29 | 实例化主播用户进行登录，开启直播间
+2026-02-06 19:19:31 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-02-06 19:19:36 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-02-06 19:19:46 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-02-06 19:19:48 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-02-06 19:19:48 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
+2026-02-06 19:19:48 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
+2026-02-06 19:19:59 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-02-06 19:19:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-02-06 19:20:02 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-02-06 19:20:03 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-02-06 19:20:04 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-02-06 19:20:06 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-02-06 19:20:08 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-02-06 19:20:09 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-02-06 19:20:11 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-02-06 19:20:13 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-02-06 19:20:16 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入直播间开播页 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-02-06 19:20:16 [ INFO ] test_VshowBase_Live13.py:19 | 获取设备相关信息和第二个用户信息
+2026-02-06 19:20:16 [ INFO ] test_VshowBase_Live13.py:28 | 实例化主播用户进行登录，开启直播间
+2026-02-06 19:20:16 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-02-06 19:20:21 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-02-06 19:20:32 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-02-06 19:20:33 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-02-06 19:20:33 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
+2026-02-06 19:20:33 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824

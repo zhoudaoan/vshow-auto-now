@@ -28,6 +28,7 @@ class Test_VSHOWBASE_Live10:
         logger.info("实例化第二个用户进行登录，开启直播间")
         self.new_driver = more_driver(self.driver_data_2, self.appium_url_2)
         self.userID, _ = get_user_id(self.new_driver)
+        click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/navLive", step_name="进入直播间页面")
         live_room(self.new_driver)
 
 

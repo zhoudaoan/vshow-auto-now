@@ -1,5 +1,5 @@
-INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:21 获取app的配置信息用于退出后台
-INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:32 登录app，进入动态，选择话题发布
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:23 获取app的配置信息用于退出后台
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:34 登录app，进入动态，选择话题发布
 INFO     Vshow_TOOLS.more_devices:more_devices.py:26 
 --- Setup: Initializing  More Appium Driver ---
 INFO     Vshow_TOOLS.more_devices:more_devices.py:44 ✅ Appium driver initialized successfully.
@@ -11,14 +11,18 @@ INFO     Vshow_TOOLS.common_actions:common_actions.py:754 --- 点击广场动态
 INFO     Vshow_TOOLS.common_actions:common_actions.py:762 ✅ 成功点击: 点击广场动态发布页面的发布按钮
 INFO     Vshow_TOOLS.common_actions:common_actions.py:72 --- 输入发布内容 ---
 WARNING  Vshow_TOOLS.common_actions:common_actions.py:85 输入发布内容: clear() failed, fallback to backspace: clear() did not work
-INFO     Vshow_TOOLS.common_actions:common_actions.py:89 ✅ 输入发布内容: 输入完成 -> '奭鸓赚狮覸娝剠衭楂瑮皘甒裹费猩蚥瘍葑埿糗礴本綉榛龳跴綡喃墯泝鰈譙歠愮藠繷鞹薻逗菟鏱鈕娶藗过垩閮姥询芓詏'
+INFO     Vshow_TOOLS.common_actions:common_actions.py:89 ✅ 输入发布内容: 输入完成 -> '穓魟涫皧參诹说癎釰雀殀捪牰毃梂荱鲗欨賫偼齋颤跇僚笡扡渱阿枊籙賑竹牦侓靾哩靤跡跎獅犳鑾朡储圕綈逛譨襇妿襜'
 INFO     Vshow_TOOLS.common_actions:common_actions.py:448 --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTag) ---
 INFO     Vshow_TOOLS.common_actions:common_actions.py:462 ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tvTag)
 INFO     Vshow_TOOLS.common_actions:common_actions.py:317 --- 选择话题并点击 ---
 INFO     Vshow_TOOLS.common_actions:common_actions.py:330 ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTag" and @text="hazel-test3"]
 INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击发布按钮 ---
 INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击发布按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 进如【我的】页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进如【我的】页面
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 进入到我的详情页面 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 进入到我的详情页面
 INFO     Vshow_TOOLS.common_actions:common_actions.py:448 --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTopic) ---
 ERROR    Vshow_TOOLS.common_actions:common_actions.py:486 ❌ 超时 10 秒或耗尽 6 次尝试，未能获取文本 (ID: com.baitu.qingshu:id/tvTopic)
-INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:55 清除手机后台指定APP应用
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:62 清除手机后台指定APP应用
 INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu

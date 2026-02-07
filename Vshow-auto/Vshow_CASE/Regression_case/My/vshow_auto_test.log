@@ -1,52 +1,63 @@
-2025-12-23 18:50:26 [ INFO ] test_VshowBase_My02.py:15 | 获取设备的udid和设备包名用作最后的清除动作
-2025-12-23 18:50:26 [ INFO ] test_VshowBase_My02.py:21 | 
-2025-12-23 18:50:26 [ INFO ] vshow_conf.py:61 | 
+2026-02-06 19:07:09 [ INFO ] test_VshowBase_My02.py:15 | 获取设备的udid和设备包名用作最后的清除动作
+2026-02-06 19:07:09 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2025-12-23 18:50:26 [ INFO ] vshow_conf.py:29 | ✅ Force-stopped com.baitu.qingshu
-2025-12-23 18:50:26 [ INFO ] vshow_conf.py:47 | 🧹 Removed 1 recent/hidden tasks for com.baitu.qingshu
-2025-12-23 18:50:32 [ INFO ] vshow_conf.py:89 | ✅ Appium driver initialized successfully.
-2025-12-23 18:50:32 [ INFO ] test_VshowBase_My02.py:33 | 登录app,修改头像
-2025-12-23 18:50:32 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
-2025-12-23 18:50:33 [ WARNING ] common_actions.py:46 | ⚠️ 第 1/3 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
-2025-12-23 18:50:34 [ WARNING ] common_actions.py:46 | ⚠️ 第 2/3 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
-2025-12-23 18:50:37 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进如【我的】页面
-2025-12-23 18:50:37 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
-2025-12-23 18:50:40 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进入到我的详情页面
-2025-12-23 18:50:40 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
-2025-12-23 18:50:41 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进入我的详情编辑页面
-2025-12-23 18:50:41 [ INFO ] common_actions.py:30 | --- 点击头像 ---
-2025-12-23 18:50:41 [ WARNING ] common_actions.py:46 | ⚠️ 第 1/3 次点击 'com.baitu.qingshu:id/drag_item_mask_view' 失败 (NoSuchElementException)，0.20s 后重试...
-2025-12-23 18:50:42 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击头像
-2025-12-23 18:50:46 [ INFO ] common_actions.py:30 | --- 点击选择图片的下一步 ---
-2025-12-23 18:50:46 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击选择图片的下一步
-2025-12-23 18:50:46 [ INFO ] common_actions.py:30 | --- 对头像进行裁剪 ---
-2025-12-23 18:50:49 [ INFO ] common_actions.py:39 | ✅ 成功点击: 对头像进行裁剪
-2025-12-23 18:50:49 [ INFO ] vshow_conf.py:95 | 
+2026-02-06 19:07:09 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-02-06 19:07:10 [ INFO ] vshow_conf.py:49 | 🧹 Removed 9 recent/hidden tasks for com.baitu.qingshu
+2026-02-06 19:07:21 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-02-06 19:07:25 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-02-06 19:07:25 [ INFO ] test_VshowBase_My02.py:28 | 登录app,修改头像
+2026-02-06 19:07:37 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-02-06 19:07:38 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-02-06 19:07:45 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
+2026-02-06 19:07:46 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
+2026-02-06 19:07:56 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
+2026-02-06 19:07:57 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入我的详情编辑页面
+2026-02-06 19:08:03 [ INFO ] common_actions.py:30 | --- 点击头像 ---
+2026-02-06 19:08:04 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像
+2026-02-06 19:08:06 [ INFO ] common_actions.py:754 | --- 点击重新上传按钮 ---
+2026-02-06 19:08:06 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击重新上传按钮
+2026-02-06 19:08:08 [ INFO ] common_actions.py:754 | --- 点击从相册选择按钮 ---
+2026-02-06 19:08:09 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击从相册选择按钮
+2026-02-06 19:08:13 [ INFO ] common_actions.py:754 | --- 选择头像图片--默认选择第一个 ---
+2026-02-06 19:08:14 [ INFO ] common_actions.py:762 | ✅ 成功点击: 选择头像图片--默认选择第一个
+2026-02-06 19:08:18 [ INFO ] common_actions.py:30 | --- 点击选择图片的下一步 ---
+2026-02-06 19:08:18 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击选择图片的下一步
+2026-02-06 19:08:22 [ INFO ] common_actions.py:30 | --- 对头像进行裁剪 ---
+2026-02-06 19:08:23 [ INFO ] common_actions.py:38 | ✅ 成功点击: 对头像进行裁剪
+2026-02-06 19:08:23 [ INFO ] vshow_conf.py:112 | 
 --- Teardown: Quitting Appium Driver ---
-2025-12-23 18:50:49 [ INFO ] vshow_conf.py:99 | ✅ Appium driver quit successfully.
-2025-12-23 18:50:49 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
-2025-12-23 18:50:49 [ INFO ] test_VshowBase_My03.py:15 | 获取设备的udid和设备包名用作最后的清除动作
-2025-12-23 18:50:49 [ INFO ] test_VshowBase_My03.py:21 | 获取封装方法
-2025-12-23 18:50:49 [ INFO ] vshow_conf.py:61 | 
+2026-02-06 19:08:23 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-02-06 19:08:23 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-02-06 19:08:23 [ INFO ] test_VshowBase_My03.py:16 | 获取设备的udid和设备包名用作最后的清除动作
+2026-02-06 19:08:23 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2025-12-23 18:50:49 [ INFO ] vshow_conf.py:29 | ✅ Force-stopped com.baitu.qingshu
-2025-12-23 18:50:49 [ INFO ] vshow_conf.py:47 | 🧹 Removed 1 recent/hidden tasks for com.baitu.qingshu
-2025-12-23 18:50:55 [ INFO ] vshow_conf.py:89 | ✅ Appium driver initialized successfully.
-2025-12-23 18:50:55 [ INFO ] test_VshowBase_My03.py:33 | 登录app,修改昵称
-2025-12-23 18:50:55 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
-2025-12-23 18:50:56 [ WARNING ] common_actions.py:46 | ⚠️ 第 1/3 次点击 'com.baitu.qingshu:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
-2025-12-23 18:51:01 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进如【我的】页面
-2025-12-23 18:51:01 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
-2025-12-23 18:51:02 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进入到我的详情页面
-2025-12-23 18:51:02 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
-2025-12-23 18:51:05 [ INFO ] common_actions.py:39 | ✅ 成功点击: 进入我的详情编辑页面
-2025-12-23 18:51:05 [ INFO ] common_actions.py:30 | --- 点击昵称 ---
-2025-12-23 18:51:05 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击昵称
-2025-12-23 18:51:10 [ INFO ] common_actions.py:229 | ✅ 页面加载成功，所有文本已出现: ['提示：本次修改昵称需要扣除10000金币。']
-2025-12-23 18:51:10 [ INFO ] common_actions.py:30 | --- 点击确认花费1000金币修改名称 ---
-2025-12-23 18:51:11 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击确认花费1000金币修改名称
-2025-12-23 18:51:12 [ INFO ] common_actions.py:229 | ✅ 页面加载成功，所有文本已出现: ['保存成功']
-2025-12-23 18:51:12 [ INFO ] vshow_conf.py:95 | 
+2026-02-06 19:08:24 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-02-06 19:08:24 [ INFO ] vshow_conf.py:49 | 🧹 Removed 9 recent/hidden tasks for com.baitu.qingshu
+2026-02-06 19:08:36 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-02-06 19:08:39 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-02-06 19:08:39 [ INFO ] test_VshowBase_My03.py:28 | 登录app,修改昵称
+2026-02-06 19:08:51 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-02-06 19:08:52 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-02-06 19:09:01 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
+2026-02-06 19:09:01 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
+2026-02-06 19:09:10 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
+2026-02-06 19:09:12 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入我的详情编辑页面
+2026-02-06 19:09:17 [ INFO ] common_actions.py:30 | --- 点击昵称 ---
+2026-02-06 19:09:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击昵称
+2026-02-06 19:09:20 [ INFO ] common_actions.py:72 | --- 输入新的昵称 ---
+2026-02-06 19:09:22 [ WARNING ] common_actions.py:85 | 输入新的昵称: clear() failed, fallback to backspace: clear() did not work
+2026-02-06 19:09:25 [ INFO ] common_actions.py:89 | ✅ 输入新的昵称: 输入完成 -> 'A08Z18'
+2026-02-06 19:09:27 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['提示：本次修改昵称需要扣除10000金币。']] ---
+2026-02-06 19:09:37 [ ERROR ] common_actions.py:424 | ❌ 页面加载超时 10s，未满足文本条件 | 期望: ['提示：本次修改昵称需要扣除10000金币。'] | 缺失: ['提示：本次修改昵称需要扣除10000金币。']
+2026-02-06 19:09:39 [ INFO ] common_actions.py:754 | --- 点击保存按钮 ---
+2026-02-06 19:09:40 [ WARNING ] common_actions.py:766 | ⚠️ 第 1 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.30s 后重试...
+2026-02-06 19:09:41 [ WARNING ] common_actions.py:766 | ⚠️ 第 2 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.40s 后重试...
+2026-02-06 19:09:42 [ WARNING ] common_actions.py:766 | ⚠️ 第 3 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-02-06 19:09:44 [ WARNING ] common_actions.py:766 | ⚠️ 第 4 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.60s 后重试...
+2026-02-06 19:09:45 [ WARNING ] common_actions.py:766 | ⚠️ 第 5 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.70s 后重试...
+2026-02-06 19:09:46 [ WARNING ] common_actions.py:766 | ⚠️ 第 6 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-02-06 19:09:47 [ WARNING ] common_actions.py:766 | ⚠️ 第 7 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.90s 后重试...
+2026-02-06 19:09:49 [ WARNING ] common_actions.py:766 | ⚠️ 第 8 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，1.00s 后重试...
+2026-02-06 19:09:49 [ INFO ] vshow_conf.py:112 | 
 --- Teardown: Quitting Appium Driver ---
-2025-12-23 18:51:12 [ INFO ] vshow_conf.py:99 | ✅ Appium driver quit successfully.
-2025-12-23 18:51:12 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-02-06 19:09:49 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.

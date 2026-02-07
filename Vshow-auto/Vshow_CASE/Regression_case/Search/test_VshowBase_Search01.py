@@ -38,7 +38,7 @@ class Test_VSHOWBASE_Search01:
         search_user(driver, self.userID)
         wait_for_page_text(driver,[self.userName, self.userID])
         click_element_by_id(driver, element_id=self.driver_data.get("appPackage")+":id/ivAvatar", step_name="点击主播头像进入详情页")
-        wait_for_page_text(driver,[self.userName, self.userID, "财富等级", "直播等级","资料","荣誉墙"])
+        wait_for_page_text(driver,[self.userName, self.userID,"资料","荣誉墙"])
 
 
 

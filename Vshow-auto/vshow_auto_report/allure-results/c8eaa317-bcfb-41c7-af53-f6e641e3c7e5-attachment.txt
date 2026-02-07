@@ -2,6 +2,6 @@ INFO     test_VshowBase_Dynamic01:test_VshowBase_Dynamic01.py:19 获取app的配
 INFO     Vshow_Page.vshow_conf:vshow_conf.py:64 
 --- Setup: Initializing Appium Driver ---
 INFO     Vshow_Page.vshow_conf:vshow_conf.py:31 ✅ Force-stopped com.baitu.qingshu
-INFO     Vshow_Page.vshow_conf:vshow_conf.py:49 🧹 Removed 8 recent/hidden tasks for com.baitu.qingshu
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:49 🧹 Removed 9 recent/hidden tasks for com.baitu.qingshu
 INFO     test_VshowBase_Dynamic01:test_VshowBase_Dynamic01.py:36 清除手机后台指定APP应用
 INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.qingshu
