@@ -46,7 +46,7 @@ class Test_VSHOWBASE_Live10:
         logger.info("主播操作直播间点击观众的头像弹出用户信息")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tv_online_number", step_name="点击在线人数")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/iv_avatar", step_name="点击直播间用户头像弹出用户卡片")
-        wait_for_page_text(self.new_driver,["礼物展馆","勋章", "粉丝团","财富等级","直播等级"])
+        wait_for_page_text(self.new_driver,["礼物展馆","勋章","送礼"])
 
 
 
