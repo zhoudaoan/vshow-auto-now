@@ -44,11 +44,13 @@ class Test_VSHOWBASE_Dynamic03:
         topic = get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTag")
         click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTag","选择话题并点击")
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/topBarRightBtnTxt", step_name="点击发布按钮")
-        # 去我的页面进行访问话题详情页面
+        # 去我的页面进入到动态详情页面
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/navMe", step_name="进如【我的】页面")
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/mine_user_info_view", step_name="进入到我的详情页面")
         WebDriverWait(new_driver, 15).until(
             EC.element_to_be_clickable((AppiumBy.XPATH, "//*[contains(@text, '动态(')]"))).click()
+        click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/tv_content", step_name="进入到动态详情页面")
+        # 点击话题跳转到话题详情页面
         if get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTopic") == topic:
             click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTopic","选择话题并点击")
             # 处理点击话题跳转到发布页面

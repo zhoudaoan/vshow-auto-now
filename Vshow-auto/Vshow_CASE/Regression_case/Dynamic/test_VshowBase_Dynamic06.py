@@ -41,11 +41,14 @@ class Test_VSHOWBASE_Dynamic06:
         """
         logger.info("观众端--登录app，搜索发布动态的用户-由详情页进行")
         _, self.userName = get_user_id(driver)
+        click_element_by_id(driver, element_id=self.driver_data_2.get("appPackage")+":id/navLive", step_name="进入直播间页面")
         search_user(driver, self.userID)
         click_element_by_id(driver, element_id=self.driver_data.get("appPackage") + ":id/ivAvatar",
                             step_name="点击主播头像进入详情页")
         WebDriverWait(driver, 15).until(
             EC.element_to_be_clickable((AppiumBy.XPATH, "//*[contains(@text, '动态(')]"))).click()
+        click_element_by_id(driver, element_id=self.driver_data_2.get("appPackage") + ":id/tv_content", step_name="进入到动态详情页面")
+
         scroll_to_element(
             driver,
             locator=(AppiumBy.ID, self.driver_data.get("appPackage") + ":id/ivCommentCount"),

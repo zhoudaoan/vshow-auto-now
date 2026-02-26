@@ -38,7 +38,7 @@ class Test_VSHOWBASE_Login09:
             注册成功后，使用新账号进行登录，登录成功
         """
         logger.info("初始化APP，使用新账号进行注册登录")
-        if wait_for_page_text(driver, ["探索新后台修改一下"]):
+        if wait_for_page_text(driver, ["探索"]):
             click_element_by_id(driver, element_id=self.driver_data.get("appPackage") + ":id/navMe", step_name="进如【我的】页面")
             click_element_by_id(driver, element_id=self.driver_data.get("appPackage") + ":id/btn_settings", step_name="点击进入设置页面")
             scroll_to_element(

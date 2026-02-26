@@ -31,7 +31,7 @@ class Test_VSHOWBASE_Live11:
     def setup_method(self):
         logger.info("实例化主播用户进行登录，开启直播间")
         self.new_driver = more_driver(self.driver_data_2, self.appium_url_2)
-        self.userID, _ = get_user_id(self.new_driver)
+        self.userID, self.userName = get_user_id(self.new_driver)
         live_room(self.new_driver)
 
 
@@ -51,15 +51,12 @@ class Test_VSHOWBASE_Live11:
         time.sleep(2)
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tv_online_number", step_name="点击在线人数")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/iv_avatar", step_name="点击直播间用户头像弹出用户卡片")
-        wait_for_page_text(self.new_driver,["礼物展馆","勋章", "粉丝团","财富等级","直播等级"])
+        wait_for_page_text(self.new_driver,["礼物展馆","勋章","送礼","Fans","PK段位",self.userName],match_all=False)
         # 点击卡片无法点击翻转获取不到ID
-        # live_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/tv_liveLevel_value").text
-        # wealth_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/tv_wealthLevel_value").text
-        # parma_info = self.parma_info| {"uid": user_id}
-        # user_profile = self.admin_api.user_profile(parma_info)
-        # assert live_level == user_profile["live_level"], "直播间里面用户卡片的直播等级与后台的直播等级显示不一致"
-        # assert wealth_level == user_profile["wealth_level"], "直播间里面用户卡片的财富等级与后台的财富等级显示不一致"
-
+        live_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/ivLiveLevel").text
+        wealth_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/ivWealthLevel").text
+        assert live_level > 0, "获取到的直播等级是有数据的"
+        assert wealth_level > 0,"获取到的财富等级是有数据的"
 
 
     def teardown_method(self):

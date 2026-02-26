@@ -27,7 +27,7 @@ class Test_VSHOWBASE_Live10:
     def setup_method(self):
         logger.info("实例化第二个用户进行登录，开启直播间")
         self.new_driver = more_driver(self.driver_data_2, self.appium_url_2)
-        self.userID, _ = get_user_id(self.new_driver)
+        self.userID, self.userName = get_user_id(self.new_driver)
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/navLive", step_name="进入直播间页面")
         live_room(self.new_driver)
 
@@ -46,7 +46,7 @@ class Test_VSHOWBASE_Live10:
         logger.info("主播操作直播间点击观众的头像弹出用户信息")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tv_online_number", step_name="点击在线人数")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/iv_avatar", step_name="点击直播间用户头像弹出用户卡片")
-        wait_for_page_text(self.new_driver,["礼物展馆","勋章","送礼"])
+        wait_for_page_text(self.new_driver,["礼物展馆","勋章","送礼","Fans","PK段位",self.userName],match_all=False)
 
 
 

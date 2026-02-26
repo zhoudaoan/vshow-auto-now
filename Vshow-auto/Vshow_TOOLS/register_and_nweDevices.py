@@ -136,6 +136,6 @@ def new_login(driver, user: str, pwd: str,app_package: str,tag: int = 1):
     #     (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="' + app_package + ':id/negativeButton"]'),
     #     step_name="取消显示弹窗"
     # )
-    wait_for_page_text(driver, ["探索新后台修改一下", "关注"], "成功登录到app的首页--直播页面")
+    wait_for_page_text(driver, ["探索", "关注"], "成功登录到app的首页--直播页面")
 
 

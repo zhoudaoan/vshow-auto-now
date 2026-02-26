@@ -422,6 +422,19 @@ def join_fedd(driver):
         step_name="点击广场按钮"
     )
 
+@with_popup_dismiss
+def content_operate(driver,tag):
+    """
+    进入到动态详情页面操作动态数据点赞，删除和评论
+    :param driver: 初始化的appium
+    :param tag: 1、点赞，
+    :return:
+    """
+    click_element_by_id(driver, element_id=app_package+":id/tv_content", step_name="进入到动态详情页面")
+
+
+
+
 
 
 

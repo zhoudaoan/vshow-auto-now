@@ -1,70 +1,14 @@
-2025-12-21 16:33:25 [ INFO ] test_VshowBase_Dynamic01.py:17 | 初始化
-2025-12-21 16:33:25 [ INFO ] test_VshowBase_Dynamic01.py:22 | 获取app的配置信息用于退出后台
-2025-12-21 16:33:25 [ INFO ] vshow_conf.py:17 | 
+2026-02-09 15:12:13 [ INFO ] test_VshowBase_Dynamic01.py:19 | 获取app的配置信息用于退出后台
+2026-02-09 15:12:13 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2025-12-21 16:33:30 [ INFO ] vshow_conf.py:38 | ✅ Appium driver initialized successfully.
-2025-12-21 16:33:30 [ INFO ] test_VshowBase_Dynamic01.py:32 | 登录app，进入动态，上传图片
-2025-12-21 16:33:52 [ INFO ] vshow_conf.py:44 | 
---- Teardown: Quitting Appium Driver ---
-2025-12-21 16:33:53 [ INFO ] vshow_conf.py:48 | ✅ Appium driver quit successfully.
-2025-12-21 16:33:53 [ INFO ] test_VshowBase_Dynamic01.py:39 | 清除手机后台指定APP应用
-2025-12-21 16:33:53 [ INFO ] test_VshowBase_Dynamic03.py:20 | 初始化
-2025-12-21 16:33:53 [ INFO ] test_VshowBase_Dynamic03.py:25 | 获取app的配置信息用于退出后台
-2025-12-21 16:33:53 [ INFO ] test_VshowBase_Dynamic03.py:36 | 登录app，进入动态，选择话题发布
-2025-12-21 16:33:53 [ INFO ] more_devices.py:27 | 
---- Setup: Initializing  More Appium Driver ---
-2025-12-21 16:34:02 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
-2025-12-21 16:34:26 [ INFO ] common_actions.py:275 | ✅ 通过 .text 获取到文本: '测试话题规则' (ID: com.baitu.qingshu:id/tvTag)
-2025-12-21 16:34:35 [ INFO ] test_VshowBase_Dynamic03.py:59 | 清除手机后台指定APP应用
-2025-12-21 16:34:35 [ INFO ] test_VshowBase_Dynamic04.py:22 | 初始化--获取app的配置信息用于退出后台
-2025-12-21 16:34:35 [ INFO ] more_devices.py:27 | 
---- Setup: Initializing  More Appium Driver ---
-2025-12-21 16:34:44 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
-2025-12-21 16:34:44 [ INFO ] test_VshowBase_Dynamic04.py:30 | 登录app，进入动态，选择话题正常@好友且发布
-2025-12-21 16:35:33 [ ERROR ] common_actions.py:336 | ❌ 未找到包含 '发布成功' 的 Toast（等待 10s）
-2025-12-21 16:35:33 [ INFO ] vshow_conf.py:17 | 
---- Setup: Initializing Appium Driver ---
-2025-12-21 16:35:37 [ INFO ] vshow_conf.py:38 | ✅ Appium driver initialized successfully.
-2025-12-21 16:35:37 [ INFO ] test_VshowBase_Dynamic04.py:53 | 登录app，进入消息查看消息通知
-2025-12-21 16:35:56 [ WARNING ] common_actions.py:291 | 第 1 次尝试失败：未找到元素 ID='com.baitu.qingshu:id/tvNickname' (Message: 
-Stacktrace:
-NoSuchElementError: An element could not be located on the page using the given search parameters.
-    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
-    at AndroidUiautomator2Driver.findElement (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12))
-2025-12-21 16:36:08 [ WARNING ] common_actions.py:291 | 第 2 次尝试失败：未找到元素 ID='com.baitu.qingshu:id/tvNickname' (Message: 
-Stacktrace:
-NoSuchElementError: An element could not be located on the page using the given search parameters.
-    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
-    at AndroidUiautomator2Driver.findElement (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12))
-2025-12-21 16:36:08 [ ERROR ] common_actions.py:296 | ❌ 所有 2 次尝试均失败，无法获取文本 (ID: com.baitu.qingshu:id/tvNickname)
-2025-12-21 16:36:16 [ INFO ] scroll_to_element.py:37 | 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
-2025-12-21 16:36:18 [ INFO ] scroll_to_element.py:45 | ✅ 第 1 次尝试：成功找到元素！
-2025-12-21 16:36:22 [ INFO ] common_actions.py:275 | ✅ 通过 .text 获取到文本: '邘跫嫿丯揱酹嶸蒾栫蝒笾繵聇空磲髕射显廧谳凨獪秐邷栏盶鞓惩叉失皒鬾罁錍伌眻玳攪噏邯塹鯋扮看虡泲能貪郌鍩霆@X908g7' (ID: com.baitu.qingshu:id/tvContent)
-2025-12-21 16:36:22 [ INFO ] vshow_conf.py:44 | 
---- Teardown: Quitting Appium Driver ---
-2025-12-21 16:36:22 [ INFO ] vshow_conf.py:48 | ✅ Appium driver quit successfully.
-2025-12-21 16:36:22 [ INFO ] test_VshowBase_Dynamic04.py:69 | 清除手机后台指定APP应用
-2025-12-21 16:36:23 [ INFO ] test_VshowBase_Dynamic05.py:23 | 初始化--获取app的配置信息用于退出后台
-2025-12-21 16:36:23 [ INFO ] test_VshowBase_Dynamic05.py:32 | 主播端--登录app，进入动态，发布动态
-2025-12-21 16:36:23 [ INFO ] more_devices.py:27 | 
---- Setup: Initializing  More Appium Driver ---
-2025-12-21 16:36:31 [ INFO ] more_devices.py:45 | ✅ Appium driver initialized successfully.
-2025-12-21 16:36:55 [ INFO ] vshow_conf.py:17 | 
---- Setup: Initializing Appium Driver ---
-2025-12-21 16:36:59 [ INFO ] vshow_conf.py:38 | ✅ Appium driver initialized successfully.
-2025-12-21 16:36:59 [ INFO ] test_VshowBase_Dynamic05.py:43 | 观众端--登录app，搜索发布动态的用户-由详情页进行
-2025-12-21 16:37:26 [ ERROR ] common_actions.py:578 | [ERROR] Failed to click element by XPath: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tv_tab_title" and (@text="动态" or (starts-with(@text, "动态(") and contains(@text, ")")))]. Reason: Message: Element not clickable within 10s: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tv_tab_title" and (@text="动态" or (starts-with(@text, "动态(") and contains(@text, ")")))]
-Stacktrace:
-NoSuchElementError: An element could not be located on the page using the given search parameters.
-    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
-    at AndroidUiautomator2Driver.findElement (/usr/local/Cellar/appium/3.0.2/libexec/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
-2025-12-21 16:37:26 [ INFO ] vshow_conf.py:44 | 
---- Teardown: Quitting Appium Driver ---
-2025-12-21 16:37:27 [ INFO ] vshow_conf.py:48 | ✅ Appium driver quit successfully.
-2025-12-21 16:37:27 [ INFO ] test_VshowBase_Dynamic05.py:71 | 清除手机后台指定APP应用
+2026-02-09 15:12:13 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-02-09 15:12:14 [ INFO ] vshow_conf.py:49 | 🧹 Removed 9 recent/hidden tasks for com.baitu.qingshu
+2026-02-09 15:12:27 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-02-09 15:12:29 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-02-09 15:12:29 [ INFO ] test_VshowBase_Dynamic01.py:29 | 登录app，进入动态，上传图片
+2026-02-09 15:12:43 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-02-09 15:12:45 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-02-09 15:12:50 [ INFO ] common_actions.py:754 | --- 点击广场按钮 ---
+2026-02-09 15:12:51 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场按钮
+2026-02-09 15:13:03 [ INFO ] common_actions.py:754 | --- 点击广场动态发布页面的发布按钮 ---
+2026-02-09 15:13:04 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场动态发布页面的发布按钮

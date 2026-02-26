@@ -95,7 +95,7 @@ class LoginPage:
             (AppiumBy.XPATH, '//android.widget.TextView[@resource-id="'+app_package+':id/negativeButton"]'),
             step_name="取消显示弹窗"
         )
-        wait_for_page_text(self.driver, ["探索新后台修改一下"],"成功登录到app的首页--直播页面")
+        wait_for_page_text(self.driver, ["探索"],"成功登录到app的首页--直播页面")
         logger.info("✅ 登录成功！")
 
     def logout(self):
