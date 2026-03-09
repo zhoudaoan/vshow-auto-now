@@ -1,115 +1,409 @@
-2026-02-06 19:16:36 [ INFO ] test_VshowBase_Live10.py:20 | 获取设备相关信息和第二个用户信息
-2026-02-06 19:16:36 [ INFO ] test_VshowBase_Live10.py:28 | 实例化第二个用户进行登录，开启直播间
-2026-02-06 19:16:36 [ INFO ] more_devices.py:26 | 
+2026-03-06 11:45:52 [ INFO ] test_VshowBase_Live10.py:20 | 获取设备相关信息和第二个用户信息
+2026-03-06 11:45:52 [ INFO ] test_VshowBase_Live10.py:28 | 实例化第二个用户进行登录，开启直播间
+2026-03-06 11:45:52 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-06 19:16:42 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-06 19:16:51 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-06 19:16:51 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-06 19:16:51 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-06 19:16:51 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-06 19:16:54 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 2/21 次获取用户信息失败 (NoSuchElementException)，0.35s 后重试...
-2026-02-06 19:16:56 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
-2026-02-06 19:17:01 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
-2026-02-06 19:17:02 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
-2026-02-06 19:17:09 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
-2026-02-06 19:17:10 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
-2026-02-06 19:17:15 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
-2026-02-06 19:17:15 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/textView" and @text="聊天"]
-2026-02-06 19:17:19 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
-2026-02-06 19:17:20 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
-2026-02-06 19:17:21 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
-2026-02-06 19:17:25 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.50s）: ['所有', '房间', '聊天']
-2026-02-06 19:17:25 [ INFO ] vshow_task_h5.py:70 | ✅ 直播间创建成功
-2026-02-06 19:17:25 [ INFO ] vshow_conf.py:64 | 
+2026-03-06 11:45:58 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 11:46:09 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 11:46:11 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 11:46:11 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 11:46:12 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 11:46:18 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
+2026-03-06 11:46:19 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
+2026-03-06 11:46:27 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 11:46:27 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 11:46:33 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 11:46:35 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 11:46:40 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 11:46:40 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 11:46:43 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 11:46:44 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 11:46:45 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 11:46:49 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.25s）: ['所有', '房间', '聊天']
+2026-03-06 11:46:49 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 11:46:49 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-02-06 19:17:25 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
-2026-02-06 19:17:26 [ INFO ] vshow_conf.py:49 | 🧹 Removed 8 recent/hidden tasks for com.baitu.qingshu
-2026-02-06 19:17:37 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-02-06 19:17:40 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-02-06 19:17:40 [ INFO ] test_VshowBase_Live10.py:42 | 初始化APP，用户登录进去进入直播间
-2026-02-06 19:17:54 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
-2026-02-06 19:17:55 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
-2026-02-06 19:18:00 [ INFO ] common_actions.py:72 | --- 输入用户id ---
-2026-02-06 19:18:02 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
-2026-02-06 19:18:05 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146283'
-2026-02-06 19:18:10 [ INFO ] common_actions.py:30 | --- 点击头像进入直播间 ---
-2026-02-06 19:18:11 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像进入直播间
-2026-02-06 19:18:11 [ INFO ] test_VshowBase_Live10.py:46 | 主播操作直播间点击观众的头像弹出用户信息
-2026-02-06 19:18:26 [ INFO ] common_actions.py:30 | --- 点击在线人数 ---
-2026-02-06 19:18:26 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击在线人数
-2026-02-06 19:18:28 [ INFO ] common_actions.py:30 | --- 点击直播间用户头像弹出用户卡片 ---
-2026-02-06 19:18:29 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间用户头像弹出用户卡片
-2026-02-06 19:18:33 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['礼物展馆', '勋章', '粉丝团', '财富等级', '直播等级']] ---
-2026-02-06 19:18:43 [ ERROR ] common_actions.py:424 | ❌ 页面加载超时 10s，未满足文本条件 | 期望: ['礼物展馆', '勋章', '粉丝团', '财富等级', '直播等级'] | 缺失: ['财富等级', '直播等级']
-2026-02-06 19:18:43 [ INFO ] vshow_conf.py:112 | 
+2026-03-06 11:46:49 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 11:46:49 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 11:47:00 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 11:47:02 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 11:47:02 [ INFO ] test_VshowBase_Live10.py:42 | 初始化APP，用户登录进去进入直播间
+2026-03-06 11:47:13 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-03-06 11:47:15 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 11:47:21 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 11:47:24 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 11:47:27 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 11:47:31 [ INFO ] common_actions.py:30 | --- 点击头像进入直播间 ---
+2026-03-06 11:47:31 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像进入直播间
+2026-03-06 11:47:31 [ INFO ] test_VshowBase_Live10.py:46 | 主播操作直播间点击观众的头像弹出用户信息
+2026-03-06 11:47:42 [ INFO ] common_actions.py:30 | --- 点击在线人数 ---
+2026-03-06 11:47:44 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击在线人数
+2026-03-06 11:47:47 [ INFO ] common_actions.py:30 | --- 点击直播间用户头像弹出用户卡片 ---
+2026-03-06 11:47:47 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间用户头像弹出用户卡片
+2026-03-06 11:47:50 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['礼物展馆', '勋章', '送礼', 'Fans', 'PK段位', 'N25ii2']] ---
+2026-03-06 11:47:51 [ INFO ] common_actions.py:399 | ✅ 页面加载成功，部分文本已出现（等待 0.10s）: ['礼物展馆', '勋章', '送礼', 'Fans']
+2026-03-06 11:47:51 [ INFO ] vshow_conf.py:112 | 
 --- Teardown: Quitting Appium Driver ---
-2026-02-06 19:18:44 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-02-06 19:18:44 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
-2026-02-06 19:18:44 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
-2026-02-06 19:18:44 [ INFO ] test_VshowBase_Live11.py:21 | 获取设备相关信息和第二个用户信息
-2026-02-06 19:18:44 [ INFO ] test_VshowBase_Live11.py:32 | 实例化主播用户进行登录，开启直播间
-2026-02-06 19:18:44 [ INFO ] more_devices.py:26 | 
+2026-03-06 11:47:51 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 11:47:51 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:47:51 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:47:51 [ INFO ] test_VshowBase_Live11.py:21 | 获取设备相关信息和第二个用户信息
+2026-03-06 11:47:51 [ INFO ] test_VshowBase_Live11.py:32 | 实例化主播用户进行登录，开启直播间
+2026-03-06 11:47:51 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-06 19:18:49 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-06 19:18:58 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-06 19:18:58 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-06 19:18:58 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-06 19:18:58 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-06 19:19:00 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 2/21 次获取用户信息失败 (NoSuchElementException)，0.35s 后重试...
-2026-02-06 19:19:02 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 3/21 次获取用户信息失败 (NoSuchElementException)，0.50s 后重试...
-2026-02-06 19:19:03 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 4/21 次获取用户信息失败 (NoSuchElementException)，0.65s 后重试...
-2026-02-06 19:19:04 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 5/21 次获取用户信息失败 (NoSuchElementException)，0.80s 后重试...
-2026-02-06 19:19:05 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
-2026-02-06 19:19:14 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
-2026-02-06 19:19:14 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-06 19:19:16 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.35s 后重试...
-2026-02-06 19:19:17 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.50s 后重试...
-2026-02-06 19:19:18 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.65s 后重试...
-2026-02-06 19:19:19 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.80s 后重试...
-2026-02-06 19:19:21 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.95s 后重试...
-2026-02-06 19:19:23 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.10s 后重试...
-2026-02-06 19:19:24 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.25s 后重试...
-2026-02-06 19:19:26 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.40s 后重试...
-2026-02-06 19:19:28 [ WARNING ] common_actions.py:45 | ⚠️ 第 10/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.55s 后重试...
-2026-02-06 19:19:31 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入直播间开播页 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+2026-03-06 11:47:56 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 11:48:05 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 11:48:07 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 11:48:07 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 11:48:08 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 11:48:19 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 11:48:21 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 11:48:24 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 11:48:26 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 11:48:32 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 11:48:32 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 11:48:35 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 11:48:36 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 11:48:37 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 11:48:43 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 5.24s）: ['所有', '房间', '聊天']
+2026-03-06 11:48:43 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 11:48:43 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 11:48:43 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 11:48:43 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 11:48:54 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 11:48:56 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 11:48:56 [ INFO ] test_VshowBase_Live11.py:45 | 初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等
+2026-03-06 11:49:09 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-03-06 11:49:12 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 11:49:19 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 11:49:22 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 11:49:25 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 11:49:29 [ INFO ] common_actions.py:30 | --- 点击主播头像进入直播间 ---
+2026-03-06 11:49:30 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入直播间
+2026-03-06 11:49:30 [ INFO ] test_VshowBase_Live11.py:49 | 主播操作直播间点击观众的头像弹出用户信息
+2026-03-06 11:49:38 [ INFO ] common_actions.py:30 | --- 点击在线人数 ---
+2026-03-06 11:49:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击在线人数
+2026-03-06 11:49:46 [ INFO ] common_actions.py:30 | --- 点击直播间用户头像弹出用户卡片 ---
+2026-03-06 11:49:47 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间用户头像弹出用户卡片
+2026-03-06 11:49:49 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['礼物展馆', '勋章', '送礼', 'Fans', 'PK段位', 'N25ii2']] ---
+2026-03-06 11:49:49 [ INFO ] common_actions.py:399 | ✅ 页面加载成功，部分文本已出现（等待 0.16s）: ['礼物展馆', '勋章', '送礼', 'Fans']
+2026-03-06 11:49:50 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 11:49:50 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 11:49:51 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:49:51 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:49:51 [ INFO ] test_VshowBase_Live12.py:20 | 获取设备相关信息和第二个用户信息
+2026-03-06 11:49:51 [ INFO ] test_VshowBase_Live12.py:29 | 实例化主播用户进行登录，开启直播间
+2026-03-06 11:49:51 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 11:49:55 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 11:50:05 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 11:50:07 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 11:50:07 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 11:50:08 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 11:50:19 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 11:50:19 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 11:50:23 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 11:50:24 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 11:50:29 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 11:50:30 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 11:50:33 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 11:50:34 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 11:50:35 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 11:50:39 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.23s）: ['所有', '房间', '聊天']
+2026-03-06 11:50:39 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 11:50:39 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 11:50:39 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 11:50:39 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 11:50:50 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 11:50:53 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 11:50:53 [ INFO ] test_VshowBase_Live12.py:42 | 初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等
+2026-03-06 11:50:56 [ INFO ] common_actions.py:30 | --- 点击主播头像进入直播间 ---
+2026-03-06 11:50:57 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 11:50:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 11:51:00 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 11:51:01 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 11:51:04 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 11:51:05 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/ivAvatar' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 11:51:08 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 点击主播头像进入直播间 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Stacktrace:
 NoSuchElementError: An element could not be located on the page using the given search parameters.
     at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
     at processTicksAndRejections (node:internal/process/task_queues:103:5)
     at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
     at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
-2026-02-06 19:19:31 [ INFO ] test_VshowBase_Live12.py:20 | 获取设备相关信息和第二个用户信息
-2026-02-06 19:19:31 [ INFO ] test_VshowBase_Live12.py:29 | 实例化主播用户进行登录，开启直播间
-2026-02-06 19:19:31 [ INFO ] more_devices.py:26 | 
+2026-03-06 11:51:08 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 11:51:08 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 11:51:09 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:51:09 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:51:09 [ INFO ] test_VshowBase_Live13.py:19 | 获取设备相关信息和第二个用户信息
+2026-03-06 11:51:09 [ INFO ] test_VshowBase_Live13.py:28 | 实例化主播用户进行登录，开启直播间
+2026-03-06 11:51:09 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-06 19:19:36 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-06 19:19:46 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-06 19:19:48 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-06 19:19:48 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-06 19:19:48 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
-2026-02-06 19:19:59 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
-2026-02-06 19:19:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-06 19:20:02 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.35s 后重试...
-2026-02-06 19:20:03 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.50s 后重试...
-2026-02-06 19:20:04 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.65s 后重试...
-2026-02-06 19:20:06 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.80s 后重试...
-2026-02-06 19:20:08 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，0.95s 后重试...
-2026-02-06 19:20:09 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.10s 后重试...
-2026-02-06 19:20:11 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.25s 后重试...
-2026-02-06 19:20:13 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.qingshu:id/openLive' 失败 (NoSuchElementException)，1.40s 后重试...
-2026-02-06 19:20:16 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入直播间开播页 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+2026-03-06 11:51:13 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 11:51:22 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 11:51:24 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 11:51:24 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 11:51:24 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 11:51:35 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 11:51:36 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 11:51:39 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 11:51:39 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 11:51:44 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 11:51:45 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 11:51:48 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 11:51:49 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 11:51:50 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 11:51:55 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.94s）: ['所有', '房间', '聊天']
+2026-03-06 11:51:55 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 11:51:55 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 11:51:55 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 11:51:56 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 11:52:06 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 11:52:09 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 11:52:09 [ INFO ] test_VshowBase_Live13.py:41 | 初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等
+2026-03-06 11:52:26 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-03-06 11:52:27 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 11:52:36 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 11:52:40 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 11:52:43 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 11:52:48 [ INFO ] common_actions.py:30 | --- 点击主播头像进入直播间 ---
+2026-03-06 11:52:49 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入直播间
+2026-03-06 11:52:49 [ INFO ] test_VshowBase_Live13.py:44 | 观众端点击上麦按钮
+2026-03-06 11:53:44 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 11:54:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 11:54:18 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['您已成功排麦，等待主播同意']] ---
+2026-03-06 11:54:18 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.04s）: ['您已成功排麦，等待主播同意']
+2026-03-06 11:54:19 [ INFO ] common_actions.py:30 | --- 点击排麦成功的OK按钮 ---
+2026-03-06 11:54:19 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击排麦成功的OK按钮
+2026-03-06 11:54:19 [ INFO ] test_VshowBase_Live13.py:48 | 主播端点击接受按钮
+2026-03-06 11:54:32 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 11:54:35 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 11:54:38 [ INFO ] common_actions.py:30 | --- 点击接受上麦按钮 ---
+2026-03-06 11:54:38 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击接受上麦按钮
+2026-03-06 11:54:38 [ INFO ] test_VshowBase_Live13.py:51 | 观众端出现语音的图标
+2026-03-06 11:56:01 [ INFO ] common_actions.py:187 | --- [接受上麦后观众端出现麦克风的图标] 等待 1 个元素全部可见 ---
+2026-03-06 11:56:24 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 11:56:25 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 11:56:25 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:56:25 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 11:56:25 [ INFO ] test_VshowBase_Live15.py:19 | 获取设备相关信息和第二个用户信息
+2026-03-06 11:56:25 [ INFO ] test_VshowBase_Live15.py:28 | 实例化主播用户进行登录，开启直播间
+2026-03-06 11:56:25 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 11:56:29 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 11:56:38 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 11:56:40 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 11:56:40 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 11:56:41 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 11:56:48 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 11:56:49 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 11:56:52 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 11:56:52 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 11:56:58 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 11:56:58 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 11:57:01 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 11:57:02 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 11:57:03 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 11:57:09 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 5.74s）: ['所有', '房间', '聊天']
+2026-03-06 11:57:09 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 11:57:09 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 11:57:09 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 12:02:29 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 12:02:40 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 12:02:43 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 12:02:43 [ INFO ] test_VshowBase_Live15.py:40 | 初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等
+2026-03-06 12:02:55 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-03-06 12:02:57 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 12:03:04 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 12:03:06 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 12:03:11 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 12:03:16 [ INFO ] common_actions.py:30 | --- 点击主播头像进入直播间 ---
+2026-03-06 12:03:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入直播间
+2026-03-06 12:03:17 [ INFO ] test_VshowBase_Live15.py:44 | 观众端点击上麦按钮
+2026-03-06 12:04:13 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:04:45 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:04:47 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['您已成功排麦，等待主播同意']] ---
+2026-03-06 12:04:47 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.02s）: ['您已成功排麦，等待主播同意']
+2026-03-06 12:04:48 [ INFO ] common_actions.py:30 | --- 点击排麦成功的OK按钮 ---
+2026-03-06 12:04:48 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击排麦成功的OK按钮
+2026-03-06 12:04:48 [ INFO ] test_VshowBase_Live15.py:50 | 主播端点击接受按钮
+2026-03-06 12:05:00 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:05:04 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:05:06 [ INFO ] common_actions.py:30 | --- 点击接受上麦按钮 ---
+2026-03-06 12:05:06 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击接受上麦按钮
+2026-03-06 12:05:06 [ INFO ] test_VshowBase_Live15.py:55 | 观众端出现语音的图标
+2026-03-06 12:06:28 [ INFO ] common_actions.py:187 | --- [接受上麦后观众端出现麦克风的图标] 等待 1 个元素全部可见 ---
+2026-03-06 12:06:52 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 12:06:53 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 12:06:53 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 12:06:53 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 12:06:53 [ INFO ] test_VshowBase_Live19.py:20 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:06:53 [ INFO ] test_VshowBase_Live19.py:31 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:06:53 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 12:06:58 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:07:08 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:07:10 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 12:07:10 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 12:07:10 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 12:07:21 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 12:07:22 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 12:07:24 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 12:07:25 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 12:07:30 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 12:07:30 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 12:07:34 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 12:07:35 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 12:07:36 [ INFO ] common_actions.py:375 | --- [等待进入直播间成功] ---
+2026-03-06 12:07:41 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 4.96s）: ['所有', '房间', '聊天']
+2026-03-06 12:07:41 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 12:07:41 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 12:07:41 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 12:07:41 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 12:07:52 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 12:07:55 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 12:07:55 [ INFO ] test_VshowBase_Live19.py:44 | 获取观众uid进行去除金币
+2026-03-06 12:08:08 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:08:11 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 12:08:11 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 12:08:12 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147244, 昵称=w41h38
+2026-03-06 12:08:12 [ INFO ] Vshow_Common_Api.py:32 | 非GET请求的参数：{}
+2026-03-06 12:08:12 [ INFO ] Vshow_Common_Api.py:34 | 接口的请求开始时间：2026-03-06 12:08:12.779209
+2026-03-06 12:08:12 [ INFO ] Vshow_Common_Api.py:23 | 请求的url：https://test3397-admin.v.show/user/user-data
+2026-03-06 12:08:12 [ INFO ] Vshow_Common_Api.py:36 | 获取到的cookie: _ga=GA1.1.178593440.1757054696; _ga_VHE7RWKHR2=GS2.1.s1762917225$o4$g0$t1762917225$j60$l0$h0; _csrf=0a35e031a0e7899e30dc72e0c07109bcf03bc05cbbaf247e10b210db80a65243a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22WUSJPsaoaz8KhhoUJTjHWYFmVIqvAdPe%22%3B%7D; PHPSESSID=a1vfo8aia759irvrrcuu8lqv4e
+2026-03-06 12:08:12 [ INFO ] Vshow_Common_Api.py:23 | 请求的url：https://test3397-admin.v.show/user/user-data
+2026-03-06 12:08:13 [ INFO ] Vshow_Common_Api.py:47 | 接口的请求结束时间：2026-03-06 12:08:13.282623
+2026-03-06 12:08:13 [ INFO ] Vshow_Common_Api.py:48 | 请求时间差：0:00:00.503414 秒
+2026-03-06 12:08:13 [ ERROR ] Vshow_Common_Api.py:55 | JSON 解析失败: Expecting value: line 1 column 1 (char 0)，响应内容: <!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>POPPO - 登录</title>
+    <style>
+        *{box-sizing:border-box}
+        body{font-family:Helvetica;background:#eee;-webkit-font-smoothing:antialiased}
+        hgroup{text-align:center;margin-top:4em}
+        h1,h3{font-weight:300}h1{color:#636363}
+        h3{color:#4a89dc}
+        .main{width:380px;margin:4em auto;padding:3em 2em 2em 2em;background:#fafafa;border:1px solid #ebebeb;box-shadow:rgba(0,0,0,0.14902) 0 1px 1px 0,rgba
+2026-03-06 12:08:13 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 12:08:13 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 12:08:14 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 12:08:14 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 12:08:14 [ INFO ] test_VshowBase_Live20.py:19 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:08:14 [ INFO ] test_VshowBase_Live20.py:27 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:08:14 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 12:08:18 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:08:27 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 12:08:27 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 12:08:33 [ INFO ] common_actions.py:317 | --- 选择直播间标签 ---
+2026-03-06 12:08:35 [ INFO ] common_actions.py:330 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 12:08:38 [ INFO ] common_actions.py:781 | --- 输入直播间标题 ---
+2026-03-06 12:08:42 [ WARNING ] common_actions.py:797 | 输入直播间标题: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 12:08:46 [ INFO ] common_actions.py:802 | ✅ 输入直播间标题: 输入完成 -> 'm01L1007'
+2026-03-06 12:08:56 [ INFO ] common_actions.py:30 | --- 点击设置封面区域 ---
+2026-03-06 12:08:57 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击设置封面区域
+2026-03-06 12:09:07 [ INFO ] common_actions.py:244 | --- 点击更换封面按钮 ---
+2026-03-06 12:09:09 [ INFO ] common_actions.py:257 | ✅ 成功点击按钮: 更换封面
+2026-03-06 12:09:19 [ INFO ] test_VshowBase_Live21.py:21 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:09:19 [ INFO ] test_VshowBase_Live21.py:30 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:09:19 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 12:09:24 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:09:29 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:09:30 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 12:09:30 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 12:09:31 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 12:09:31 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 12:09:32 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 12:09:34 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 12:09:35 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 12:09:37 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 12:09:38 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 12:09:40 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入【我的】页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Stacktrace:
 NoSuchElementError: An element could not be located on the page using the given search parameters.
     at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
     at processTicksAndRejections (node:internal/process/task_queues:103:5)
     at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
     at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
-2026-02-06 19:20:16 [ INFO ] test_VshowBase_Live13.py:19 | 获取设备相关信息和第二个用户信息
-2026-02-06 19:20:16 [ INFO ] test_VshowBase_Live13.py:28 | 实例化主播用户进行登录，开启直播间
-2026-02-06 19:20:16 [ INFO ] more_devices.py:26 | 
+2026-03-06 12:09:40 [ INFO ] test_VshowBase_Live24.py:21 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:09:40 [ INFO ] test_VshowBase_Live24.py:32 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:09:40 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-06 19:20:21 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-06 19:20:32 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-06 19:20:33 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-06 19:20:33 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-06 19:20:33 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
+2026-03-06 12:09:45 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:09:50 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:09:50 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 12:09:51 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 12:09:51 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 12:09:52 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 12:09:53 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 12:09:54 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 12:09:56 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 12:09:57 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 12:09:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 12:10:01 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入【我的】页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 12:10:01 [ INFO ] test_VshowBase_Live28.py:21 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:10:01 [ INFO ] test_VshowBase_Live28.py:32 | 实例化主播用户进行登录，开启直播间，开启随机PK
+2026-03-06 12:10:01 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 12:10:06 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:10:11 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 12:10:11 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 12:10:12 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 12:10:13 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 12:10:14 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 12:10:15 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 12:10:17 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 12:10:18 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 12:10:19 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 12:10:20 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 12:10:22 [ WARNING ] common_actions.py:45 | ⚠️ 第 10/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.55s 后重试...
+2026-03-06 12:10:24 [ WARNING ] common_actions.py:45 | ⚠️ 第 11/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.70s 后重试...
+2026-03-06 12:10:26 [ WARNING ] common_actions.py:45 | ⚠️ 第 12/21 次点击 'com.baitu.poppo:id/navLive' 失败 (NoSuchElementException)，1.85s 后重试...
+2026-03-06 12:10:28 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入直播间列表页 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 12:10:28 [ INFO ] test_VshowBase_Live34.py:22 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:10:28 [ INFO ] test_VshowBase_Live34.py:34 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:10:28 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 12:10:33 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:10:37 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:10:37 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 12:10:38 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 12:10:38 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 12:10:39 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 12:10:40 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 12:10:41 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 12:10:42 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 12:10:43 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 12:10:45 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 12:10:47 [ WARNING ] common_actions.py:45 | ⚠️ 第 10/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.55s 后重试...
+2026-03-06 12:10:49 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进入【我的】页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)

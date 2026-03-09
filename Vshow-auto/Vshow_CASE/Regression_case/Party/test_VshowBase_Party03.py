@@ -1,5 +1,7 @@
 import pytest
 import allure
+
+from Vshow_Page.Vshow_H5.vshow_task_h5 import join_party_room
 from Vshow_TOOLS.common_actions import *
 from Vshow_TOOLS.read_cfg import get_config
 from Vshow_Page.vshow_conf import driver
@@ -16,7 +18,6 @@ class Test_VSHOWBASE_Party03:
     def setup_method(self):
         logger.info("获取配置相关信息")
         self.driver_data = get_config(section="vshow_app_conf", option="vshow_app_conf")
-        self.my_account = My_account()
 
 
 
@@ -28,7 +29,7 @@ class Test_VSHOWBASE_Party03:
             开party 显示正常；功能：开启/关闭视频正常
         """
         logger.info("初始化APP，用户登录进去进入Party直播间关闭直播间的摄像头")
-        self.my_account.join_party_room(driver)
+        join_party_room(driver)
         click(
             driver,
             xpath='//android.widget.ImageView[@resource-id="'+self.driver_data.get("appPackage")+':id/moreButton"]',

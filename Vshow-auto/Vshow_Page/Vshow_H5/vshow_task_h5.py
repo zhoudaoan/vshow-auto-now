@@ -38,6 +38,12 @@ def live_room(driver):
     """
     click_element_by_id(
         driver,
+        element_id=app_package + ":id/navLive",
+        step_name="进入直播间列表页",
+        timeout=15
+    )
+    click_element_by_id(
+        driver,
         element_id=app_package + ":id/openLive",
         step_name="进入直播间开播页",
         timeout=15

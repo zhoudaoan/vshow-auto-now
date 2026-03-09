@@ -1,7 +1,7 @@
 import logging
 import time
 
-from Vshow_TOOLS.common_actions import click_element_by_id, safe_hide_keyboard
+from Vshow_TOOLS.common_actions import click_element_by_id, safe_hide_keyboard, click
 from Vshow_TOOLS.read_cfg import get_config
 
 logger = logging.getLogger(__name__)
@@ -29,7 +29,7 @@ def uid_login(driver, app_package):
         element_id=app_package + ":id/agreementCheckBox",
         step_name="点击我已阅读并同意"
     )
-    XPathHelper.click(
+    click(
         driver,
         xpath='//android.widget.LinearLayout[@resource-id="' + app_package + ':id/loginWayBottom"]/android.widget.ImageView[2]',
         step_name="点击手机登录"

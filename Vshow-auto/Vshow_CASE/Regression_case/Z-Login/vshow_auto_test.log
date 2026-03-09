@@ -1,0 +1,161 @@
+2026-03-06 10:39:15 [ INFO ] test_VshowBase_Login01.py:25 | 生成随机的手机号，以中国区域生成
+2026-03-06 10:39:15 [ INFO ] test_VshowBase_Login01.py:30 | 获取设备的udid和app
+2026-03-06 10:39:15 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 10:39:15 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 10:39:16 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 10:39:27 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 10:39:30 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 10:39:30 [ INFO ] test_VshowBase_Login01.py:41 | 初始化APP，使用新账号进行注册登录
+2026-03-06 10:39:36 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['探索']] ---
+2026-03-06 10:39:36 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.55s）: ['探索']
+2026-03-06 10:39:42 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-03-06 10:39:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-03-06 10:39:48 [ INFO ] common_actions.py:30 | --- 点击进入设置页面 ---
+2026-03-06 10:39:50 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击进入设置页面
+2026-03-06 10:39:50 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.poppo:id/tv_logout_label')
+2026-03-06 10:39:50 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('id', 'com.baitu.poppo:id/tv_logout_label')，方向: up，最多 10 次
+2026-03-06 10:39:53 [ WARNING ] scroll_to_element.py:84 | 第 1/10 次：未找到可点击元素，准备滑动...
+2026-03-06 10:39:55 [ INFO ] scroll_to_element.py:80 | ✅ 第 2 次尝试：成功找到可点击元素！
+2026-03-06 10:39:55 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
+2026-03-06 10:39:56 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='退出登录', displayed=True, enabled=True)
+2026-03-06 10:39:56 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
+2026-03-06 10:39:57 [ INFO ] common_actions.py:244 | --- 点击退出按钮，退出APP ---
+2026-03-06 10:39:57 [ INFO ] common_actions.py:257 | ✅ 成功点击按钮: 退出登录
+2026-03-06 10:39:57 [ INFO ] register_and_nweDevices.py:19 | 
+🔁 第 1 次尝试：执行登录前置步骤...
+2026-03-06 10:40:05 [ INFO ] common_actions.py:30 | --- 点击测试环境 ---
+2026-03-06 10:40:05 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击测试环境
+2026-03-06 10:40:10 [ INFO ] common_actions.py:30 | --- 点击我已阅读并同意 ---
+2026-03-06 10:40:11 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击我已阅读并同意
+2026-03-06 10:40:14 [ INFO ] common_actions.py:754 | --- 点击手机登录 ---
+2026-03-06 10:40:16 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击手机登录
+2026-03-06 10:40:16 [ INFO ] register_and_nweDevices.py:40 | 🔍 等待 'tvCountry' 元素出现...
+2026-03-06 10:40:17 [ INFO ] register_and_nweDevices.py:45 | ✅ 'tvCountry' 已出现，继续后续登录流程
+2026-03-06 10:40:21 [ INFO ] common_actions.py:30 | --- 点击输入手机号 ---
+2026-03-06 10:40:21 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击输入手机号
+2026-03-06 10:40:24 [ INFO ] common_actions.py:72 | --- 输入用户名 ---
+2026-03-06 10:40:27 [ WARNING ] common_actions.py:85 | 输入用户名: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 10:40:30 [ INFO ] common_actions.py:89 | ✅ 输入用户名: 输入完成 -> '98710370834'
+2026-03-06 10:40:34 [ INFO ] common_actions.py:30 | --- 点击下一步 ---
+2026-03-06 10:40:34 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击下一步
+2026-03-06 10:40:41 [ INFO ] common_actions.py:128 | --- [点击关闭滑动弹窗] 尝试点击（若存在）---
+2026-03-06 10:40:42 [ INFO ] common_actions.py:141 | ✅ [点击关闭滑动弹窗] 成功点击元素: ('xpath', '//android.widget.Button[@resource-id="aliyunCaptcha-btn-close"]')（等待 0.24s）
+2026-03-06 10:40:45 [ INFO ] common_actions.py:72 | --- 输入随机的验证码 ---
+2026-03-06 10:40:48 [ WARNING ] common_actions.py:85 | 输入随机的验证码: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 10:40:51 [ INFO ] common_actions.py:89 | ✅ 输入随机的验证码: 输入完成 -> '123456'
+2026-03-06 10:40:57 [ INFO ] common_actions.py:72 | --- 设置账号密码 ---
+2026-03-06 10:40:59 [ WARNING ] common_actions.py:85 | 设置账号密码: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 10:41:01 [ INFO ] common_actions.py:89 | ✅ 设置账号密码: 输入完成 -> 'vshow520'
+2026-03-06 10:41:07 [ INFO ] common_actions.py:30 | --- 点击下一步按钮 ---
+2026-03-06 10:41:08 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击下一步按钮
+2026-03-06 10:41:11 [ INFO ] common_actions.py:30 | --- 选择账号性别--默认女性 ---
+2026-03-06 10:41:11 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/tv_perfectInfoSexFemale' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 10:41:14 [ INFO ] common_actions.py:38 | ✅ 成功点击: 选择账号性别--默认女性
+2026-03-06 10:41:17 [ INFO ] common_actions.py:30 | --- 点击头像选择图片 ---
+2026-03-06 10:41:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像选择图片
+2026-03-06 10:41:21 [ INFO ] common_actions.py:128 | --- [选择头像图片--默认选择第一张] 尝试点击（若存在）---
+2026-03-06 10:41:22 [ INFO ] common_actions.py:141 | ✅ [选择头像图片--默认选择第一张] 成功点击元素: ('xpath', '(//android.widget.TextView[@resource-id="com.baitu.poppo:id/tvCheck"])[1]')（等待 0.97s）
+2026-03-06 10:41:27 [ INFO ] common_actions.py:30 | --- 点击选择头像图片的下一步 ---
+2026-03-06 10:41:28 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击选择头像图片的下一步
+2026-03-06 10:41:31 [ INFO ] common_actions.py:30 | --- 对头像进行裁剪 ---
+2026-03-06 10:41:32 [ INFO ] common_actions.py:38 | ✅ 成功点击: 对头像进行裁剪
+2026-03-06 10:41:32 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.poppo:id/completeButton')
+2026-03-06 10:41:32 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('id', 'com.baitu.poppo:id/completeButton')，方向: up，最多 10 次
+2026-03-06 10:41:33 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
+2026-03-06 10:41:33 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
+2026-03-06 10:41:35 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='提交', displayed=True, enabled=True)
+2026-03-06 10:41:35 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
+2026-03-06 10:41:43 [ INFO ] common_actions.py:375 | --- [成功登录到app的首页--直播页面] ---
+2026-03-06 10:41:53 [ ERROR ] common_actions.py:424 | ❌ 页面加载超时 10s，未满足文本条件 | 期望: ['探索', '关注'] | 缺失: ['探索', '关注']
+2026-03-06 10:41:53 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 10:41:54 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 10:41:54 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 10:41:54 [ INFO ] test_VshowBase_Login09.py:24 | 生成随机的手机号，以中国区域生成
+2026-03-06 10:41:54 [ INFO ] test_VshowBase_Login09.py:29 | 获取二次登录时的设备信息
+2026-03-06 10:41:54 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-06 10:41:54 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 10:41:54 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 10:42:05 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 10:42:08 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 10:42:08 [ INFO ] test_VshowBase_Login09.py:40 | 初始化APP，使用新账号进行注册登录
+2026-03-06 10:42:15 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['探索']] ---
+2026-03-06 10:42:15 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.47s）: ['探索']
+2026-03-06 10:42:22 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-03-06 10:42:23 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-03-06 10:42:25 [ INFO ] common_actions.py:30 | --- 点击进入设置页面 ---
+2026-03-06 10:42:25 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 10:42:26 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 10:42:27 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 10:42:27 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 10:42:28 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 10:42:29 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 10:42:31 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 10:42:32 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 10:42:33 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 10:42:35 [ WARNING ] common_actions.py:45 | ⚠️ 第 10/21 次点击 'com.baitu.poppo:id/btn_settings' 失败 (NoSuchElementException)，1.55s 后重试...
+2026-03-06 10:42:37 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 点击进入设置页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 10:42:37 [ INFO ] vshow_conf.py:141 | 
+--- Setup: Logout in ---
+2026-03-06 10:42:40 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-03-06 10:42:40 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 10:42:41 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 10:42:42 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 10:42:42 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 10:42:43 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 10:42:44 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 10:42:46 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 10:42:47 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 10:42:48 [ WARNING ] common_actions.py:45 | ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，1.40s 后重试...
+2026-03-06 10:42:50 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 进如【我的】页面 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 10:42:50 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-06 10:42:51 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 10:42:51 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-06 10:42:55 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 10:42:55 [ INFO ] register_and_nweDevices.py:19 | 
+🔁 第 1 次尝试：执行登录前置步骤...
+2026-03-06 10:42:58 [ INFO ] common_actions.py:30 | --- 点击测试环境 ---
+2026-03-06 10:42:58 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 10:42:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 10:42:59 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-06 10:43:00 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-06 10:43:01 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-06 10:43:02 [ WARNING ] common_actions.py:45 | ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.95s 后重试...
+2026-03-06 10:43:03 [ WARNING ] common_actions.py:45 | ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，1.10s 后重试...
+2026-03-06 10:43:07 [ WARNING ] common_actions.py:45 | ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，1.25s 后重试...
+2026-03-06 10:43:10 [ ERROR ] common_actions.py:51 | 💥 所有重试失败或超时: 点击测试环境 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 10:43:10 [ ERROR ] register_and_nweDevices.py:71 | ❌ 第 1 次执行前置步骤失败: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+2026-03-06 10:43:12 [ INFO ] register_and_nweDevices.py:19 | 
+🔁 第 2 次尝试：执行登录前置步骤...
+2026-03-06 10:43:23 [ INFO ] common_actions.py:30 | --- 点击测试环境 ---
+2026-03-06 10:43:24 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 10:43:26 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-06 10:43:27 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/rb_test' 失败 (NoSuchElementException)，0.50s 后重试...

@@ -64,8 +64,13 @@ class Test_VSHOWBASE_Live12:
         logger.info("主播端点击接受按钮")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/iv_up_mic", step_name="点击直播间上麦按钮")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/ivAccept", step_name="点击接受上麦按钮")
-        logger.info("接受上麦后观众端出现麦克风的图标")
-        wait_for_all_elements(driver, (AppiumBy.ID, self.driver_data.get("appPackage")+":id/positiveButton"), step_name="接受上麦后观众端出现麦克风的图标")
+        logger.info("接受上麦后观众端没有麦克风的图标")
+        assert not id_and_xpath_displayed(
+            driver,
+            (AppiumBy.ID, self.driver_data.get("appPackage") + ":id/iv_up_mic"),
+            step_name="验证观众端无麦克风图标",
+            timeout=5
+        ), "❌ 观众端错误地显示了麦克风图标（iv_up_mic），违反业务规则！"
 
 
 

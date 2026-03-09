@@ -1,14 +1,16 @@
-2026-02-09 15:12:13 [ INFO ] test_VshowBase_Dynamic01.py:19 | 获取app的配置信息用于退出后台
-2026-02-09 15:12:13 [ INFO ] vshow_conf.py:64 | 
+2026-03-06 10:27:49 [ INFO ] test_VshowBase_Dynamic01.py:19 | 获取app的配置信息用于退出后台
+2026-03-06 10:27:49 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-02-09 15:12:13 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
-2026-02-09 15:12:14 [ INFO ] vshow_conf.py:49 | 🧹 Removed 9 recent/hidden tasks for com.baitu.qingshu
-2026-02-09 15:12:27 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-02-09 15:12:29 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-02-09 15:12:29 [ INFO ] test_VshowBase_Dynamic01.py:29 | 登录app，进入动态，上传图片
-2026-02-09 15:12:43 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
-2026-02-09 15:12:45 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
-2026-02-09 15:12:50 [ INFO ] common_actions.py:754 | --- 点击广场按钮 ---
-2026-02-09 15:12:51 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场按钮
-2026-02-09 15:13:03 [ INFO ] common_actions.py:754 | --- 点击广场动态发布页面的发布按钮 ---
-2026-02-09 15:13:04 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
+2026-03-06 10:27:49 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 10:27:50 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 10:28:01 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 10:28:04 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 10:28:04 [ INFO ] test_VshowBase_Dynamic01.py:29 | 登录app，进入动态，上传图片
+2026-03-06 10:28:16 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-03-06 10:28:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-03-06 10:28:20 [ INFO ] common_actions.py:754 | --- 点击广场按钮 ---
+2026-03-06 10:28:22 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场按钮
+2026-03-06 10:28:30 [ INFO ] common_actions.py:754 | --- 点击广场动态发布页面的发布按钮 ---
+2026-03-06 10:28:32 [ WARNING ] common_actions.py:766 | ⚠️ 第 1 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.30s 后重试...
+2026-03-06 10:28:33 [ WARNING ] common_actions.py:766 | ⚠️ 第 2 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.40s 后重试...
+2026-03-06 10:28:35 [ WARNING ] common_actions.py:766 | ⚠️ 第 3 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.50s 后重试...

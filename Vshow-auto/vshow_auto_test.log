@@ -1,57 +1,72 @@
-2026-02-26 18:49:41 [ INFO ] test_VshowBase_Dynamic05.py:23 | 初始化--获取app的配置信息用于退出后台
-2026-02-26 18:49:41 [ INFO ] test_VshowBase_Dynamic05.py:31 | 主播端--登录app，进入动态，发布动态
-2026-02-26 18:49:41 [ INFO ] more_devices.py:26 | 
+2026-03-06 12:46:06 [ INFO ] test_VshowBase_Live12.py:20 | 获取设备相关信息和第二个用户信息
+2026-03-06 12:46:06 [ INFO ] test_VshowBase_Live12.py:29 | 实例化主播用户进行登录，开启直播间
+2026-03-06 12:46:06 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-26 18:49:45 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-26 18:49:55 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-26 18:49:56 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-26 18:49:56 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-26 18:49:56 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-26 18:49:57 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146285, 昵称=A08Z18
-2026-02-26 18:49:57 [ INFO ] vshow_conf.py:64 | 
+2026-03-06 12:46:11 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 12:46:18 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 12:46:18 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 12:46:18 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-06 12:46:18 [ WARNING ] vshow_task_h5.py:386 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-06 12:46:20 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 12:46:31 [ INFO ] common_actions.py:30 | --- 进入直播间列表页 ---
+2026-03-06 12:46:32 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间列表页
+2026-03-06 12:46:35 [ INFO ] common_actions.py:30 | --- 进入直播间开播页 ---
+2026-03-06 12:46:36 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间开播页
+2026-03-06 12:46:41 [ INFO ] common_actions.py:323 | --- 选择直播间标签 ---
+2026-03-06 12:46:42 [ INFO ] common_actions.py:336 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/textView" and @text="聊天"]
+2026-03-06 12:46:45 [ INFO ] common_actions.py:30 | --- 点击开始直播 ---
+2026-03-06 12:46:46 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击开始直播
+2026-03-06 12:46:47 [ INFO ] common_actions.py:381 | --- [等待进入直播间成功] ---
+2026-03-06 12:46:52 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 5.03s）: ['所有', '房间', '聊天']
+2026-03-06 12:46:52 [ INFO ] vshow_task_h5.py:76 | ✅ 直播间创建成功
+2026-03-06 12:46:52 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-02-26 18:49:58 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
-2026-02-26 18:49:58 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
-2026-02-26 18:50:08 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-02-26 18:50:11 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-02-26 18:50:11 [ INFO ] test_VshowBase_Dynamic05.py:42 | 观众端--登录app，搜索发布动态的用户-由详情页进行
-2026-02-26 18:50:23 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-26 18:50:26 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-26 18:50:26 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-26 18:50:26 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-26 18:50:28 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37147475, 昵称=IojVHrI569
-2026-02-26 18:50:37 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
-2026-02-26 18:50:39 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
-2026-02-26 18:51:03 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
-2026-02-26 18:51:06 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
-2026-02-26 18:51:14 [ INFO ] common_actions.py:72 | --- 输入用户id ---
-2026-02-26 18:51:17 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
-2026-02-26 18:51:20 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146285'
-2026-02-26 18:51:25 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
-2026-02-26 18:51:25 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
-2026-02-26 18:51:43 [ INFO ] common_actions.py:30 | --- 进入到动态详情页面 ---
-2026-02-26 18:51:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到动态详情页面
-2026-02-26 18:51:43 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.qingshu:id/ivLikeNo')
-2026-02-26 18:51:43 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('id', 'com.baitu.qingshu:id/ivLikeNo')，方向: up，最多 10 次
-2026-02-26 18:51:45 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
-2026-02-26 18:51:45 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
-2026-02-26 18:51:47 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='', displayed=True, enabled=True)
-2026-02-26 18:51:47 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
-2026-02-26 18:51:47 [ INFO ] test_VshowBase_Dynamic05.py:59 | 主播端--查看收到的点赞信息通知
-2026-02-26 18:51:53 [ INFO ] common_actions.py:30 | --- 点击底部的消息按钮 ---
-2026-02-26 18:51:55 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部的消息按钮
-2026-02-26 18:51:55 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')
-2026-02-26 18:51:55 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
-2026-02-26 18:51:56 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
-2026-02-26 18:51:56 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
-2026-02-26 18:51:57 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='互动消息', displayed=True, enabled=True)
-2026-02-26 18:51:57 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
-2026-02-26 18:52:03 [ INFO ] common_actions.py:651 | --- [查找卡片 (全部匹配): ['赞了你的动态', 'IojVHrI569']] ---
-2026-02-26 18:52:04 [ INFO ] common_actions.py:674 | 🔍 当前屏幕共找到 10 张卡片
-2026-02-26 18:52:04 [ INFO ] common_actions.py:711 | ✅ 第 1 张卡片匹配全部文本: ['赞了你的动态', 'IojVHrI569']
-2026-02-26 18:52:04 [ INFO ] vshow_conf.py:112 | 
+2026-03-06 12:46:53 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 12:46:53 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
+2026-03-06 12:47:04 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 12:47:07 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 12:47:07 [ INFO ] test_VshowBase_Live12.py:42 | 初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等
+2026-03-06 12:47:20 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
+2026-03-06 12:47:23 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 12:47:31 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 12:47:34 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 12:47:37 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 12:47:42 [ INFO ] common_actions.py:30 | --- 点击主播头像进入直播间 ---
+2026-03-06 12:47:42 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入直播间
+2026-03-06 12:47:42 [ INFO ] test_VshowBase_Live12.py:45 | 观众端点击上麦按钮
+2026-03-06 12:48:52 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:49:24 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:49:26 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['您已成功排麦，等待主播同意']] ---
+2026-03-06 12:49:26 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 0.03s）: ['您已成功排麦，等待主播同意']
+2026-03-06 12:49:27 [ INFO ] common_actions.py:30 | --- 点击排麦成功的OK按钮 ---
+2026-03-06 12:49:37 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击排麦成功的OK按钮
+2026-03-06 12:49:37 [ INFO ] test_VshowBase_Live12.py:51 | 主播端点击拒绝按钮
+2026-03-06 12:49:47 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:49:49 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:49:52 [ INFO ] common_actions.py:30 | --- 点击拒绝上麦按钮 ---
+2026-03-06 12:49:52 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击拒绝上麦按钮
+2026-03-06 12:49:52 [ INFO ] test_VshowBase_Live12.py:54 | 观众端弹出弹窗
+2026-03-06 12:49:53 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['您已被拒绝']] ---
+2026-03-06 12:49:53 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 0.02s）: ['您已被拒绝']
+2026-03-06 12:49:54 [ INFO ] common_actions.py:30 | --- 拒绝上麦后点击OK按钮 ---
+2026-03-06 12:49:54 [ INFO ] common_actions.py:38 | ✅ 成功点击: 拒绝上麦后点击OK按钮
+2026-03-06 12:49:54 [ INFO ] test_VshowBase_Live12.py:58 | 观众端点击上麦按钮
+2026-03-06 12:51:13 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:51:46 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:51:47 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['您已成功排麦，等待主播同意']] ---
+2026-03-06 12:51:47 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 0.02s）: ['您已成功排麦，等待主播同意']
+2026-03-06 12:51:48 [ INFO ] common_actions.py:30 | --- 点击排麦成功的OK按钮 ---
+2026-03-06 12:51:48 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击排麦成功的OK按钮
+2026-03-06 12:51:48 [ INFO ] test_VshowBase_Live12.py:64 | 主播端点击接受按钮
+2026-03-06 12:51:57 [ INFO ] common_actions.py:30 | --- 点击直播间上麦按钮 ---
+2026-03-06 12:51:59 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击直播间上麦按钮
+2026-03-06 12:52:01 [ INFO ] common_actions.py:30 | --- 点击接受上麦按钮 ---
+2026-03-06 12:52:02 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击接受上麦按钮
+2026-03-06 12:52:02 [ INFO ] test_VshowBase_Live12.py:67 | 接受上麦后观众端出现麦克风的图标
+2026-03-06 12:53:23 [ INFO ] common_actions.py:187 | --- [接受上麦后观众端出现麦克风的图标] 等待 1 个元素全部可见 ---
+2026-03-06 12:53:48 [ WARNING ] common_actions.py:226 | ⚠️ [接受上麦后观众端出现麦克风的图标] 耗尽 30 次重试，仍未满足全部元素条件
+2026-03-06 12:53:48 [ INFO ] vshow_conf.py:112 | 
 --- Teardown: Quitting Appium Driver ---
-2026-02-26 18:52:05 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-02-26 18:52:05 [ INFO ] test_VshowBase_Dynamic05.py:73 | 清除手机后台指定APP应用
-2026-02-26 18:52:05 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
-2026-02-26 18:52:05 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-06 12:53:48 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 12:53:48 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 12:53:48 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo

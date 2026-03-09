@@ -161,7 +161,7 @@ def wait_for_all_elements(
     timeout: float = 20.0,
     visible: bool = True,
     retries: int = 30,
-):
+) -> bool:
     """
     等待一个或多个元素全部出现（全部可见或存在），适用于高动态页面。
     每次检查都重新查找所有元素，避免 StaleElement 或短暂消失导致误判。
@@ -187,9 +187,11 @@ def wait_for_all_elements(
     logger.info(f"--- [{step_name}] 等待 {len(locator_list)} 个元素全部{'可见' if visible else '存在'} ---")
 
     end_time = time.time() + timeout
+    start_time = time.time()
 
     for attempt in range(retries + 1):
-        if time.time() > end_time:
+        current_time = time.time()
+        if current_time > end_time:
             logger.warning(f"⚠️ [{step_name}] 超时 {timeout}s，未满足全部元素条件")
             return False
 
@@ -210,12 +212,16 @@ def wait_for_all_elements(
                 break
 
         if all_found:
-            waited = time.time() - (end_time - timeout)
+            waited = time.time() - start_time
             logger.info(f"✅ [{step_name}] 所有元素已满足（等待 {waited:.2f}s）")
             return True
 
+        # 计算下一次等待时间
         wait_time = 0.2 + attempt * 0.1
-        time.sleep(min(wait_time, end_time - time.time()))
+        remaining = end_time - time.time()
+        if remaining <= 0:
+            break
+        time.sleep(min(wait_time, remaining))
 
     logger.warning(f"⚠️ [{step_name}] 耗尽 {retries} 次重试，仍未满足全部元素条件")
     return False
@@ -862,6 +868,45 @@ def is_displayed(driver, xpath: str, step_name: str, timeout: int = 10) -> bool:
             logger.debug(
                 f"⏳ 第 {attempt + 1} 次检查 '{xpath}' 未找到，{wait_time:.2f}s 后重试..."
             )
+            time.sleep(wait_time)
+            attempt += 1
+        except Exception as e:
+            logger.error(f"🔥 未知异常: {step_name} | {e}")
+            raise
+
+    logger.warning(f"⏱️ 超时 {timeout} 秒未找到元素，返回 False")
+    return False
+
+
+def id_and_xpath_displayed(
+        driver,
+        locator: tuple,  # e.g., (AppiumBy.ID, "com.xxx:id/btn") 或 (AppiumBy.XPATH, "//...")
+        step_name: str,
+        timeout: int = 10
+) -> bool:
+    """
+    判断元素是否可见（支持 ID/XPATH 等任意定位方式）
+
+    :param timeout:
+    :param driver:
+    :param step_name:
+    :param locator: 定位器元组，如 (AppiumBy.ID, "xxx")
+    :return: True if element exists and is displayed; False if not found within timeout
+    """
+    logger.info(f"--- {step_name} ---")
+    end_time = time.time() + timeout
+    attempt = 0
+
+    while time.time() < end_time:
+        try:
+            by, value = locator
+            element = driver.find_element(by, value)
+            displayed = element.is_displayed()
+            logger.debug(f"🔍 {step_name}: 元素可见性 = {displayed}")
+            return displayed
+        except (NoSuchElementException, StaleElementReferenceException, WebDriverException) as e:
+            wait_time = min(0.2 + attempt * 0.05, 0.5)
+            logger.debug(f"⏳ 第 {attempt + 1} 次检查 {locator} 未找到，{wait_time:.2f}s 后重试...")
             time.sleep(wait_time)
             attempt += 1
         except Exception as e:

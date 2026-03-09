@@ -1,37 +1,33 @@
-2026-02-06 18:57:49 [ INFO ] test_VshowBase_Search01.py:18 | 初始化--获取app的配置信息用于退出后台
-2026-02-06 18:57:49 [ INFO ] test_VshowBase_Search01.py:26 | 主播端--登录app，进入首页获取userid
-2026-02-06 18:57:49 [ INFO ] more_devices.py:26 | 
+2026-03-06 10:25:50 [ INFO ] test_VshowBase_Search01.py:18 | 初始化--获取app的配置信息用于退出后台
+2026-03-06 10:25:50 [ INFO ] test_VshowBase_Search01.py:26 | 主播端--登录app，进入首页获取userid
+2026-03-06 10:25:50 [ INFO ] more_devices.py:26 | 
 --- Setup: Initializing  More Appium Driver ---
-2026-02-06 18:57:55 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-02-06 18:58:04 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-02-06 18:58:04 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-02-06 18:58:04 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
-2026-02-06 18:58:04 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
-2026-02-06 18:58:08 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 2/21 次获取用户信息失败 (NoSuchElementException)，0.35s 后重试...
-2026-02-06 18:58:08 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 3/21 次获取用户信息失败 (NoSuchElementException)，0.50s 后重试...
-2026-02-06 18:58:09 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 4/21 次获取用户信息失败 (NoSuchElementException)，0.65s 后重试...
-2026-02-06 18:58:10 [ WARNING ] vshow_task_h5.py:380 | ⚠️ 第 5/21 次获取用户信息失败 (NoSuchElementException)，0.80s 后重试...
-2026-02-06 18:58:13 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37146283, 昵称=D71824
-2026-02-06 18:58:13 [ INFO ] vshow_conf.py:64 | 
+2026-03-06 10:25:54 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-06 10:26:04 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-06 10:26:06 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-06 10:26:06 [ INFO ] vshow_task_h5.py:360 | --- 获取用户ID和昵称 ---
+2026-03-06 10:26:07 [ INFO ] vshow_task_h5.py:372 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
+2026-03-06 10:26:07 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-02-06 18:58:13 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
-2026-02-06 18:58:14 [ INFO ] vshow_conf.py:49 | 🧹 Removed 8 recent/hidden tasks for com.baitu.qingshu
-2026-02-06 18:58:27 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-02-06 18:58:30 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-02-06 18:58:30 [ INFO ] test_VshowBase_Search01.py:37 | 观众端--登录app，搜索发布动态的用户-由详情页进行
-2026-02-06 18:58:42 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
-2026-02-06 18:58:43 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
-2026-02-06 18:58:52 [ INFO ] common_actions.py:72 | --- 输入用户id ---
-2026-02-06 18:58:55 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
-2026-02-06 18:58:59 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146283'
-2026-02-06 18:59:04 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['D71824', '37146283']] ---
-2026-02-06 18:59:05 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 1.22s）: ['D71824', '37146283']
-2026-02-06 18:59:09 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
-2026-02-06 18:59:09 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
-2026-02-06 18:59:18 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['D71824', '37146283', '财富等级', '直播等级', '资料', '荣誉墙']] ---
-2026-02-06 18:59:30 [ INFO ] vshow_conf.py:112 | 
+2026-03-06 10:26:07 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-06 10:26:07 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.poppo
+2026-03-06 10:26:18 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-06 10:26:20 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-06 10:26:20 [ INFO ] test_VshowBase_Search01.py:37 | 观众端--登录app，搜索发布动态的用户-由详情页进行
+2026-03-06 10:26:34 [ INFO ] common_actions.py:754 | --- 点击搜索按钮 ---
+2026-03-06 10:26:38 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击搜索按钮
+2026-03-06 10:26:47 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-06 10:26:49 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-06 10:26:53 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
+2026-03-06 10:26:58 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['N25ii2', '37147245']] ---
+2026-03-06 10:26:59 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.17s）: ['N25ii2', '37147245']
+2026-03-06 10:27:01 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
+2026-03-06 10:27:02 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
+2026-03-06 10:27:10 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['N25ii2', '37147245', '资料', '荣誉墙']] ---
+2026-03-06 10:27:11 [ INFO ] common_actions.py:394 | ✅ 页面加载成功，所有文本已出现（等待 0.54s）: ['N25ii2', '37147245', '资料', '荣誉墙']
+2026-03-06 10:27:11 [ INFO ] vshow_conf.py:112 | 
 --- Teardown: Quitting Appium Driver ---
-2026-02-06 18:59:30 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-02-06 18:59:30 [ INFO ] test_VshowBase_Search01.py:46 | 清除手机后台指定APP应用
-2026-02-06 18:59:30 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
-2026-02-06 18:59:30 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-06 10:27:11 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-06 10:27:11 [ INFO ] test_VshowBase_Search01.py:46 | 清除手机后台指定APP应用
+2026-03-06 10:27:11 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-06 10:27:11 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo

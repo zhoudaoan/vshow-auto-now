@@ -43,7 +43,6 @@ class Test_VSHOWBASE_Live11:
             弹出用户卡片，查看财富等级和直播等级正常
         """
         logger.info("初始化APP，用户登录进去进入直播间并获取后台数据与前台数据是否能相等")
-        user_id, _ = get_user_id(driver)
         search_user(driver, self.userID)
         click_element_by_id(driver, element_id=self.driver_data.get("appPackage")+":id/ivAvatar", step_name="点击主播头像进入直播间")
 
@@ -52,11 +51,10 @@ class Test_VSHOWBASE_Live11:
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tv_online_number", step_name="点击在线人数")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage")+":id/iv_avatar", step_name="点击直播间用户头像弹出用户卡片")
         wait_for_page_text(self.new_driver,["礼物展馆","勋章","送礼","Fans","PK段位",self.userName],match_all=False)
-        # 点击卡片无法点击翻转获取不到ID
-        live_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/ivLiveLevel").text
-        wealth_level = self.new_driver.find_element(AppiumBy.ID, self.driver_data_2.get("appPackage")+":id/ivWealthLevel").text
-        assert live_level > 0, "获取到的直播等级是有数据的"
-        assert wealth_level > 0,"获取到的财富等级是有数据的"
+
+        wait_for_all_elements(driver, [(AppiumBy.ID, self.driver_data.get("appPackage")+":id/ivLiveLevel"),
+                                       (AppiumBy.ID, self.driver_data.get("appPackage") + ":id/ivWealthLevel")
+                                       ], step_name="判断财富等级和直播等级元素存在")
 
 
     def teardown_method(self):

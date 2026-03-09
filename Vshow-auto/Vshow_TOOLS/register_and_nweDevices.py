@@ -30,7 +30,7 @@ def register(driver, app_package):
                 element_id=app_package + ":id/agreementCheckBox",
                 step_name="点击我已阅读并同意"
             )
-            XPathHelper.click(
+            click(
                 driver,
                 xpath='//android.widget.LinearLayout[@resource-id="' + app_package + ':id/loginWayBottom"]/android.widget.ImageView[1]',
                 step_name="点击手机登录"
