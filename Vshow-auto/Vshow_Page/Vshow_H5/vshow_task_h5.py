@@ -10,18 +10,18 @@ logger = logging.getLogger(__name__)
 
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def my_deatil(driver):
     click_element_by_id(driver, element_id=app_package+":id/navMe", step_name="进如【我的】页面")
     click_element_by_id(driver, element_id=app_package+":id/mine_user_info_view", step_name="进入到我的详情页面")
     click_element_by_id(driver, element_id=app_package+":id/editButton", step_name="进入我的详情编辑页面")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def back_to_my_home(driver):
     click_element_by_id(driver, element_id=app_package + ":id/backBtn", step_name="回退到我的详情页面")
     click_element_by_id(driver, element_id=app_package + ":id/backButton", step_name="回退到我的页面")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def task_page(driver):
     """
     从我的页面进入奖励页面
@@ -31,7 +31,7 @@ def task_page(driver):
     click_element_by_id(driver, element_id=app_package+":id/iv", step_name="从【我的】页面进入到奖励页面")
     wait_for_page_text(driver, "奖励")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def live_room(driver):
     """
     进入直播间，进行开播不做其它操作
@@ -75,7 +75,7 @@ def live_room(driver):
 
     logger.info(f"✅ 直播间创建成功")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def live_room_for_title_and_cover(driver):
     """
     进入直播间，设置标题、封面等操作
@@ -174,7 +174,7 @@ def live_room_for_title_and_cover(driver):
     logger.info(f"✅ 直播间创建成功，标题: {live_title}")
     return live_title
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def close_live_or_party_room(driver, tag=1):
     """
     观众端退出直播间或者party直播间
@@ -199,7 +199,7 @@ def close_live_or_party_room(driver, tag=1):
             driver.press_keycode(4)
         wait_for_toast(driver, "退出直播间", "退出直播间")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def join_party_room(driver):
     """
     进入并开启一个 Party 直播间（视频 + 9宫格）
@@ -256,7 +256,7 @@ def join_party_room(driver):
 
     logger.info("✅ Party 直播已成功开启！")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def login_retroaction(driver):
     """
     登录反馈
@@ -298,7 +298,7 @@ def login_retroaction(driver):
         step_name="点击提交按钮"
     )
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def dynamic_put_video_or_photo(driver, tag=1):
     """
     :param driver: 初始化的appium
@@ -343,7 +343,7 @@ def dynamic_put_video_or_photo(driver, tag=1):
     time.sleep(5)
     # wait_for_toast(driver, "发布成功", "发布动态成功，返回发布动态页面")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def get_user_id(
         driver,
         timeout: int = 10,
@@ -398,7 +398,7 @@ def get_user_id(
     return None
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def search_user(driver, user_id):
     """
     使用userid进行搜索
@@ -414,7 +414,7 @@ def search_user(driver, user_id):
     send_keys_to_element(driver, element_id=app_package+":id/etContent", text=user_id, step_name="输入用户id")
     driver.execute_script('mobile: performEditorAction', {'action': 'search'})  # 触发模拟键盘上的搜索动作
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def join_fedd(driver):
     """
     进入广场的页面
@@ -428,7 +428,7 @@ def join_fedd(driver):
         step_name="点击广场按钮"
     )
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def content_operate(driver,tag):
     """
     进入到动态详情页面操作动态数据点赞，删除和评论

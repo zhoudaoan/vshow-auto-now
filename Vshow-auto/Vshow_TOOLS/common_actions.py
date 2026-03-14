@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from appium.webdriver.common.appiumby import AppiumBy
+from Vshow_Page.vshow_conf import driver
 from Vshow_TOOLS.dismiss_known_popups import with_popup_dismiss
 from selenium.common.exceptions import NoSuchElementException
 import logging
@@ -15,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 import time
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def click_element_by_id(
         driver,
         element_id: str,
@@ -55,7 +56,7 @@ def click_element_by_id(
             logger.error(f"🔥 未知异常: {step_name} | {e}")
             raise
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def send_keys_to_element(
     driver,
     element_id: str,
@@ -107,7 +108,7 @@ def send_keys_to_element(
 
     raise TimeoutError(f"💥 超时 {timeout} 秒且耗尽 {retries} 次重试，未能向元素输入文本: {element_id}")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def click_element_if_exists(
     driver,
     locator: tuple,
@@ -153,7 +154,7 @@ def click_element_if_exists(
 
     logger.warning(f"⚠️ [{step_name}] 耗尽 {retries} 次重试，未找到可点击元素: {locator}")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def wait_for_all_elements(
     driver,
     locators,
@@ -226,7 +227,7 @@ def wait_for_all_elements(
     logger.warning(f"⚠️ [{step_name}] 耗尽 {retries} 次重试，仍未满足全部元素条件")
     return False
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def click_button_by_text(
         driver,
         text: str,
@@ -299,7 +300,7 @@ def click_button_by_text(
     logger.error(f"❌ 超时 {timeout} 秒或耗尽 {retries} 次重试，未能点击按钮: '{text}'")
     raise TimeoutError(f"未能点击按钮: '{text}'")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def click_text_by_resource_id(
     driver,
     text: str,
@@ -347,7 +348,7 @@ def click_text_by_resource_id(
     logger.error(f"❌ 超时 {timeout} 秒或耗尽 {retries} 次重试，未能点击元素: {xpath}")
     raise TimeoutError(f"未能点击文本 '{text}' (ID: {element_id})")
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def wait_for_page_text(
     driver,
     texts: Union[str, List[str]],
@@ -430,7 +431,7 @@ def wait_for_page_text(
         logger.error(f"❌ 页面加载超时 {timeout}s，未满足文本条件 | 期望: {texts} | 缺失: {missing}")
         return False
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def get_text_by_id(
     driver,
     element_id: str,
@@ -492,7 +493,7 @@ def get_text_by_id(
     logger.error(f"❌ 超时 {timeout} 秒或耗尽 {retries + 1} 次尝试，未能获取文本 (ID: {element_id})")
     return default
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def wait_for_toast(
     driver,
     partial_text: str,
@@ -553,7 +554,7 @@ def wait_for_toast(
     else:
         return False
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def safe_hide_keyboard(driver):
     """
     安全收起键盘：优先尝试标准方法，失败则点击空白区域
@@ -566,7 +567,7 @@ def safe_hide_keyboard(driver):
         size = driver.get_window_size()
         driver.tap([(size['width'] // 2, size['height'] - 150)], 100)
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def _escape_xpath_text(text: str) -> str:
     """安全地将文本嵌入 XPath，避免单引号/双引号导致语法错误"""
     if "'" not in text:
@@ -577,7 +578,7 @@ def _escape_xpath_text(text: str) -> str:
     parts = text.split("'")
     return "concat('" + "', \"'\", '".join(parts) + "')"
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def is_text_count_greater_than_safe(
     driver,
     text: str,
@@ -615,7 +616,7 @@ def is_text_count_greater_than_safe(
         return False
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def find_text_in_list_cards(
     driver,
     list_container_xpath: str = "//androidx.recyclerview.widget.RecyclerView",
@@ -747,7 +748,7 @@ def find_text_in_list_cards(
     raise AssertionError(message)
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def click(driver, xpath: str, step_name: str, timeout: int = 10):
     """
     通过 XPath 点击元素（带重试机制）
@@ -781,7 +782,7 @@ def click(driver, xpath: str, step_name: str, timeout: int = 10):
     raise TimeoutError(f"💥 超时 {timeout} 秒，未能点击元素: {xpath}")
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def send_keys(driver, xpath: str, text: str, step_name: str, timeout: int = 10):
     """通过 XPath 输入文本（带重试机制）"""
     logger.info(f"--- {step_name} ---")
@@ -822,7 +823,7 @@ def send_keys(driver, xpath: str, text: str, step_name: str, timeout: int = 10):
     raise TimeoutError(f"💥 超时 {timeout} 秒，未能向元素输入文本: {xpath}")
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def get_text(driver, xpath: str, step_name: str, timeout: int = 10) -> str:
     """通过 XPath 获取元素文本（带重试机制）"""
     logger.info(f"--- {step_name} ---")
@@ -849,7 +850,7 @@ def get_text(driver, xpath: str, step_name: str, timeout: int = 10) -> str:
     raise TimeoutError(f"💥 超时 {timeout} 秒，未能获取元素文本: {xpath}")
 
 
-@with_popup_dismiss
+# @with_popup_dismiss
 def is_displayed(driver, xpath: str, step_name: str, timeout: int = 10) -> bool:
     """通过 XPath 判断元素是否可见（带重试机制）"""
     logger.info(f"--- {step_name} ---")
@@ -915,3 +916,7 @@ def id_and_xpath_displayed(
 
     logger.warning(f"⏱️ 超时 {timeout} 秒未找到元素，返回 False")
     return False
+
+
+def follow_each_other(driver,):
+    pass

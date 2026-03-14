@@ -41,6 +41,7 @@ class Test_VSHOWBASE_Dynamic07:
         """
         logger.info("观众端--登录app，搜索发布动态的用户-由详情页进入")
         self.userID_driver, _ = get_user_id(driver)
+        click_element_by_id(driver, element_id=self.driver_data_2.get("appPackage")+":id/navLive", step_name="进入直播间页面")
         search_user(driver, self.userID_newDriver)
         click_element_by_id(driver, element_id=self.driver_data.get("appPackage") + ":id/ivAvatar",
                             step_name="点击主播头像进入详情页")

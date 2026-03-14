@@ -1,16 +1,307 @@
-2026-03-06 10:27:49 [ INFO ] test_VshowBase_Dynamic01.py:19 | 获取app的配置信息用于退出后台
-2026-03-06 10:27:49 [ INFO ] vshow_conf.py:64 | 
+2026-03-09 18:23:18 [ INFO ] test_VshowBase_Dynamic01.py:19 | 获取app的配置信息用于退出后台
+2026-03-09 18:23:18 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-03-06 10:27:49 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
-2026-03-06 10:27:50 [ INFO ] vshow_conf.py:49 | 🧹 Removed 3 recent/hidden tasks for com.baitu.poppo
-2026-03-06 10:28:01 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-03-06 10:28:04 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-03-06 10:28:04 [ INFO ] test_VshowBase_Dynamic01.py:29 | 登录app，进入动态，上传图片
-2026-03-06 10:28:16 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
-2026-03-06 10:28:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
-2026-03-06 10:28:20 [ INFO ] common_actions.py:754 | --- 点击广场按钮 ---
-2026-03-06 10:28:22 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击广场按钮
-2026-03-06 10:28:30 [ INFO ] common_actions.py:754 | --- 点击广场动态发布页面的发布按钮 ---
-2026-03-06 10:28:32 [ WARNING ] common_actions.py:766 | ⚠️ 第 1 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.30s 后重试...
-2026-03-06 10:28:33 [ WARNING ] common_actions.py:766 | ⚠️ 第 2 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.40s 后重试...
-2026-03-06 10:28:35 [ WARNING ] common_actions.py:766 | ⚠️ 第 3 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.poppo:id/topBar"]/android.widget.ImageView[2]' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-09 18:23:18 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:23:18 [ INFO ] vshow_conf.py:49 | 🧹 Removed 1 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:23:29 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:23:33 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:23:33 [ INFO ] test_VshowBase_Dynamic01.py:29 | 登录app，进入动态，上传图片
+2026-03-09 18:23:46 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-03-09 18:23:47 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-03-09 18:23:52 [ INFO ] common_actions.py:760 | --- 点击广场按钮 ---
+2026-03-09 18:23:55 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场按钮
+2026-03-09 18:24:13 [ INFO ] common_actions.py:760 | --- 点击广场动态发布页面的发布按钮 ---
+2026-03-09 18:24:15 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
+2026-03-09 18:24:22 [ INFO ] common_actions.py:72 | --- 输入发布内容 ---
+2026-03-09 18:24:25 [ WARNING ] common_actions.py:85 | 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:24:28 [ INFO ] common_actions.py:89 | ✅ 输入发布内容: 输入完成 -> '糴辧鏹栻礟侗槛滱秈堝丫鉤寪葀窆磹鲢媠碽巛傛甩芬滸乕硛叡巸絨廿蛼嬓羦磸噕琥儋羢烉旒膟様寨姅灿仳践题躃驝船'
+2026-03-09 18:24:33 [ INFO ] common_actions.py:760 | --- 点击添加照片按钮 ---
+2026-03-09 18:24:34 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击添加照片按钮
+2026-03-09 18:24:35 [ INFO ] common_actions.py:760 | --- 点击添加照片按钮 ---
+2026-03-09 18:24:35 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击添加照片按钮
+2026-03-09 18:24:39 [ INFO ] common_actions.py:760 | --- 选择头像图片/视频--默认选择第一个 ---
+2026-03-09 18:24:41 [ INFO ] common_actions.py:768 | ✅ 成功点击: 选择头像图片/视频--默认选择第一个
+2026-03-09 18:24:44 [ INFO ] common_actions.py:30 | --- 点击选择图片/视频的下一步 ---
+2026-03-09 18:24:45 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击选择图片/视频的下一步
+2026-03-09 18:24:51 [ INFO ] common_actions.py:30 | --- 点击发布按钮 ---
+2026-03-09 18:24:52 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击发布按钮
+2026-03-09 18:24:57 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:24:57 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:24:57 [ INFO ] test_VshowBase_Dynamic01.py:36 | 清除手机后台指定APP应用
+2026-03-09 18:24:57 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:24:57 [ INFO ] test_VshowBase_Dynamic03.py:23 | 获取app的配置信息用于退出后台
+2026-03-09 18:24:57 [ INFO ] test_VshowBase_Dynamic03.py:34 | 登录app，进入动态，选择话题发布
+2026-03-09 18:24:57 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:25:03 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:25:12 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-03-09 18:25:13 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-03-09 18:25:18 [ INFO ] common_actions.py:760 | --- 点击广场按钮 ---
+2026-03-09 18:25:18 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场按钮
+2026-03-09 18:25:21 [ INFO ] common_actions.py:760 | --- 点击广场动态发布页面的发布按钮 ---
+2026-03-09 18:25:22 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
+2026-03-09 18:25:25 [ INFO ] common_actions.py:72 | --- 输入发布内容 ---
+2026-03-09 18:25:28 [ WARNING ] common_actions.py:85 | 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:25:31 [ INFO ] common_actions.py:89 | ✅ 输入发布内容: 输入完成 -> '鐦位揰酥喉嘬捽蒰帜舛狇瀟譣碇炓害粲稬毨葒癧絨杹祏趀脛謵颂穤呟滓鞲鳝匃秾餿樰亣曺粘錞閎辱筐蚷張慘僤蒠贈黱'
+2026-03-09 18:25:35 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTag) ---
+2026-03-09 18:25:35 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tvTag)
+2026-03-09 18:25:37 [ INFO ] common_actions.py:323 | --- 选择话题并点击 ---
+2026-03-09 18:25:39 [ INFO ] common_actions.py:336 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTag" and @text="hazel-test3"]
+2026-03-09 18:25:42 [ INFO ] common_actions.py:30 | --- 点击发布按钮 ---
+2026-03-09 18:25:42 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击发布按钮
+2026-03-09 18:25:49 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-03-09 18:25:50 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-03-09 18:25:58 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
+2026-03-09 18:25:58 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
+2026-03-09 18:26:06 [ INFO ] common_actions.py:30 | --- 进入到动态详情页面 ---
+2026-03-09 18:26:07 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到动态详情页面
+2026-03-09 18:26:09 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTopic) ---
+2026-03-09 18:26:10 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tvTopic)
+2026-03-09 18:26:12 [ INFO ] common_actions.py:323 | --- 选择话题并点击 ---
+2026-03-09 18:26:12 [ INFO ] common_actions.py:336 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTopic" and @text="hazel-test3"]
+2026-03-09 18:26:18 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['hazel-test3']] ---
+2026-03-09 18:26:19 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 0.48s）: ['hazel-test3']
+2026-03-09 18:26:24 [ INFO ] common_actions.py:612 | 获取到的话题数量文本超过2个，判断是在详情页，话题数量文本：4
+2026-03-09 18:26:28 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tv_title) ---
+2026-03-09 18:26:29 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: 'hazel-test3' (ID: com.baitu.qingshu:id/tv_title)
+2026-03-09 18:26:29 [ INFO ] test_VshowBase_Dynamic03.py:64 | 清除手机后台指定APP应用
+2026-03-09 18:26:29 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:26:29 [ INFO ] test_VshowBase_Dynamic04.py:21 | 初始化--获取app的配置信息用于退出后台
+2026-03-09 18:26:29 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:26:35 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:26:35 [ INFO ] test_VshowBase_Dynamic04.py:28 | 登录app，进入动态，选择话题正常@好友且发布
+2026-03-09 18:26:45 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-03-09 18:26:45 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-03-09 18:26:50 [ INFO ] common_actions.py:760 | --- 点击广场按钮 ---
+2026-03-09 18:26:51 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场按钮
+2026-03-09 18:26:54 [ INFO ] common_actions.py:760 | --- 点击广场动态发布页面的发布按钮 ---
+2026-03-09 18:26:55 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
+2026-03-09 18:26:58 [ INFO ] common_actions.py:72 | --- 输入发布内容 ---
+2026-03-09 18:27:01 [ WARNING ] common_actions.py:85 | 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:27:04 [ INFO ] common_actions.py:89 | ✅ 输入发布内容: 输入完成 -> '赥後贈睄毾煪旌髤鉦篼荊琖蛛聞匔厦僉虢雺儴滻湅跞霵雨靀骒薻筐螎莣瘟弯襹仉劕籄鲒亭絍馤嫕姱邛糂權廡砊禅溼繫'
+2026-03-09 18:27:08 [ INFO ] common_actions.py:30 | --- 点击发布动态页面的@按钮 ---
+2026-03-09 18:27:09 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击发布动态页面的@按钮
+2026-03-09 18:27:13 [ INFO ] common_actions.py:30 | --- 选择好友 ---
+2026-03-09 18:27:14 [ INFO ] common_actions.py:38 | ✅ 成功点击: 选择好友
+2026-03-09 18:27:16 [ INFO ] common_actions.py:30 | --- 点击完成按钮 ---
+2026-03-09 18:27:17 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击完成按钮
+2026-03-09 18:27:20 [ INFO ] common_actions.py:30 | --- 点击发布按钮 ---
+2026-03-09 18:27:21 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击发布按钮
+2026-03-09 18:27:21 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-09 18:27:21 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:27:21 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:27:33 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:27:36 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:27:36 [ INFO ] test_VshowBase_Dynamic04.py:50 | 登录app，进入消息查看消息通知
+2026-03-09 18:27:42 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
+2026-03-09 18:27:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
+2026-03-09 18:27:48 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tv_nickname) ---
+2026-03-09 18:27:48 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: '邀请11959' (ID: com.baitu.qingshu:id/tv_nickname)
+2026-03-09 18:27:55 [ INFO ] common_actions.py:30 | --- 点击底部的消息按钮 ---
+2026-03-09 18:27:56 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部的消息按钮
+2026-03-09 18:27:56 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')
+2026-03-09 18:27:56 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
+2026-03-09 18:27:57 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
+2026-03-09 18:27:57 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
+2026-03-09 18:27:58 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='互动消息', displayed=True, enabled=True)
+2026-03-09 18:27:58 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
+2026-03-09 18:28:04 [ INFO ] common_actions.py:30 | --- 点击消息进入动态详情 ---
+2026-03-09 18:28:05 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击消息进入动态详情
+2026-03-09 18:28:11 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvContent) ---
+2026-03-09 18:28:11 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: '肥肉分' (ID: com.baitu.qingshu:id/tvContent)
+2026-03-09 18:28:11 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:28:11 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:28:11 [ INFO ] test_VshowBase_Dynamic04.py:66 | 清除手机后台指定APP应用
+2026-03-09 18:28:12 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:28:12 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:28:12 [ INFO ] test_VshowBase_Dynamic05.py:23 | 初始化--获取app的配置信息用于退出后台
+2026-03-09 18:28:12 [ INFO ] test_VshowBase_Dynamic05.py:31 | 主播端--登录app，进入动态，发布动态
+2026-03-09 18:28:12 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:28:16 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:28:27 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:28:29 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:28:29 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:28:29 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37146285, 昵称=A08Z18
+2026-03-09 18:28:29 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-09 18:28:29 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:28:29 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:28:40 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:28:43 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:28:43 [ INFO ] test_VshowBase_Dynamic05.py:42 | 观众端--登录app，搜索发布动态的用户-由详情页进行
+2026-03-09 18:28:55 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:28:55 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:28:55 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:28:58 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37148166, 昵称=邀请11959
+2026-03-09 18:29:03 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
+2026-03-09 18:29:05 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
+2026-03-09 18:29:22 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
+2026-03-09 18:29:23 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击搜索按钮
+2026-03-09 18:29:31 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-09 18:29:34 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:29:38 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146285'
+2026-03-09 18:29:42 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
+2026-03-09 18:29:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
+2026-03-09 18:29:57 [ INFO ] common_actions.py:30 | --- 进入到动态详情页面 ---
+2026-03-09 18:29:57 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到动态详情页面
+2026-03-09 18:29:57 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.qingshu:id/ivLikeNo')
+2026-03-09 18:29:57 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('id', 'com.baitu.qingshu:id/ivLikeNo')，方向: up，最多 10 次
+2026-03-09 18:30:00 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
+2026-03-09 18:30:00 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
+2026-03-09 18:30:02 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='', displayed=True, enabled=True)
+2026-03-09 18:30:02 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
+2026-03-09 18:30:02 [ INFO ] test_VshowBase_Dynamic05.py:59 | 主播端--查看收到的点赞信息通知
+2026-03-09 18:30:06 [ INFO ] common_actions.py:30 | --- 点击底部的消息按钮 ---
+2026-03-09 18:30:07 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部的消息按钮
+2026-03-09 18:30:07 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')
+2026-03-09 18:30:07 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('xpath', '//android.widget.TextView[@resource-id="com.baitu.qingshu:id/nickname" and @text="互动消息"]')，方向: up，最多 10 次
+2026-03-09 18:30:09 [ INFO ] scroll_to_element.py:80 | ✅ 第 1 次尝试：成功找到可点击元素！
+2026-03-09 18:30:09 [ INFO ] scroll_to_element.py:52 | ⏳ 等待元素变为可点击状态...
+2026-03-09 18:30:10 [ INFO ] scroll_to_element.py:56 | 🖱️ 执行点击操作 (text='互动消息', displayed=True, enabled=True)
+2026-03-09 18:30:10 [ INFO ] scroll_to_element.py:59 | ✅ 点击成功
+2026-03-09 18:30:15 [ INFO ] common_actions.py:657 | --- [查找卡片 (全部匹配): ['赞了你的动态', '邀请11959']] ---
+2026-03-09 18:30:15 [ INFO ] common_actions.py:680 | 🔍 当前屏幕共找到 10 张卡片
+2026-03-09 18:30:16 [ INFO ] common_actions.py:717 | ✅ 第 1 张卡片匹配全部文本: ['赞了你的动态', '邀请11959']
+2026-03-09 18:30:16 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:30:16 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:30:16 [ INFO ] test_VshowBase_Dynamic05.py:73 | 清除手机后台指定APP应用
+2026-03-09 18:30:16 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:30:16 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:30:16 [ INFO ] test_VshowBase_Dynamic06.py:23 | 初始化--获取app的配置信息用于退出后台
+2026-03-09 18:30:16 [ INFO ] test_VshowBase_Dynamic06.py:31 | 主播端--登录app，进入动态，发布动态
+2026-03-09 18:30:16 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:30:21 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:30:30 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:30:32 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:30:32 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:30:32 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37146285, 昵称=A08Z18
+2026-03-09 18:30:32 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-09 18:30:33 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:30:33 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:30:43 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:30:48 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:30:48 [ INFO ] test_VshowBase_Dynamic06.py:42 | 观众端--登录app，搜索发布动态的用户-由详情页进行
+2026-03-09 18:31:03 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:31:04 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:31:04 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:31:06 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37148166, 昵称=邀请11959
+2026-03-09 18:31:12 [ INFO ] common_actions.py:30 | --- 进入直播间页面 ---
+2026-03-09 18:31:13 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入直播间页面
+2026-03-09 18:31:31 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
+2026-03-09 18:31:31 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击搜索按钮
+2026-03-09 18:31:40 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-09 18:31:42 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:31:46 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146285'
+2026-03-09 18:31:50 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
+2026-03-09 18:31:52 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
+2026-03-09 18:32:03 [ INFO ] common_actions.py:30 | --- 进入到动态详情页面 ---
+2026-03-09 18:32:04 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到动态详情页面
+2026-03-09 18:32:04 [ INFO ] scroll_to_element.py:38 | 🔍 开始滚动查找并点击元素: ('id', 'com.baitu.qingshu:id/ivCommentCount')
+2026-03-09 18:32:04 [ INFO ] scroll_to_element.py:73 | 🔍 开始滑动查找元素: ('id', 'com.baitu.qingshu:id/ivCommentCount')，方向: up，最多 10 次
+2026-03-09 18:32:07 [ WARNING ] scroll_to_element.py:84 | 第 1/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:12 [ WARNING ] scroll_to_element.py:84 | 第 2/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:18 [ WARNING ] scroll_to_element.py:84 | 第 3/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:23 [ WARNING ] scroll_to_element.py:84 | 第 4/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:29 [ WARNING ] scroll_to_element.py:84 | 第 5/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:34 [ WARNING ] scroll_to_element.py:84 | 第 6/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:40 [ WARNING ] scroll_to_element.py:84 | 第 7/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:46 [ WARNING ] scroll_to_element.py:84 | 第 8/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:52 [ WARNING ] scroll_to_element.py:84 | 第 9/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:58 [ WARNING ] scroll_to_element.py:84 | 第 10/10 次：未找到可点击元素，准备滑动...
+2026-03-09 18:32:58 [ ERROR ] scroll_to_element.py:101 | ❌ 滑动 10 次后仍未找到可点击元素: ('id', 'com.baitu.qingshu:id/ivCommentCount')
+2026-03-09 18:32:58 [ INFO ] scroll_to_element.py:106 | 📸 已保存失败截图: scroll_not_found_1773052378.png
+2026-03-09 18:32:59 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:32:59 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:32:59 [ INFO ] test_VshowBase_Dynamic06.py:76 | 清除手机后台指定APP应用
+2026-03-09 18:32:59 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:32:59 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:32:59 [ INFO ] test_VshowBase_Dynamic07.py:23 | 初始化--获取app的配置信息用于退出后台
+2026-03-09 18:32:59 [ INFO ] test_VshowBase_Dynamic07.py:31 | 主播端--登录app，进入动态
+2026-03-09 18:32:59 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:33:04 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:33:14 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:33:15 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:33:15 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:33:16 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37146285, 昵称=A08Z18
+2026-03-09 18:33:16 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-09 18:33:16 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:33:16 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:33:27 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:33:30 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:33:30 [ INFO ] test_VshowBase_Dynamic07.py:42 | 观众端--登录app，搜索发布动态的用户-由详情页进入
+2026-03-09 18:33:42 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:33:43 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:33:43 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:33:43 [ WARNING ] vshow_task_h5.py:386 | ⚠️ 第 1/21 次获取用户信息失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-09 18:33:45 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37148166, 昵称=邀请11959
+2026-03-09 18:33:56 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
+2026-03-09 18:33:56 [ WARNING ] common_actions.py:772 | ⚠️ 第 1 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.30s 后重试...
+2026-03-09 18:33:57 [ WARNING ] common_actions.py:772 | ⚠️ 第 2 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.40s 后重试...
+2026-03-09 18:33:59 [ WARNING ] common_actions.py:772 | ⚠️ 第 3 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-09 18:34:00 [ WARNING ] common_actions.py:772 | ⚠️ 第 4 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.60s 后重试...
+2026-03-09 18:34:01 [ WARNING ] common_actions.py:772 | ⚠️ 第 5 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.70s 后重试...
+2026-03-09 18:34:02 [ WARNING ] common_actions.py:772 | ⚠️ 第 6 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-09 18:34:05 [ WARNING ] common_actions.py:772 | ⚠️ 第 7 次点击 '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBarLayout"]/android.widget.ImageView[1]' 失败 (NoSuchElementException)，0.90s 后重试...
+2026-03-09 18:34:06 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:34:07 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:34:07 [ INFO ] test_VshowBase_Dynamic07.py:75 | 清除手机后台指定APP应用
+2026-03-09 18:34:07 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:34:07 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:34:07 [ INFO ] test_VshowBase_Dynamic09.py:23 | 初始化--获取app的配置信息用于退出后台
+2026-03-09 18:34:07 [ INFO ] test_VshowBase_Dynamic09.py:29 | 主播端--登录app，进入个人中心动态，删除第一条动态
+2026-03-09 18:34:07 [ INFO ] more_devices.py:26 | 
+--- Setup: Initializing  More Appium Driver ---
+2026-03-09 18:34:12 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
+2026-03-09 18:34:22 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
+2026-03-09 18:34:23 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
+2026-03-09 18:34:23 [ INFO ] vshow_task_h5.py:366 | --- 获取用户ID和昵称 ---
+2026-03-09 18:34:24 [ INFO ] vshow_task_h5.py:378 | ✅ 成功获取用户信息: UID=37146285, 昵称=A08Z18
+2026-03-09 18:34:29 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
+2026-03-09 18:34:29 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
+2026-03-09 18:34:36 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvContent) ---
+2026-03-09 18:34:42 [ ERROR ] common_actions.py:492 | ❌ 超时 10 秒或耗尽 6 次尝试，未能获取文本 (ID: com.baitu.qingshu:id/tvContent)
+2026-03-09 18:34:47 [ INFO ] common_actions.py:30 | --- 点击单个动态的更多按钮 ---
+2026-03-09 18:34:48 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/tvMore' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-03-09 18:34:48 [ WARNING ] common_actions.py:45 | ⚠️ 第 2/21 次点击 'com.baitu.qingshu:id/tvMore' 失败 (NoSuchElementException)，0.35s 后重试...
+2026-03-09 18:34:49 [ WARNING ] common_actions.py:45 | ⚠️ 第 3/21 次点击 'com.baitu.qingshu:id/tvMore' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-03-09 18:34:50 [ WARNING ] common_actions.py:45 | ⚠️ 第 4/21 次点击 'com.baitu.qingshu:id/tvMore' 失败 (NoSuchElementException)，0.65s 后重试...
+2026-03-09 18:34:51 [ WARNING ] common_actions.py:45 | ⚠️ 第 5/21 次点击 'com.baitu.qingshu:id/tvMore' 失败 (NoSuchElementException)，0.80s 后重试...
+2026-03-09 18:34:53 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击单个动态的更多按钮
+2026-03-09 18:34:54 [ INFO ] common_actions.py:250 | --- 点击底部的弹窗上的删除按钮 ---
+2026-03-09 18:34:55 [ INFO ] common_actions.py:263 | ✅ 成功点击按钮: 删除
+2026-03-09 18:34:56 [ INFO ] common_actions.py:250 | --- 点击弹窗上的确认按钮 ---
+2026-03-09 18:34:56 [ INFO ] common_actions.py:263 | ✅ 成功点击按钮: 确认
+2026-03-09 18:34:56 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-09 18:34:57 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.qingshu
+2026-03-09 18:34:57 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.qingshu
+2026-03-09 18:35:07 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-09 18:35:10 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
+2026-03-09 18:35:10 [ INFO ] test_VshowBase_Dynamic09.py:49 | 观众端--登录app，搜索发布动态的用户-由详情页进入
+2026-03-09 18:35:18 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
+2026-03-09 18:35:20 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击搜索按钮
+2026-03-09 18:35:29 [ INFO ] common_actions.py:72 | --- 输入用户id ---
+2026-03-09 18:35:32 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
+2026-03-09 18:35:35 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37146285'
+2026-03-09 18:35:40 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
+2026-03-09 18:35:41 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
+2026-03-09 18:35:54 [ INFO ] common_actions.py:381 | --- [观众端查看主播端的动态是否删除] ---
+2026-03-09 18:35:55 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 1.36s）: ['']
+2026-03-09 18:35:55 [ INFO ] vshow_conf.py:112 | 
+--- Teardown: Quitting Appium Driver ---
+2026-03-09 18:35:56 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
+2026-03-09 18:35:56 [ INFO ] test_VshowBase_Dynamic09.py:58 | 清除手机后台指定APP应用
+2026-03-09 18:35:56 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-09 18:35:56 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu

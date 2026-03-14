@@ -52,6 +52,7 @@ class Test_VSHOWBASE_Dynamic09:
                             step_name="点击主播头像进入详情页")
         WebDriverWait(driver, 15).until(
             EC.element_to_be_clickable((AppiumBy.XPATH, "//*[contains(@text, '动态(')]"))).click()
+
         assert wait_for_page_text(driver, self.content,step_name="观众端查看主播端的动态是否删除") == False;"观众端去查看主播端删除的内容，主播端删除失败"
 
     def teardown_method(self):

@@ -51,7 +51,7 @@ class Test_VSHOWBASE_Dynamic06:
 
         scroll_to_element(
             driver,
-            locator=(AppiumBy.ID, self.driver_data.get("appPackage") + ":id/ivCommentCount"),
+            locator=(AppiumBy.ID, self.driver_data.get("appPackage") + ":id/etInput"),
             direction="up",
             max_swipes=10
         )

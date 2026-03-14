@@ -1,4 +1,4 @@
-
+import logging
 from Vshow_TOOLS.common_actions import *
 from Vshow_TOOLS.read_cfg import get_config
 from Vshow_TOOLS.scroll_to_element import scroll_to_element
