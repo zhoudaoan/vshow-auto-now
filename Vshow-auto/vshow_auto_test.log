@@ -1,24 +1,7 @@
-2026-03-14 18:31:18 [ INFO ] test_VshowBase_Topic03.py:24 | 获取app的配置信息用于退出后台
-2026-03-14 18:31:18 [ INFO ] test_VshowBase_Topic03.py:35 | 登录app，进入动态，选择话题发布
-2026-03-14 18:31:18 [ INFO ] more_devices.py:26 | 
---- Setup: Initializing  More Appium Driver ---
-2026-03-14 18:31:23 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-03-14 18:31:23 [ INFO ] common_actions.py:31 | --- 点击底部发布动态的按钮 ---
-2026-03-14 18:31:26 [ WARNING ] common_actions.py:46 | ⚠️ 第 1/21 次点击 'com.baitu.qingshu:id/navDynamic' 失败 (NoSuchElementException)，0.20s 后重试...
-2026-03-14 18:31:28 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击底部发布动态的按钮
-2026-03-14 18:31:28 [ INFO ] common_actions.py:761 | --- 点击热榜按钮 ---
-2026-03-14 18:31:33 [ INFO ] common_actions.py:769 | ✅ 成功点击: 点击热榜按钮
-2026-03-14 18:31:33 [ INFO ] common_actions.py:455 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvViews) ---
-2026-03-14 18:31:33 [ INFO ] common_actions.py:469 | ✅ 通过 .text 获取到文本: '71' (ID: com.baitu.qingshu:id/tvViews)
-2026-03-14 18:31:33 [ INFO ] common_actions.py:455 | --- 尝试获取文本 (ID: com.baitu.qingshu:id/tvTitle) ---
-2026-03-14 18:31:34 [ INFO ] common_actions.py:469 | ✅ 通过 .text 获取到文本: '新建一个活动话题' (ID: com.baitu.qingshu:id/tvTitle)
-2026-03-14 18:31:34 [ INFO ] common_actions.py:324 | --- 根据获取到的topic：新建一个活动话题,进入到详情页面 ---
-2026-03-14 18:31:36 [ INFO ] common_actions.py:337 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.qingshu:id/tvTitle" and @text="新建一个活动话题"]
-2026-03-14 18:31:36 [ INFO ] common_actions.py:382 | --- [判断是否点击话题进入到动态发布页面] ---
-2026-03-14 18:31:36 [ INFO ] common_actions.py:401 | ✅ 页面加载成功，所有文本已出现（等待 0.08s）: ['发布动态']
-2026-03-14 18:31:37 [ INFO ] common_actions.py:31 | --- 点击话题详情页面里面的第一个用户头像 ---
-2026-03-14 18:31:37 [ INFO ] common_actions.py:39 | ✅ 成功点击: 点击话题详情页面里面的第一个用户头像
-2026-03-14 18:31:37 [ INFO ] common_actions.py:382 | --- [等待页面包含文本: ['资料', '荣誉墙', '动态']] ---
-2026-03-14 18:31:40 [ INFO ] common_actions.py:401 | ✅ 页面加载成功，所有文本已出现（等待 2.61s）: ['资料', '荣誉墙', '动态']
-2026-03-14 18:31:40 [ INFO ] test_VshowBase_Topic03.py:58 | 清除手机后台指定APP应用
-2026-03-14 18:31:40 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.qingshu
+2026-03-26 14:22:36 [ INFO ] test_VshowBase_My02.py:15 | 获取设备的udid和设备包名用作最后的清除动作
+2026-03-26 14:22:36 [ INFO ] vshow_conf.py:64 | 
+--- Setup: Initializing Appium Driver ---
+2026-03-26 14:22:36 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-26 14:22:36 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.poppo
+2026-03-26 14:22:53 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-26 14:23:10 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo

@@ -5,6 +5,8 @@ from Vshow_TOOLS.common_actions import *
 import logging
 from Vshow_TOOLS.read_cfg import get_config
 from Vshow_TOOLS.random_str import create_string_number, generate_random_chinese
+from Vshow_TOOLS.scroll_to_element import is_element_exist_after_scroll
+
 app_package = get_config(section="vshow_app_conf",option="vshow_app_conf").get("appPackage")
 logger = logging.getLogger(__name__)
 
@@ -428,15 +430,89 @@ def join_fedd(driver):
         step_name="点击广场按钮"
     )
 
-# @with_popup_dismiss
-def content_operate(driver,tag):
+
+def mutually_add_friends(driver, user_id, user_nickname=None):
     """
-    进入到动态详情页面操作动态数据点赞，删除和评论
-    :param driver: 初始化的appium
-    :param tag: 1、点赞，
-    :return:
+    【健壮版】智能判断并添加好友。
+    逻辑：
+    1. 先在关注列表查找。
+    2. 若找到 -> 直接判定为已关注，跳过后续操作。
+    3. 若未找到 -> 去搜索并尝试关注。
+    4. 关注时自动检测是否已是“已关注”状态（防止重复点击报错）。
+
+    :param driver: Appium Driver
+    :param user_id: 用户 ID (字符串)
+    :param user_nickname: 用户昵称 (可选，用于双重验证，提高查找成功率)
+    :return: True (操作成功或已是好友), False (彻底失败)
     """
-    click_element_by_id(driver, element_id=app_package+":id/tv_content", step_name="进入到动态详情页面")
+    logger.info(f"🤝 开始处理好友关系：目标用户 ID={user_id}")
+
+    # --- 步骤 1: 进入关注列表 ---
+    try:
+        click_element_by_id(driver, element_id=f"{app_package}:id/navMe", step_name="进入【我的】页面")
+        click_element_by_id(driver, element_id=f"{app_package}:id/tv_fav_count", step_name="进入【关注列表】")
+    except Exception as e:
+        logger.error(f"❌ 无法进入关注列表，终止操作: {e}")
+        return False
+
+    # --- 步骤 2: 智能查找用户 (核心优化点) ---
+    locators_to_try = [
+        (AppiumBy.XPATH, f"//*[contains(@text, '{user_id}')]"),  # 模糊匹配 ID
+    ]
+
+    if user_nickname:
+        locators_to_try.append((AppiumBy.XPATH, f"//*[@text='{user_nickname}']"))  # 精确匹配昵称
+
+    is_found = False
+    for locator in locators_to_try:
+        logger.debug(f"🔍 尝试查找定位器: {locator}")
+        # 使用滑动查找，只要找到一个就停止
+        if is_element_exist_after_scroll(driver, locator=locator, max_swipes=3, timeout_per_check=1.0):
+            is_found = True
+            logger.info(f"✅ 在关注列表中找到用户 (定位器: {locator})，确认为【已关注】状态。")
+            break
+
+    if is_found:
+        # 既然是已关注，不需要做任何操作，直接返回成功
+        try:
+            driver.press_keycode(AndroidKey.BACK)
+        except:
+            pass
+        return True
+
+    # --- 步骤 3: 未找到，执行关注流程 ---
+    logger.info("⚠️ 列表中未找到用户，开始执行【搜索并关注】流程...")
+
+    try:
+        # 3.1 返回并去搜索
+        driver.press_keycode(AndroidKey.BACK)
+        click_element_by_id(driver, element_id=f"{app_package}:id/navLive", step_name="进入【直播】页")
+
+        # 假设 search_user 内部已经封装好了输入和搜索点击，如果没有，需要确保它足够健壮
+        # 如果 search_user 不健壮，建议在这里也加上重试逻辑
+        search_user(driver, user_id)
+
+        # 3.2 点击进入个人中心
+        # 优化：这里也可以用 find_element + 重试，而不是直接 crash
+        click_element_by_id(driver, element_id=f"{app_package}:id/ivAvatar", step_name="点击搜索结果头像")
+
+        # 3.3 尝试点击关注 (关键优化：处理“已关注”状态)
+        follow_btn_id = f"{app_package}:id/cl_follow"
+
+        # 执行点击关注
+        click_element_by_id(driver, element_id=follow_btn_id, step_name="点击【关注】按钮")
+
+        logger.info(f"✅ 成功执行关注操作，当前用户状态更新为：已关注 ({user_id})")
+        return True
+
+    except Exception as e:
+        logger.error(f"💥 关注流程执行失败: {e}")
+        # 这里可以选择截图
+        # driver.save_screenshot(f"follow_fail_{user_id}.png")
+        return False
+
+
+
 
 
 

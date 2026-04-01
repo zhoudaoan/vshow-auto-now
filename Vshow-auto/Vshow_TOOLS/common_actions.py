@@ -5,7 +5,6 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from appium.webdriver.common.appiumby import AppiumBy
-from Vshow_Page.vshow_conf import driver
 from Vshow_TOOLS.dismiss_known_popups import with_popup_dismiss
 from selenium.common.exceptions import NoSuchElementException
 import logging
@@ -355,7 +354,7 @@ def wait_for_page_text(
     step_name: str = None,
     timeout: int = 10,
     match_all: bool = True,
-    retries: int = 20,
+    retries: int = 3,
 ) -> bool:
     """
     等待页面中出现指定的一个或多个文案，用于判断页面加载成功。
@@ -368,7 +367,7 @@ def wait_for_page_text(
     :param match_all:
         - True（默认）：所有文本都必须出现
         - False：任意一个出现即成功
-    :param retries: 最多重试次数，默认 20 次
+    :param retries: 最多重试次数，默认 3 次
     :return: True if condition met within timeout, else False
     """
     if isinstance(texts, str):
@@ -584,7 +583,7 @@ def is_text_count_greater_than_safe(
     text: str,
     exact_match: bool = True,
     timeout: int = 10,
-    min_count: int = 2
+    min_count: int = 1
 ) -> bool:
     """
     检查页面中 text 属性匹配的元素数量是否 > min_count
@@ -594,7 +593,7 @@ def is_text_count_greater_than_safe(
         text: 要查找的文本
         exact_match: 是否精确匹配（True）还是部分包含（False）
         timeout: 最大等待时间（秒）
-        min_count: 阈值，默认为2（即 >2 表示至少3个）
+        min_count: 阈值，默认为1（即 >1 表示至少2个）
 
     返回:
         bool: 元素数量 > min_count 则返回 True

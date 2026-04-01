@@ -1,63 +1,14 @@
-2026-03-06 10:15:57 [ INFO ] test_VshowBase_My02.py:15 | 获取设备的udid和设备包名用作最后的清除动作
-2026-03-06 10:15:57 [ INFO ] vshow_conf.py:64 | 
+2026-03-26 14:16:04 [ INFO ] test_VshowBase_My02.py:15 | 获取设备的udid和设备包名用作最后的清除动作
+2026-03-26 14:16:04 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-03-06 10:15:58 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
-2026-03-06 10:16:10 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-03-06 10:16:13 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-03-06 10:16:13 [ INFO ] test_VshowBase_My02.py:28 | 登录app,修改头像
-2026-03-06 10:16:21 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
-2026-03-06 10:16:21 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
-2026-03-06 10:16:28 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
-2026-03-06 10:16:29 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
-2026-03-06 10:16:34 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
-2026-03-06 10:16:35 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入我的详情编辑页面
-2026-03-06 10:16:38 [ INFO ] common_actions.py:30 | --- 点击头像 ---
-2026-03-06 10:16:39 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击头像
-2026-03-06 10:16:40 [ INFO ] common_actions.py:754 | --- 点击重新上传按钮 ---
-2026-03-06 10:16:42 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击重新上传按钮
-2026-03-06 10:16:44 [ INFO ] common_actions.py:754 | --- 点击从相册选择按钮 ---
-2026-03-06 10:16:45 [ INFO ] common_actions.py:762 | ✅ 成功点击: 点击从相册选择按钮
-2026-03-06 10:16:49 [ INFO ] common_actions.py:754 | --- 选择头像图片--默认选择第一个 ---
-2026-03-06 10:16:51 [ INFO ] common_actions.py:762 | ✅ 成功点击: 选择头像图片--默认选择第一个
-2026-03-06 10:16:55 [ INFO ] common_actions.py:30 | --- 点击选择图片的下一步 ---
-2026-03-06 10:16:55 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击选择图片的下一步
-2026-03-06 10:16:59 [ INFO ] common_actions.py:30 | --- 对头像进行裁剪 ---
-2026-03-06 10:16:59 [ INFO ] common_actions.py:38 | ✅ 成功点击: 对头像进行裁剪
-2026-03-06 10:16:59 [ INFO ] vshow_conf.py:112 | 
---- Teardown: Quitting Appium Driver ---
-2026-03-06 10:16:59 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-03-06 10:16:59 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
-2026-03-06 10:16:59 [ INFO ] test_VshowBase_My03.py:16 | 获取设备的udid和设备包名用作最后的清除动作
-2026-03-06 10:16:59 [ INFO ] vshow_conf.py:64 | 
+2026-03-26 14:16:05 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-26 14:16:05 [ INFO ] vshow_conf.py:49 | 🧹 Removed 1 recent/hidden tasks for com.baitu.poppo
+2026-03-26 14:16:22 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-26 14:16:39 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-26 14:16:39 [ INFO ] test_VshowBase_My03.py:16 | 获取设备的udid和设备包名用作最后的清除动作
+2026-03-26 14:16:39 [ INFO ] vshow_conf.py:64 | 
 --- Setup: Initializing Appium Driver ---
-2026-03-06 10:16:59 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
-2026-03-06 10:17:00 [ INFO ] vshow_conf.py:49 | 🧹 Removed 1 recent/hidden tasks for com.baitu.poppo
-2026-03-06 10:17:11 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-03-06 10:17:14 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-03-06 10:17:14 [ INFO ] test_VshowBase_My03.py:28 | 登录app,修改昵称
-2026-03-06 10:17:26 [ INFO ] common_actions.py:30 | --- 进如【我的】页面 ---
-2026-03-06 10:17:27 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进如【我的】页面
-2026-03-06 10:17:32 [ INFO ] common_actions.py:30 | --- 进入到我的详情页面 ---
-2026-03-06 10:17:34 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入到我的详情页面
-2026-03-06 10:17:40 [ INFO ] common_actions.py:30 | --- 进入我的详情编辑页面 ---
-2026-03-06 10:17:42 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入我的详情编辑页面
-2026-03-06 10:17:47 [ INFO ] common_actions.py:30 | --- 点击昵称 ---
-2026-03-06 10:17:48 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击昵称
-2026-03-06 10:17:50 [ INFO ] common_actions.py:72 | --- 输入新的昵称 ---
-2026-03-06 10:17:53 [ WARNING ] common_actions.py:85 | 输入新的昵称: clear() failed, fallback to backspace: clear() did not work
-2026-03-06 10:17:57 [ INFO ] common_actions.py:89 | ✅ 输入新的昵称: 输入完成 -> 'w41h38'
-2026-03-06 10:18:00 [ INFO ] common_actions.py:375 | --- [等待页面包含文本: ['提示：本次修改昵称需要扣除10000金币。']] ---
-2026-03-06 10:18:10 [ ERROR ] common_actions.py:424 | ❌ 页面加载超时 10s，未满足文本条件 | 期望: ['提示：本次修改昵称需要扣除10000金币。'] | 缺失: ['提示：本次修改昵称需要扣除10000金币。']
-2026-03-06 10:18:15 [ INFO ] common_actions.py:754 | --- 点击保存按钮 ---
-2026-03-06 10:18:16 [ WARNING ] common_actions.py:766 | ⚠️ 第 1 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.30s 后重试...
-2026-03-06 10:18:17 [ WARNING ] common_actions.py:766 | ⚠️ 第 2 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.40s 后重试...
-2026-03-06 10:18:18 [ WARNING ] common_actions.py:766 | ⚠️ 第 3 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.50s 后重试...
-2026-03-06 10:18:19 [ WARNING ] common_actions.py:766 | ⚠️ 第 4 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.60s 后重试...
-2026-03-06 10:18:21 [ WARNING ] common_actions.py:766 | ⚠️ 第 5 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.70s 后重试...
-2026-03-06 10:18:22 [ WARNING ] common_actions.py:766 | ⚠️ 第 6 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.80s 后重试...
-2026-03-06 10:18:23 [ WARNING ] common_actions.py:766 | ⚠️ 第 7 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，0.90s 后重试...
-2026-03-06 10:18:25 [ WARNING ] common_actions.py:766 | ⚠️ 第 8 次点击 '//android.widget.TextView[@text="保存"]' 失败 (NoSuchElementException)，1.00s 后重试...
-2026-03-06 10:18:26 [ INFO ] vshow_conf.py:112 | 
---- Teardown: Quitting Appium Driver ---
-2026-03-06 10:18:26 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-03-06 10:18:26 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-03-26 14:16:39 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-03-26 14:16:39 [ INFO ] vshow_conf.py:49 | 🧹 Removed 2 recent/hidden tasks for com.baitu.poppo
+2026-03-26 14:16:57 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-03-26 14:17:13 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo

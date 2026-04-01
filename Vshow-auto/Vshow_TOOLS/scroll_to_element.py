@@ -150,3 +150,53 @@ def pull_to_refresh(driver, duration_ms: int = 1500):
     action.pointer_action.move_to_location(start_x, end_y)
     action.pointer_action.release()
     action.perform()
+
+
+def is_element_exist_after_scroll(
+        driver,
+        locator: tuple,
+        direction: str = "up",
+        max_swipes: int = 5,
+        swipe_duration: int = 600,
+        wait_after_swipe: float = 1.0,
+        timeout_per_check: float = 1.0  # 查找存在性
+):
+    """
+    滑动查找元素，仅判断是否存在。
+
+    :return:
+        - True: 找到元素 (无论是否可点击，只要存在于 DOM 中)
+        - False: 滑动指定次数后仍未找到
+
+    :注意:
+        - 此函数不会抛出 TimeoutException，找不到只会返回 False。
+        - 使用 presence_of_element_located 而非 element_to_be_clickable，
+          这意味着即使元素被遮挡或不可点击，只要存在也会返回 True。
+    """
+    logger.info(f"🔍 [存在性检查] 开始滑动查找: {locator}, 方向: {direction}")
+
+    for attempt in range(1, max_swipes + 1):
+        try:
+            WebDriverWait(driver, timeout_per_check).until(
+                EC.presence_of_element_located(locator)
+            )
+            logger.info(f"✅ 第 {attempt} 次尝试：元素存在！")
+            return True
+
+        except TimeoutException:
+            logger.debug(f"第 {attempt}/{max_swipes} 次：当前页未找到，准备滑动...")
+
+            if attempt == max_swipes:
+                logger.warning(f"❌ 滑动 {max_swipes} 次后仍未找到元素: {locator}")
+                return False
+
+            # 执行滑动
+            if direction == "up":
+                _swipe_up(driver, duration=swipe_duration)
+            elif direction == "down":
+                _swipe_down(driver, duration=swipe_duration)
+
+            # 等待滑动结束
+            time.sleep(wait_after_swipe)
+
+    return False
