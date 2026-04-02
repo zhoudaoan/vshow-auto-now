@@ -1,5 +1,4 @@
 import base64
-import datetime
 import json
 import os
 import re
@@ -21,10 +20,12 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, END
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
 load_dotenv()
 
+
 # =========================
-# 1. 状态定义
+# 1. 状态定义 (已优化)
 # =========================
 class AgentState(TypedDict):
     task: str
@@ -32,14 +33,19 @@ class AgentState(TypedDict):
     screenshot_path: str
     page_source_path: str
     ui_elements: List[Dict[str, Any]]
-    current_action: Dict[str, Any]
+    # --- 新增字段 ---
+    planned_actions: List[Dict[str, Any]]  # 存储AI规划的动作列表
+    executed_actions: List[Dict[str, Any]]  # 记录已成功执行的动作
+    error_message: Optional[str]  # 记录执行或规划时的错误
+    # --- 移除字段 ---
+    # current_action: Dict[str, Any]       # 不再需要单步action
     is_complete: bool
     step_count: int
     max_steps: int
 
 
 # =========================
-# 2. 全局配置
+# 2. 全局配置 (完全保留)
 # =========================
 BASE_DIR = Path(__file__).resolve().parent
 CURRENT_SCREEN_PATH = str(BASE_DIR / "current_screen.png")
@@ -58,7 +64,7 @@ driver = None
 
 
 # =========================
-# 3. Driver 初始化
+# 3. Driver 初始化 (完全保留)
 # =========================
 def build_options() -> UiAutomator2Options:
     options = UiAutomator2Options()
@@ -131,7 +137,7 @@ def ensure_driver():
 
 
 # =========================
-# 4. 通用工具
+# 4. 通用工具 (完全保留)
 # =========================
 def parse_bounds(bounds: str) -> Optional[Dict[str, int]]:
     match = re.match(r"\[(\d+),(\d+)\]\[(\d+),(\d+)\]", bounds or "")
@@ -182,7 +188,7 @@ def normalize_text(text: str) -> str:
 
 
 # =========================
-# 5. 页面元素提取
+# 5. 页面元素提取 (完全保留)
 # =========================
 def extract_ui_elements() -> List[Dict[str, Any]]:
     drv = ensure_driver()
@@ -228,7 +234,7 @@ def extract_ui_elements() -> List[Dict[str, Any]]:
 
 
 # =========================
-# 6. 弹窗处理
+# 6. 弹窗处理 (完全保留)
 # =========================
 def try_click_text_once(text: str) -> bool:
     drv = ensure_driver()
@@ -264,7 +270,7 @@ def dismiss_common_popups(max_rounds: int = 3):
 
 
 # =========================
-# 7. 截图节点
+# 7. 截图节点 (完全保留)
 # =========================
 def take_screenshot(state: AgentState) -> dict:
     print("📸 正在截取屏幕...")
@@ -278,6 +284,7 @@ def take_screenshot(state: AgentState) -> dict:
             "screenshot_path": CURRENT_SCREEN_PATH,
             "page_source_path": CURRENT_PAGE_SOURCE_PATH,
             "ui_elements": ui_elements,
+            "error_message": None  # 清除可能的旧错误
         }
     except Exception as e:
         print(f"❌ 截图失败: {repr(e)}")
@@ -286,12 +293,13 @@ def take_screenshot(state: AgentState) -> dict:
             "screenshot_path": "",
             "page_source_path": "",
             "ui_elements": [],
+            "error_message": repr(e),
             "history": state["history"] + [f"Screenshot error: {repr(e)}"]
         }
 
 
 # =========================
-# 8. 执行动作工具
+# 8. 执行动作工具 (完全保留)
 # =========================
 def click_by_text(text: str) -> bool:
     drv = ensure_driver()
@@ -380,13 +388,23 @@ def try_focus_and_type(text: str):
 
 
 # =========================
-# 9. 动作执行节点
+# 9. 动作执行节点 (已优化)
 # =========================
-def execute_action(state: AgentState) -> dict:
-    action = state.get("current_action", {})
-    action_type = action.get("type")
-    value = action.get("value")
-    step_count = state.get("step_count", 0) + 1
+def execute_planned_action(state: AgentState) -> dict:
+    """执行计划中的下一个动作。"""
+    planned_actions = state.get('planned_actions', [])
+    executed_count = len(state.get('executed_actions', []))
+    step_count = executed_count + 1
+
+    if executed_count >= len(planned_actions):
+        return {
+            "error_message": "没有更多计划动作可执行。",
+            "step_count": step_count
+        }
+
+    next_action = planned_actions[executed_count]
+    action_type = next_action.get("type")
+    value = next_action.get("value")
     print(f"🤖 第 {step_count} 步，准备执行动作: {action_type} - {value}")
 
     try:
@@ -449,6 +467,7 @@ def execute_action(state: AgentState) -> dict:
             print("✅ 任务标记为完成")
             return {
                 "is_complete": True,
+                "executed_actions": state.get('executed_actions', []) + [next_action],
                 "step_count": step_count,
                 "history": state["history"] + [f"Done: {value}"]
             }
@@ -456,97 +475,104 @@ def execute_action(state: AgentState) -> dict:
         else:
             raise ValueError(f"未知动作类型: {action_type}")
 
+        # 记录成功执行的动作
+        new_executed = state.get('executed_actions', []) + [next_action]
         return {
+            "executed_actions": new_executed,
             "history": state["history"] + [f"Executed: {action_type}({value})"],
-            "step_count": step_count
+            "step_count": step_count,
+            "error_message": None
         }
 
     except Exception as e:
-        print(f"❌ 执行动作失败: {repr(e)}")
+        error_msg = f"执行动作失败: {action_type}({value}) -> {repr(e)}"
+        print(f"❌ {error_msg}")
         traceback.print_exc()
         return {
-            "history": state["history"] + [f"Action error: {action_type}({value}) -> {repr(e)}"],
+            "history": state["history"] + [error_msg],
             "step_count": step_count,
-            "current_action": {
-                "type": "done",
-                "value": f"action error: {repr(e)}"
-            }
+            "error_message": error_msg
         }
 
 
 # =========================
-# 10. LLM 配置
+# 10. LLM 配置 (完全保留)
 # =========================
 llm = ChatOpenAI(
-    model=os.getenv("OPENAI_MODEL", "gpt-5.4"),
+    model=os.getenv("OPENAI_MODEL", "gpt-4o"),
     temperature=0
 )
 
-SYSTEM_PROMPT = """
-你是一个移动端自动化执行代理。
-你会收到：
-1. 用户任务
-2. 最近操作历史
-3. 当前屏幕截图
-4. 当前页面元素列表 ui_elements
+# --- 优化后的 SYSTEM_PROMPT ---
+PLANNER_SYSTEM_PROMPT = """
+你是一个专业的移动应用自动化专家。你的任务是帮助用户完成在手机上的操作。
+请严格遵循以下规则：
 
-请你决定下一步最合理的自动化动作。
-你必须严格只返回一个 JSON 对象，不要返回 markdown，不要返回解释，不要返回多余文字。
+1. **规划模式**:
+   - 当收到一个新任务时，请一次性生成一个完整的、详细的、按顺序执行的操作计划。
+   - 计划必须是一个 JSON 数组，每个元素代表一个操作步骤。
+   - 操作类型包括: "click_text", "click_id", "click_xpath", "click_coordinate", "click_bounds", "type_text", "swipe", "back", "wait", "done"。
+   - 示例输出: 
+     [
+        {"type": "click_text", "value": "直播"},
+        {"type": "wait", "value": "2"},
+        {"type": "click_id", "value": "com.example.app:id/start_btn"},
+        {"type": "done", "value": ""}
+     ]
 
-允许的动作格式只有以下几种：
-1. {"type": "click_id", "value": "com.example:id/button"}
-2. {"type": "click_text", "value": "按钮文字"}
-3. {"type": "click_xpath", "value": "//android.widget.TextView[@text='确定']"}
-4. {"type": "click_coordinate", "value": {"x": 100, "y": 200}}
-5. {"type": "click_bounds", "value": "[100,200][300,400]"}
-6. {"type": "type_text", "value": "文本"}
-7. {"type": "swipe", "value": "up"}
-8. {"type": "back", "value": "返回"}
-9. {"type": "wait", "value": 2}
-10. {"type": "done", "value": "完成"}
+2. **重规划模式**:
+   - 如果被告知某个操作失败，请根据当前屏幕截图和UI元素，重新规划从该点开始的剩余操作。
+   - 同样输出一个 JSON 数组。
 
-规则：
-- 优先级：click_id > click_text > click_xpath > click_bounds > click_coordinate
-- 如果 ui_elements 中能明确定位元素，优先使用结构化定位，不要盲点坐标
-- 如果页面还在加载，可以返回 wait
-- 如果当前页面明显错误，可以返回 back
-- 如果任务已经完成，返回 done
-- 只能返回一个 JSON 对象
-- 返回必须是合法 JSON
+3. **注意事项**:
+   - 优先使用ID (`resource-id`)，其次使用文本 (`text`)，然后是xpath等。
+   - 对于输入操作，请确保先点击输入框再输入。
+   - "wait" 操作的 value 是秒数，用于等待页面加载。
+   - 如果任务已完成，最后一个操作必须是 "done"。
+   - 只能返回一个 JSON 数组，不要返回任何其他文字、解释或 Markdown。
 """
 
 
 # =========================
-# 11. LLM 响应解析
+# 11. LLM 响应解析 (已优化)
 # =========================
-def parse_llm_action_text(raw_text: str) -> Dict[str, Any]:
+def parse_llm_plan(raw_text: str) -> List[Dict[str, Any]]:
     text = (raw_text or "").strip()
-    text = re.sub(r"^```json\s*", "", text)
+    # 移除可能的 Markdown 代码块
+    text = re.sub(r"^```json\s*", "", text, flags=re.IGNORECASE)
     text = re.sub(r"^```\s*", "", text)
     text = re.sub(r"\s*``` $ ", "", text)
     try:
         data = json.loads(text)
-        if "type" not in data or "value" not in data:
-            raise ValueError("缺少 type 或 value")
+        if not isinstance(data, list):
+            raise ValueError("LLM 应该返回一个 JSON 数组")
+        for item in data:
+            if "type" not in item or "value" not in item:
+                raise ValueError("数组中的每个对象必须包含 type 和 value")
         return data
-    except Exception:
-        match = re.search(r"\{.*\}", text, flags=re.S)
+    except Exception as e:
+        # 尝试从文本中提取 JSON 数组
+        match = re.search(r"  $ .* $  ", text, flags=re.S)
         if not match:
-            raise ValueError(f"无法从 LLM 输出中提取 JSON: {text}")
+            raise ValueError(f"无法从 LLM 输出中提取 JSON 数组: {text}")
         data = json.loads(match.group(0))
-        if "type" not in data or "value" not in data:
-            raise ValueError("缺少 type 或 value")
+        if not isinstance(data, list):
+            raise ValueError("提取的内容不是一个数组")
+        for item in data:
+            if "type" not in item or "value" not in item:
+                raise ValueError("数组中的每个对象必须包含 type 和 value")
         return data
 
 
 # =========================
-# 12. LLM 节点
+# 12. LLM 规划器节点 (核心新增)
 # =========================
-def llm_node(state: AgentState) -> dict:
-    print("🧠 LLM 正在思考...")
+def llm_planner(state: AgentState) -> dict:
+    print("🧠 LLM 正在规划整个任务...")
     if not state.get("screenshot_path"):
         return {
-            "current_action": {"type": "done", "value": "error: no screenshot"},
+            "planned_actions": [],
+            "error_message": "error: no screenshot",
             "history": state["history"] + ["LLM skipped: no screenshot"]
         }
 
@@ -554,19 +580,19 @@ def llm_node(state: AgentState) -> dict:
     try:
         base64_image = compress_image_to_base64(state["screenshot_path"])
         ui_elements = state.get("ui_elements", [])[:100]
-        user_payload = {
-            "task": state["task"],
-            "recent_history": state["history"][-5:],
-            "ui_elements": ui_elements,
-            "instruction": "请结合截图和 ui_elements 选择下一步动作，只返回 JSON。"
-        }
+
+        # 构建上下文
+        context = f"任务: {state['task']}\n"
+        if state.get('error_message'):
+            context += f"上一步操作失败: {state['error_message']}\n现在需要重新规划。\n"
+        context += "请生成一个完整的操作计划。"
 
         messages = [
-            SystemMessage(content=SYSTEM_PROMPT),
+            SystemMessage(content=PLANNER_SYSTEM_PROMPT),
             HumanMessage(content=[
                 {
                     "type": "text",
-                    "text": json.dumps(user_payload, ensure_ascii=False, indent=2)
+                    "text": context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False, indent=2)}"
                 },
                 {
                     "type": "image_url",
@@ -581,12 +607,15 @@ def llm_node(state: AgentState) -> dict:
         content = response.content
         print("💬 LLM 原始回复:", content)
         content_text = safe_extract_text_content(content)
-        action_dict = parse_llm_action_text(content_text)
-        print(f"✅ 解析出的动作: {action_dict}")
-        return {"current_action": action_dict}
+        planned_actions = parse_llm_plan(content_text)
+        print(f"✅ 解析出的动作计划: {planned_actions}")
+        return {
+            "planned_actions": planned_actions,
+            "error_message": None
+        }
 
     except Exception as e:
-        print(f"❌ LLM 调用或解析失败: {repr(e)}")
+        print(f"❌ LLM 规划调用或解析失败: {repr(e)}")
         print("🔍 原始 content:", content)
         traceback.print_exc()
 
@@ -594,70 +623,105 @@ def llm_node(state: AgentState) -> dict:
         try:
             print("🔁 尝试进行一次兜底重试...")
             ui_elements = state.get("ui_elements", [])[:40]
-            retry_prompt = {
-                "task": state["task"],
-                "recent_history": state["history"][-3:],
-                "ui_elements": ui_elements,
-                "instruction": (
-                    "你上一次输出不符合要求。"
-                    "现在只允许输出一个合法 JSON，字段必须包含 type 和 value。"
-                )
-            }
+            retry_context = f"任务: {state['task']}\n"
+            if state.get('error_message'):
+                retry_context += f"上一步操作失败: {state['error_message']}\n"
+            retry_context += "你上一次输出不符合要求。现在只允许输出一个合法的 JSON 数组。"
+
             retry_messages = [
-                SystemMessage(content=SYSTEM_PROMPT),
-                HumanMessage(content=json.dumps(retry_prompt, ensure_ascii=False))
+                SystemMessage(content=PLANNER_SYSTEM_PROMPT),
+                HumanMessage(content=[
+                    {"type": "text",
+                     "text": retry_context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False)}"},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}}
+                ])
             ]
             retry_resp = llm.invoke(retry_messages)
             retry_text = safe_extract_text_content(retry_resp.content)
-            action_dict = parse_llm_action_text(retry_text)
-            print(f"✅ 兜底重试成功，动作: {action_dict}")
-            return {"current_action": action_dict}
+            planned_actions = parse_llm_plan(retry_text)
+            print(f"✅ 兜底重试成功，动作计划: {planned_actions}")
+            return {"planned_actions": planned_actions, "error_message": None}
         except Exception as retry_e:
             print(f"❌ 兜底重试仍失败: {repr(retry_e)}")
             traceback.print_exc()
             return {
-                "current_action": {"type": "done", "value": f"error: {repr(e)}"},
-                "history": state["history"] + [f"LLM error: {repr(e)}"]
+                "planned_actions": [],
+                "error_message": f"LLM planning error: {repr(e)}",
+                "history": state["history"] + [f"LLM planning error: {repr(e)}"]
             }
 
 
 # =========================
-# 13. LangGraph 工作流
+# 13. LangGraph 工作流 (已重构)
 # =========================
-workflow = StateGraph(AgentState)
+def should_continue_or_replan(state: AgentState):
+    """决定下一步是继续执行、结束还是需要重规划。"""
+    error = state.get('error_message')
+    planned_actions = state.get('planned_actions', [])
+    executed_count = len(state.get('executed_actions', []))
+    step_count = state.get('step_count', 0)
+    max_steps = state.get('max_steps', 10)
 
-workflow.add_node("screenshot", take_screenshot)
-workflow.add_node("think", llm_node)
-workflow.add_node("act", execute_action)
-
-workflow.set_entry_point("screenshot")
-workflow.add_edge("screenshot", "think")
-workflow.add_edge("think", "act")
-
-
-def should_continue(state: AgentState):
-    is_done = state.get("is_complete") or state.get("current_action", {}).get("type") == "done"
-    max_steps = state.get("max_steps", 10)
-    step_count = state.get("step_count", 0)
-
+    # 检查步数限制
     if step_count >= max_steps:
         print(f"🛑 达到最大步数限制: {max_steps}")
-        return END
+        return "end"
 
-    if is_done:
-        print("🏁 检测到结束条件，终止循环")
-        return END
+    # 如果有错误，需要重规划
+    if error:
+        print("🔄 检测到执行错误，触发重规划流程")
+        return "replan"
 
-    print("🔄 任务未完成，继续下一轮")
-    return "screenshot"
+    # 如果所有动作都执行完了
+    if executed_count >= len(planned_actions):
+        last_action = planned_actions[-1] if planned_actions else {}
+        if last_action.get('type') == 'done':
+            print("🏁 检测到结束条件，终止循环")
+            return "end"
+        else:
+            print("🏁 所有计划动作已执行完毕")
+            return "end"
+
+    # 否则，继续执行下一个动作
+    print("➡️ 继续执行下一个计划动作")
+    return "continue"
 
 
-workflow.add_conditional_edges("act", should_continue)
+# 构建新的工作流
+workflow = StateGraph(AgentState)
+
+# 添加节点
+workflow.add_node("initial_screenshot", take_screenshot)
+workflow.add_node("plan", llm_planner)
+workflow.add_node("execute", execute_planned_action)
+workflow.add_node("re_screenshot", take_screenshot)
+workflow.add_node("replan", llm_planner)
+
+# 设置入口
+workflow.set_entry_point("initial_screenshot")
+workflow.add_edge("initial_screenshot", "plan")
+
+# 主执行循环
+workflow.add_edge("plan", "execute")
+workflow.add_conditional_edges(
+    "execute",
+    should_continue_or_replan,
+    {
+        "continue": "execute",  # 继续执行下一个动作
+        "replan": "re_screenshot",  # 出错，重新截图并规划
+        "end": END
+    }
+)
+
+# 重规划路径
+workflow.add_edge("re_screenshot", "replan")
+workflow.add_edge("replan", "execute")  # 重规划后，回到执行节点
+
 app = workflow.compile()
 
 
 # =========================
-# 14. 调试辅助
+# 14. 调试辅助 (完全保留)
 # =========================
 def print_top_ui_elements(elements: List[Dict[str, Any]], limit: int = 20):
     print(f"🔎 当前 UI 元素（最多显示 {limit} 个）:")
@@ -688,7 +752,7 @@ def debug_dump_current_screen():
 
 
 # =========================
-# 15. 主程序
+# 15. 主程序 (微调以适应新状态)
 # =========================
 if __name__ == "__main__":
     # task = input(f"请输入任务（直接回车则使用默认任务: {DEFAULT_TASK}）: ").strip()
@@ -703,7 +767,11 @@ if __name__ == "__main__":
         "screenshot_path": "",
         "page_source_path": "",
         "ui_elements": [],
-        "current_action": {},
+        # --- 初始化新增字段 ---
+        "planned_actions": [],
+        "executed_actions": [],
+        "error_message": None,
+        # ----------------------
         "is_complete": False,
         "step_count": 0,
         "max_steps": 10,
@@ -745,4 +813,3 @@ if __name__ == "__main__":
                 print("👋 Driver 已关闭")
         except Exception as e:
             print(f"⚠️ 关闭 driver 失败: {repr(e)}")
-

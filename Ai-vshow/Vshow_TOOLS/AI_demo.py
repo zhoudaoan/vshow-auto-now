@@ -1,15 +1,16 @@
-import openai
+from openai import OpenAI
+from dotenv import load_dotenv
 
-client = openai.OpenAI(
-    api_key="sk-qmcloud-8_kdYDK_Ga4r9i2CUo-Pods8jXxP4pIOVpJCH-JAmMo",
-    base_url="https://api.qianmian.ai/v1"
-)
+load_dotenv()
+client = OpenAI()
 
-response = client.chat.completions.create(
-    model="gpt-5.4",
+resp = client.chat.completions.create(
+    model="gpt-4o",
     messages=[
-        {"role": "user", "content": "Hello!"}
-    ]
+        {"role": "system", "content": "你是一个助手"},
+        {"role": "user", "content": "你好"}
+    ],
+    temperature=0
 )
 
-print(response.choices[0].message.content)
+print(resp)
