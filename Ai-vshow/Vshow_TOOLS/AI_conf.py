@@ -37,8 +37,6 @@ class AgentState(TypedDict):
     planned_actions: List[Dict[str, Any]]  # 存储AI规划的动作列表
     executed_actions: List[Dict[str, Any]]  # 记录已成功执行的动作
     error_message: Optional[str]  # 记录执行或规划时的错误
-    # --- 移除字段 ---
-    # current_action: Dict[str, Any]       # 不再需要单步action
     is_complete: bool
     step_count: int
     max_steps: int

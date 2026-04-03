@@ -1,0 +1,8 @@
+# requirements.txt
+python-dotenv
+appium-python-client
+Pillow
+langchain-core
+langchain-openai
+langgraph
+pydantic-settings
