@@ -1,6 +1,13 @@
 # src/agents/state.py
 from typing import TypedDict, List, Dict, Any, Optional
 
+class TestCaseConfig(TypedDict):
+    name: str
+    description: str
+    task: str
+    max_steps: int
+    timeout_seconds: int
+
 class AgentState(TypedDict):
     task: str
     history: List[str]
@@ -13,3 +20,4 @@ class AgentState(TypedDict):
     is_complete: bool
     step_count: int
     max_steps: int
+    test_case: TestCaseConfig

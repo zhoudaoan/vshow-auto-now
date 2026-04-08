@@ -1,41 +1,43 @@
-AIvshow_/
+## 📂 项目结构
+
+本项目采用模块化设计，结构清晰，易于维护和扩展。
+
+
+AI-vshow/
 │
-├── .env                          # 环境变量 (保留)
-├── requirements.txt              # 依赖列表
+├── .env # 环境变量配置文件 (Appium, OpenAI等)
+├── requirements.txt # Python依赖库列表
+├── main.py # 测试执行器主入口 (集成Allure)
 │
-├── src/                          # 核心源代码目录
-│   ├── __init__.py
-│   │
-│   ├── config/                   # 配置管理
-│   │   ├── __init__.py
-│   │   └── settings.py           # 所有配置项集中于此
-│   │
-│   ├── drivers/                  # 移动端驱动层
-│   │   ├── __init__.py
-│   │   ├── appium_driver.py      # Appium初始化、会话管理
-│   │   └── element_handler.py    # UI元素提取、弹窗处理等
-│   │
-│   ├── actions/                  # 动作执行层
-│   │   ├── __init__.py
-│   │   ├── base_action.py        # 动作基类 (可选)
-│   │   └── mobile_actions.py     # click_text, swipe, type_text 等具体动作
-│   │
-│   ├── agents/                   # 智能体核心
-│   │   ├── __init__.py
-│   │   ├── state.py              # AgentState 定义
-│   │   ├── nodes/                # 工作流节点
-│   │   │   ├── __init__.py
-│   │   │   ├── screenshot_node.py
-│   │   │   ├── planner_node.py   # LLM规划器
-│   │   │   └── executor_node.py  # 动作执行器
-│   │   └── workflow.py           # LangGraph工作流定义 (app = workflow.compile())
-│   │
-│   └── utils/                    # 通用工具
-│       ├── __init__.py
-│       ├── image_processor.py    # 图片压缩、Base64编码
-│       └── xml_parser.py         # 页面源码解析 (可与element_handler合并)
+├── test_cases/ # 📁 测试用例目录
+│ ├── init.py
+│ ├── loader.py # 测试用例加载器
+│ └── *.json # 具体的测试用例文件 (如: live_stream_test.json)
 │
-├── tests/                        # 单元测试和集成测试 (强烈建议添加)
-│   └── ...
+├── src/ # 📁 核心源代码
+│ ├── init.py
+│ │
+│ ├── config/ # 📁 配置管理
+│ │ └── settings.py # Pydantic设置模型，统一管理所有配置
+│ │
+│ ├── drivers/ # 📁 设备驱动层
+│ │ ├── appium_driver.py # Appium会话管理
+│ │ └── element_handler.py # UI元素提取与弹窗处理
+│ │
+│ ├── actions/ # 📁 基础操作层
+│ │ └── mobile_actions.py # 封装点击、滑动、输入等原子操作
+│ │
+│ ├── utils/ # 📁 工具库
+│ │ └── image_processor.py # 图片处理工具 (如: Base64编码)
+│ │
+│ └── agents/ # 📁 AI智能体核心
+│ ├── init.py
+│ ├── state.py # 定义LangGraph状态和测试用例数据结构
+│ ├── workflow.py # 定义LangGraph工作流 (StateGraph)
+│ │
+│ └── nodes/ # 📁 工作流节点
+│ ├── screenshot_node.py # 截图与UI元素提取节点
+│ ├── planner_node.py # LLM规划节点
+│ └── executor_node.py # 动作执行节点
 │
-└── main.py                       # 程序入口，负责加载配置、启动工作流
+└── allure-results/ # 📁 (运行后自动生成) Allure测试结果数据

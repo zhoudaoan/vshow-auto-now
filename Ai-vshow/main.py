@@ -1,47 +1,52 @@
 # main.py
+import argparse
+import os
+import shutil
 import traceback
 from datetime import datetime
+from test_cases.loader import load_test_cases
 from src.config.settings import settings
 from src.agents.workflow import app
-from src.agents.state import AgentState
+from src.agents.state import AgentState, TestCaseConfig
 from src.drivers.appium_driver import driver_manager
-from src.drivers.element_handler import extract_ui_elements
-from src.drivers.appium_driver import AppiumDriverManager
+import allure
+from allure_commons.types import AttachmentType
 
+@allure.step("执行AI规划的动作")
+def _execute_ai_planned_steps(initial_state: AgentState) -> dict:
+    return app.invoke(initial_state)
 
-def debug_dump_current_screen():
+@allure.step("保存调试附件到报告")
+def _attach_debug_artifacts():
     try:
-
-        drv = driver_manager.driver
-        drv.get_screenshot_as_file(settings.CURRENT_SCREEN_PATH)
-        AppiumDriverManager()._save_page_source(drv, settings.CURRENT_PAGE_SOURCE_PATH)
-        elements = extract_ui_elements()
-
-        print(f"📷 当前截图: {settings.CURRENT_SCREEN_PATH}")
-        print(f"🧾 当前页面源码: {settings.CURRENT_PAGE_SOURCE_PATH}")
-        print_top_ui_elements(elements, limit=30)
+        if os.path.exists(settings.CURRENT_SCREEN_PATH):
+            allure.attach.file(
+                settings.CURRENT_SCREEN_PATH,
+                name="Current Screen",
+                attachment_type=AttachmentType.PNG
+            )
+        if os.path.exists(settings.CURRENT_PAGE_SOURCE_PATH):
+            with open(settings.CURRENT_PAGE_SOURCE_PATH, 'r', encoding='utf-8') as f:
+                allure.attach(
+                    f.read(),
+                    name="Current Page Source",
+                    attachment_type=AttachmentType.XML
+                )
     except Exception as e:
-        print(f"❌ debug_dump_current_screen 失败: {repr(e)}")
-        traceback.print_exc()
+        print(f"⚠️ 附加调试文件到Allure失败: {e}")
 
-def print_top_ui_elements(elements, limit=20):
-    print(f"🔎 当前 UI 元素（最多显示 {limit} 个）:")
-    for i, item in enumerate(elements[:limit], start=1):
-        print(
-            f"[{i}] text={item.get('text', '')!r}, "
-            f"id={item.get('resource_id', '')!r}, "
-            f"desc={item.get('content_desc', '')!r}, "
-            f"bounds={item.get('bounds', '')!r}, "
-            f"clickable={item.get('clickable', '')!r}"
-        )
+def run_single_test_case(test_case: TestCaseConfig):
+    allure.dynamic.title(test_case["name"])
+    allure.dynamic.description(test_case["description"])
 
-if __name__ == "__main__":
-    task = "点击当前页面的live按钮，再接着点击开始直播按钮，播10s钟，先点击关闭直播间在点击弹窗确认按钮"
-    if not task:
-        task = settings.DEFAULT_TASK
+    with allure.step("🧪 初始化测试环境"):
+        print(f"\n{'='*60}")
+        print(f"🧪 开始执行测试用例: {test_case['name']}")
+        print(f"📝 描述: {test_case['description']}")
+        print(f"{'='*60}")
 
     initial_state: AgentState = {
-        "task": task,
+        "task": test_case["task"],
         "history": [],
         "screenshot_path": "",
         "page_source_path": "",
@@ -51,38 +56,59 @@ if __name__ == "__main__":
         "error_message": None,
         "is_complete": False,
         "step_count": 0,
-        "max_steps": 10,
+        "max_steps": test_case["max_steps"],
+        "test_case": test_case
     }
 
-    print("🚀 智能体启动...")
-    print(f'开始时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
-    print(f"📝 当前任务: {task}")
-
     try:
-        final_state = app.invoke(initial_state)
-        print("✅ 任务结束")
-        print("📜 历史操作:")
-        for idx, item in enumerate(final_state.get("history", []), start=1):
-            print(f"  {idx}. {item}")
+        final_state = _execute_ai_planned_steps(initial_state)
+        is_passed = final_state.get("is_complete", False)
 
-        if final_state.get("screenshot_path"):
-            print("📷 最后截图:", final_state.get("screenshot_path"))
-        if final_state.get("page_source_path"):
-            print("🧾 最后页面源码:", final_state.get("page_source_path"))
-        print(f'结束时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+        if not is_passed:
+            _attach_debug_artifacts()
+            if final_state.get("error_message"):
+                allure.attach(
+                    final_state["error_message"],
+                    name="Execution Error",
+                    attachment_type=AttachmentType.TEXT
+                )
+
+        print(f"✅ 用例 '{test_case['name']}' 执行完毕。状态: {'PASSED' if is_passed else 'FAILED'}")
 
     except Exception as e:
-        print(f"❌ 任务执行出错: {repr(e)}")
-        traceback.print_exc()
-        try:
-            print("🛠️ 尝试导出当前页面调试信息...")
-            debug_dump_current_screen()
-        except Exception:
-            pass
+        allure.attach(
+            traceback.format_exc(),
+            name="Exception Traceback",
+            attachment_type=AttachmentType.TEXT
+        )
+        _attach_debug_artifacts()
+        print(f"❌ 用例 '{test_case['name']}' 执行出错: {repr(e)}")
+        raise # 重新抛出异常，让Allure捕获为失败
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="运行移动端AI自动化测试用例 (Allure版)")
+    parser.add_argument("--cases", type=str, default="test_cases", help="测试用例目录路径")
+    args = parser.parse_args()
+
+    print("🚀 启动AI自动化测试执行器 (Allure Report)...")
+
+    try:
+        test_cases = load_test_cases(args.cases)
+        if not test_cases:
+            print("⚠️ 未找到任何测试用例。")
+            exit(1)
+
+        for case in test_cases:
+            run_single_test_case(case)
+
+        print("\n✅ 所有用例执行完毕。")
+        print("📊 要查看Allure报告，请在项目根目录运行:")
+        print("   allure serve allure-results")
+
     finally:
         try:
             if driver_manager._driver is not None:
                 driver_manager._driver.quit()
-                print("👋 Driver 已关闭")
+                print("👋 Appium Driver 已关闭")
         except Exception as e:
             print(f"⚠️ 关闭 driver 失败: {repr(e)}")

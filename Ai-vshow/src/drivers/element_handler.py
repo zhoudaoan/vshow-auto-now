@@ -3,7 +3,6 @@ import re
 import traceback
 import xml.etree.ElementTree as ET
 from typing import List, Dict, Any, Optional
-from appium.webdriver.common.appiumby import AppiumBy
 from ..config.settings import settings
 from ..drivers.appium_driver import driver_manager
 import time
@@ -77,7 +76,7 @@ def try_click_text_once(text: str) -> bool:
     ]
     for sel in selectors:
         try:
-            drv.find_element(AppiumBy.ANDROID_UIAUTOMATOR, sel).click()
+            drv.find_element("android uiautomator", sel).click()
             print(f"✅ 已点击弹窗元素: {text}")
             return True
         except Exception:

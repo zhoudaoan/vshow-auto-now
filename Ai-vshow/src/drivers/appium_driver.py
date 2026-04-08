@@ -1,4 +1,3 @@
-# src/drivers/appium_driver.py
 import traceback
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
@@ -30,21 +29,12 @@ class AppiumDriverManager:
 
             try:
                 WebDriverWait(drv, 20).until(
-                    EC.presence_of_element_located((AppiumBy.ID, settings.HOME_READY_ID))
+                    EC.presence_of_element_located(("id", settings.HOME_READY_ID))
                 )
                 print("✅ 已进入首页")
             except Exception as e:
                 print(f"⚠️ 首页校验失败，但 driver 仍可用: {repr(e)}")
 
-            # 调试信息输出
-            try:
-                print("current_package:", drv.current_package)
-            except Exception:
-                pass
-            try:
-                print("current_activity:", drv.current_activity)
-            except Exception:
-                pass
             try:
                 drv.get_screenshot_as_file(settings.STARTUP_DEBUG_SCREEN_PATH)
                 print(f"📷 已保存启动截图: {settings.STARTUP_DEBUG_SCREEN_PATH}")
@@ -76,5 +66,4 @@ class AppiumDriverManager:
                 raise RuntimeError("driver 初始化失败")
         return self._driver
 
-# 全局实例
 driver_manager = AppiumDriverManager()

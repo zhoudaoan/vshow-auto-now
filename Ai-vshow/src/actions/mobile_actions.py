@@ -2,7 +2,6 @@
 import time
 import traceback
 from typing import Dict, Any
-from appium.webdriver.common.appiumby import AppiumBy
 from ..config.settings import settings
 from ..drivers.appium_driver import driver_manager
 from ..drivers.element_handler import parse_bounds
@@ -17,7 +16,7 @@ def click_by_text(text: str) -> bool:
     ]
     for sel in selectors:
         try:
-            drv.find_element(AppiumBy.ANDROID_UIAUTOMATOR, sel).click()
+            drv.find_element("android uiautomator", sel).click()
             return True
         except Exception:
             pass
@@ -25,11 +24,11 @@ def click_by_text(text: str) -> bool:
 
 def click_by_id(resource_id: str):
     drv = driver_manager.driver
-    drv.find_element(AppiumBy.ID, resource_id).click()
+    drv.find_element("id", resource_id).click()
 
 def click_by_xpath(xpath: str):
     drv = driver_manager.driver
-    drv.find_element(AppiumBy.XPATH, xpath).click()
+    drv.find_element("xpath", xpath).click()
 
 def click_by_coordinate(x: int, y: int):
     drv = driver_manager.driver
@@ -74,7 +73,7 @@ def try_focus_and_type(text: str):
     for class_name in editable_classes:
         try:
             el = drv.find_element(
-                AppiumBy.ANDROID_UIAUTOMATOR,
+                "android uiautomator",
                 f'new UiSelector().className("{class_name}")'
             )
             el.click()
