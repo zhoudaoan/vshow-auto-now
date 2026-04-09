@@ -2,6 +2,6 @@
     "name": "直播功能测试",
     "description": "验证用户能否成功开始并结束一次直播。",
     "task": "点击当前页面的live按钮，再接着点击开始直播按钮，播10s钟，先点击关闭直播间再点击弹窗确认按钮",
-    "max_steps": 15,
+    "max_steps": 5,
     "timeout_seconds": 60
 }

@@ -1,4 +1,3 @@
-# src/config/settings.py
 from pathlib import Path
 from pydantic_settings import BaseSettings
 
@@ -15,8 +14,11 @@ class Settings(BaseSettings):
     CURRENT_PAGE_SOURCE_PATH: str = str(BASE_DIR / "current_page_source.xml")
     STARTUP_PAGE_SOURCE_PATH: str = str(BASE_DIR / "startup_page_source.xml")
 
-    OPENAI_MODEL: str = "gpt-5.4"
+    OPENAI_MODEL: str
+    OPENAI_API_KEY: str
+    OPENAI_BASE_URL: str
 
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
     class Config:
         env_file = ".env"
 

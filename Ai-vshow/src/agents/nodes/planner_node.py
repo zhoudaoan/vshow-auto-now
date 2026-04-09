@@ -2,38 +2,21 @@
 import json
 import re
 import traceback
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from ...config.settings import settings
 from ...utils.image_processor import compress_image_to_base64
+from pydantic import BaseModel, Field
 
+# ---系统提示词 ---
 PLANNER_SYSTEM_PROMPT = """
-你是一个专业的移动应用自动化专家。你的任务是帮助用户完成在手机上的操作。
-请严格遵循以下规则：
+你是一个 JSON 输出工具。你的唯一任务是根据输入生成一个操作计划数组。
+你必须且只能输出一个 JSON 数组，格式如下：
+[{"type": "click_id", "value": "..."}, {"type": "wait", "value": "2"}]
 
-1. **规划模式**:
-   - 当收到一个新任务时，请一次性生成一个完整的、详细的、按顺序执行的操作计划。
-   - 计划必须是一个 JSON 数组，每个元素代表一个操作步骤。
-   - 操作类型包括: "click_text", "click_id", "click_xpath", "click_coordinate", "click_bounds", "type_text", "swipe", "back", "wait", "done"。
-   - 示例输出: 
-     [
-        {"type": "click_text", "value": "直播"},
-        {"type": "wait", "value": "2"},
-        {"type": "click_id", "value": "com.example.app:id/start_btn"},
-        {"type": "done", "value": ""}
-     ]
-
-2. **重规划模式**:
-   - 如果被告知某个操作失败，请根据当前屏幕截图和UI元素，重新规划从该点开始的剩余操作。
-   - 同样输出一个 JSON 数组。
-
-3. **注意事项**:
-   - 优先使用ID (`resource-id`)，其次使用文本 (`text`)，然后是xpath等。
-   - 对于输入操作，请确保先点击输入框再输入。
-   - "wait" 操作的 value 是秒数，用于等待页面加载。
-   - 如果任务已完成，最后一个操作必须是 "done"。
-   - 只能返回一个 JSON 数组，不要返回任何其他文字、解释或 Markdown。
+可用的操作类型有: click_text, click_id, click_xpath, click_coordinate, click_bounds, type_text, swipe, back, wait, done.
+不要输出任何其他文字、解释、Markdown 或代码块。只输出 JSON。
 """
 
 
@@ -53,6 +36,7 @@ def safe_extract_text_content(content) -> str:
 
 def parse_llm_plan(raw_text: str) -> List[Dict[str, Any]]:
     text = (raw_text or "").strip()
+    # 移除可能的 Markdown 代码块标记
     text = re.sub(r"^```json\s*", "", text, flags=re.IGNORECASE)
     text = re.sub(r"^```\s*", "", text)
     text = re.sub(r"\s*``` $ ", "", text)
@@ -86,9 +70,25 @@ def llm_planner(state: Dict[str, Any]) -> dict:
             "history": state["history"] + ["LLM skipped: no screenshot"]
         }
 
-    content = None
     try:
-        llm = ChatOpenAI(model=settings.OPENAI_MODEL, temperature=0)
+        # --- 创建 LLM 实例 ---
+        llm = ChatOpenAI(
+            model=settings.OPENAI_MODEL,
+            temperature=0,
+            api_key=settings.OPENAI_API_KEY,
+            base_url=settings.OPENAI_BASE_URL
+        )
+
+        # --- 定义 JSON Schema ---
+
+        class ActionStep(BaseModel):
+            type: str = Field(..., description="操作类型")
+            value: Union[str, dict] = Field(..., description="操作值")
+
+        class ActionPlan(BaseModel):
+            steps: list[ActionStep] = Field(..., description="操作步骤列表")
+
+        # --- 准备消息 ---
         base64_image = compress_image_to_base64(state["screenshot_path"])
         ui_elements = state.get("ui_elements", [])[:100]
 
@@ -100,61 +100,24 @@ def llm_planner(state: Dict[str, Any]) -> dict:
         messages = [
             SystemMessage(content=PLANNER_SYSTEM_PROMPT),
             HumanMessage(content=[
-                {
-                    "type": "text",
-                    "text": context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False, indent=2)}"
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/png;base64,{base64_image}"
-                    }
-                }
+                {"type": "text",
+                 "text": context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False, indent=2)}"},
+                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}}
             ])
         ]
 
-        response = llm.invoke(messages)
-        content = response.content
-        print("💬 LLM 原始回复:", content)
-        content_text = safe_extract_text_content(content)
-        planned_actions = parse_llm_plan(content_text)
+        # --- 强制结构化输出 ---
+        structured_llm = llm.with_structured_output(ActionPlan)
+        response_obj = structured_llm.invoke(messages)
+
+        planned_actions = [{"type": step.type, "value": step.value} for step in response_obj.steps]
         print(f"✅ 解析出的动作计划: {planned_actions}")
-        return {
-            "planned_actions": planned_actions,
-            "error_message": None
-        }
+        return {"planned_actions": planned_actions, "error_message": None}
 
     except Exception as e:
         print(f"❌ LLM 规划调用或解析失败: {repr(e)}")
-        print("🔍 原始 content:", content)
         traceback.print_exc()
-
-        try:
-            print("🔁 尝试进行一次兜底重试...")
-            ui_elements = state.get("ui_elements", [])[:40]
-            retry_context = f"任务: {state['task']}\n"
-            if state.get('error_message'):
-                retry_context += f"上一步操作失败: {state['error_message']}\n"
-            retry_context += "你上一次输出不符合要求。现在只允许输出一个合法的 JSON 数组。"
-
-            retry_messages = [
-                SystemMessage(content=PLANNER_SYSTEM_PROMPT),
-                HumanMessage(content=[
-                    {"type": "text",
-                     "text": retry_context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False)}"},
-                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}}
-                ])
-            ]
-            retry_resp = llm.invoke(retry_messages)
-            retry_text = safe_extract_text_content(retry_resp.content)
-            planned_actions = parse_llm_plan(retry_text)
-            print(f"✅ 兜底重试成功，动作计划: {planned_actions}")
-            return {"planned_actions": planned_actions, "error_message": None}
-        except Exception as retry_e:
-            print(f"❌ 兜底重试仍失败: {repr(retry_e)}")
-            traceback.print_exc()
-            return {
-                "planned_actions": [],
-                "error_message": f"LLM planning error: {repr(e)}",
-                "history": state["history"] + [f"LLM planning error: {repr(e)}"]
-            }
+        return {
+            "planned_actions": [],
+            "error_message": f"LLM planning error: {repr(e)}",
+        }
