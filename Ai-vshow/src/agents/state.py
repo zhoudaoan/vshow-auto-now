@@ -1,5 +1,5 @@
-# src/agents/state.py
 from typing import TypedDict, List, Dict, Any, Optional
+
 
 class TestCaseConfig(TypedDict):
     name: str
@@ -8,16 +8,23 @@ class TestCaseConfig(TypedDict):
     max_steps: int
     timeout_seconds: int
 
-class AgentState(TypedDict):
+
+class AgentState(TypedDict, total=False):
     task: str
     history: List[str]
+
     screenshot_path: str
     page_source_path: str
     ui_elements: List[Dict[str, Any]]
+
     planned_actions: List[Dict[str, Any]]
     executed_actions: List[Dict[str, Any]]
-    error_message: Optional[str]
-    is_complete: bool
+
+    current_step_index: int
     step_count: int
     max_steps: int
+
+    error_message: Optional[str]
+    is_complete: bool
+
     test_case: TestCaseConfig

@@ -25,7 +25,7 @@ load_dotenv()
 
 
 # =========================
-# 1. 状态定义 (已优化)
+# 1. 状态定义 (Reactive Mode)
 # =========================
 class AgentState(TypedDict):
     task: str
@@ -34,7 +34,7 @@ class AgentState(TypedDict):
     page_source_path: str
     ui_elements: List[Dict[str, Any]]
     # --- 新增字段 ---
-    planned_actions: List[Dict[str, Any]]  # 存储AI规划的动作列表
+    planned_actions: List[Dict[str, Any]]  # 存储AI规划的动作列表 (现在通常只有1-2个)
     executed_actions: List[Dict[str, Any]]  # 记录已成功执行的动作
     error_message: Optional[str]  # 记录执行或规划时的错误
     is_complete: bool
@@ -55,7 +55,7 @@ APPIUM_SERVER_URL = os.getenv("APPIUM_SERVER_URL", "http://localhost:4723")
 ANDROID_DEVICE_NAME = os.getenv("ANDROID_DEVICE_NAME", "5e0c4268")
 APP_PACKAGE = os.getenv("APP_PACKAGE", "com.baitu.qingshu")
 APP_ACTIVITY = os.getenv("APP_ACTIVITY", "com.androidrtc.chat.DefaultIconAlias")
-HOME_READY_ID = os.getenv("HOME_READY_ID", "com.baitu.qingshu:id/navLive")
+VSHOW_READY_ID = os.getenv("HOME_READY_ID", "com.baitu.qingshu:id/navLive")
 DEFAULT_TASK = os.getenv("DEFAULT_TASK", "点击新人按钮")
 
 driver = None
@@ -95,7 +95,7 @@ def get_driver():
 
         try:
             WebDriverWait(drv, 20).until(
-                EC.presence_of_element_located((AppiumBy.ID, HOME_READY_ID))
+                EC.presence_of_element_located((AppiumBy.ID, VSHOW_READY_ID))
             )
             print("✅ 已进入首页")
         except Exception as e:
@@ -253,6 +253,12 @@ def try_click_text_once(text: str) -> bool:
 
 
 def dismiss_common_popups(max_rounds: int = 3):
+    global driver
+    # ⭐ 检查 Driver 是否可用
+    if driver is None:
+        print("⚠️ Driver 不可用，跳过弹窗处理")
+        return
+
     popup_texts = [
         "允许", "始终允许", "仅在使用中允许", "同意", "我知道了", "跳过", "以后再说",
         "暂不", "取消", "关闭", "好的", "下次再说", "立即体验", "继续", "进入应用"
@@ -386,21 +392,22 @@ def try_focus_and_type(text: str):
 
 
 # =========================
-# 9. 动作执行节点 (已优化)
+# 9. 动作执行节点 (Reactive Mode - Simplified)
 # =========================
 def execute_planned_action(state: AgentState) -> dict:
-    """执行计划中的下一个动作。"""
+    """执行计划中的第一个（也是唯一一个）动作。"""
     planned_actions = state.get('planned_actions', [])
     executed_count = len(state.get('executed_actions', []))
     step_count = executed_count + 1
 
-    if executed_count >= len(planned_actions):
+    if not planned_actions:
         return {
-            "error_message": "没有更多计划动作可执行。",
+            "error_message": "没有计划动作可执行。",
             "step_count": step_count
         }
 
-    next_action = planned_actions[executed_count]
+    # 在 Reactive 模式下，我们只执行列表中的第一个动作
+    next_action = planned_actions[0]
     action_type = next_action.get("type")
     value = next_action.get("value")
     print(f"🤖 第 {step_count} 步，准备执行动作: {action_type} - {value}")
@@ -414,18 +421,21 @@ def execute_planned_action(state: AgentState) -> dict:
             ok = click_by_text(str(value))
             if not ok:
                 raise RuntimeError(f"未找到文本元素: {value}")
+            time.sleep(3)
 
         elif action_type == "click_id":
             if not value:
                 raise ValueError("click_id 缺少 value")
             print(f" -> 点击 resource-id: {value}")
             click_by_id(str(value))
+            time.sleep(3)
 
         elif action_type == "click_xpath":
             if not value:
                 raise ValueError("click_xpath 缺少 value")
             print(f" -> 点击 xpath: {value}")
             click_by_xpath(str(value))
+            time.sleep(3)
 
         elif action_type == "click_coordinate":
             if not isinstance(value, dict) or "x" not in value or "y" not in value:
@@ -433,42 +443,39 @@ def execute_planned_action(state: AgentState) -> dict:
             x, y = int(value["x"]), int(value["y"])
             print(f" -> 点击坐标: ({x}, {y})")
             click_by_coordinate(x, y)
+            time.sleep(3)
 
         elif action_type == "click_bounds":
             if not value:
                 raise ValueError("click_bounds 缺少 value")
             print(f" -> 点击 bounds 中心: {value}")
             click_center_of_bounds(str(value))
+            time.sleep(3)
 
         elif action_type == "type_text":
             if value is None:
                 raise ValueError("type_text 缺少 value")
             print(f" -> 输入文本: {value}")
             try_focus_and_type(str(value))
+            time.sleep(2)
 
         elif action_type == "swipe":
             if value not in ["up", "down", "left", "right"]:
                 raise ValueError("swipe 的 value 必须是 up/down/left/right")
             print(f" -> 执行滑动: {value}")
             do_swipe(str(value))
+            time.sleep(2)
 
         elif action_type == "back":
             print(" -> 执行返回")
             press_back()
+            time.sleep(2)
 
         elif action_type == "wait":
             seconds = int(value) if value else 2
-            print(f" -> 等待 {seconds} 秒")
-            time.sleep(seconds)
-
-        elif action_type == "done":
-            print("✅ 任务标记为完成")
-            return {
-                "is_complete": True,
-                "executed_actions": state.get('executed_actions', []) + [next_action],
-                "step_count": step_count,
-                "history": state["history"] + [f"Done: {value}"]
-            }
+            actual_wait = max(2, seconds)
+            print(f" -> 等待 {actual_wait} 秒")
+            time.sleep(actual_wait)
 
         else:
             raise ValueError(f"未知动作类型: {action_type}")
@@ -501,96 +508,106 @@ llm = ChatOpenAI(
     temperature=0
 )
 
-# --- 优化后的 SYSTEM_PROMPT ---
+# --- 优化后的 SYSTEM_PROMPT (Reactive Mode) ---
 PLANNER_SYSTEM_PROMPT = """
 你是一个专业的移动应用自动化专家。你的任务是帮助用户完成在手机上的操作。
 请严格遵循以下规则：
 
-1. **规划模式**:
-   - 当收到一个新任务时，请一次性生成一个完整的、详细的、按顺序执行的操作计划。
-   - 计划必须是一个 JSON 数组，每个元素代表一个操作步骤。
-   - 操作类型包括: "click_text", "click_id", "click_xpath", "click_coordinate", "click_bounds", "type_text", "swipe", "back", "wait", "done"。
-   - 示例输出: 
-     [
-        {"type": "click_text", "value": "直播"},
-        {"type": "wait", "value": "2"},
-        {"type": "click_id", "value": "com.example.app:id/start_btn"},
-        {"type": "done", "value": ""}
-     ]
+【重要规则】
+1. **每次只生成 1 到 2 个动作**（例如：点击某个按钮 + 等待 2~3 秒）。不要试图规划完整流程。
+2. 应用包名必须是：com.baitu.qingshu。
+3. 只能使用我提供的“当前屏幕可用元素”中的信息，不要编造不存在的元素。
+4. 优先使用 resource-id，其次 text，再其次 bounds / xpath。
+5. 页面切换至少等待3秒，弹窗出现至少等待2秒。
+6. 如果检测到弹窗，优先关闭弹窗，再继续原任务。
+7. ❌ **绝对不允许输出 {"type": "done", ...}**。
+8. 是否完成任务由系统判断，你只需推进流程。
 
-2. **重规划模式**:
-   - 如果被告知某个操作失败，请根据当前屏幕截图和UI元素，重新规划从该点开始的剩余操作。
-   - 同样输出一个 JSON 数组。
+【动作类型】
+- click_id: 点击指定resource-id的元素
+- click_text: 点击指定文本的元素
+- click_xpath: 点击指定xpath的元素
+- click_coordinate: 点击指定坐标，value格式如 {"x":100,"y":200}
+- click_bounds: 点击指定bounds的中心，value格式如 "[0,0][100,100]"
+- type_text: 输入文本
+- swipe: 滑动，value 只能是 up/down/left/right
+- back: 返回
+- wait: 等待指定秒数
 
-3. **注意事项**:
-   - 优先使用ID (`resource-id`)，其次使用文本 (`text`)，然后是xpath等。
-   - 对于输入操作，请确保先点击输入框再输入。
-   - "wait" 操作的 value 是秒数，用于等待页面加载。
-   - 如果任务已完成，最后一个操作必须是 "done"。
-   - 只能返回一个 JSON 数组，不要返回任何其他文字、解释或 Markdown。
+【输出要求】
+1. 必须返回 JSON 数组
+2. 每个元素必须包含 type 和 value
+3. 不要输出数组以外的任何内容
+
+【输出格式示例】
+[
+  {"type": "click_id", "value": "com.baitu.qingshu:id/navLive"},
+  {"type": "wait", "value": "3"}
+]
 """
-
 
 # =========================
 # 11. LLM 响应解析 (已优化)
 # =========================
-def parse_llm_plan(raw_text: str) -> List[Dict[str, Any]]:
-    text = (raw_text or "").strip()
-    # 移除可能的 Markdown 代码块
-    text = re.sub(r"^```json\s*", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"^```\s*", "", text)
-    text = re.sub(r"\s*``` $ ", "", text)
+import re
+
+
+def parse_llm_plan(text: str) -> List[Dict[str, str]]:
+    """从 LLM 输出中提取结构化动作计划"""
+    text = re.sub(r'^```(?:json|python|yaml)?\s*', '', text, flags=re.MULTILINE)
+    text = re.sub(r'```\s*$', '', text, flags=re.MULTILINE)
+    text = text.strip()
+
     try:
         data = json.loads(text)
-        if not isinstance(data, list):
-            raise ValueError("LLM 应该返回一个 JSON 数组")
-        for item in data:
-            if "type" not in item or "value" not in item:
-                raise ValueError("数组中的每个对象必须包含 type 和 value")
         return data
-    except Exception as e:
-        # 尝试从文本中提取 JSON 数组
-        match = re.search(r"  $ .* $  ", text, flags=re.S)
-        if not match:
-            raise ValueError(f"无法从 LLM 输出中提取 JSON 数组: {text}")
-        data = json.loads(match.group(0))
-        if not isinstance(data, list):
-            raise ValueError("提取的内容不是一个数组")
-        for item in data:
-            if "type" not in item or "value" not in item:
-                raise ValueError("数组中的每个对象必须包含 type 和 value")
-        return data
+    except json.JSONDecodeError as e:
+        print(f"❌ 清理后的文本仍无法解析:")
+        print(repr(text))
+        raise ValueError(f"无法从 LLM 输出中提取 JSON 数组: {e}")
 
 
 # =========================
-# 12. LLM 规划器节点 (核心新增)
+# 12. LLM 规划器节点 (Reactive Mode)
 # =========================
 def llm_planner(state: AgentState) -> dict:
-    print("🧠 LLM 正在规划整个任务...")
+    print("🧠 LLM 正在规划下一步...")
     if not state.get("screenshot_path"):
         return {
-            "planned_actions": [],
-            "error_message": "error: no screenshot",
+            "planned_actions": [{"type": "wait", "value": "2"}],
+            "error_message": None,
             "history": state["history"] + ["LLM skipped: no screenshot"]
         }
 
-    content = None
     try:
         base64_image = compress_image_to_base64(state["screenshot_path"])
         ui_elements = state.get("ui_elements", [])[:100]
 
-        # 构建上下文
-        context = f"任务: {state['task']}\n"
+        context = f"任务: {state['task']}\n\n"
+
         if state.get('error_message'):
-            context += f"上一步操作失败: {state['error_message']}\n现在需要重新规划。\n"
-        context += "请生成一个完整的操作计划。"
+            context += f"⚠️ 上一步操作失败: {state['error_message']}\n请重新规划下一步。\n"
+
+        # --- 关键：加入业务状态反馈 ---
+        live_started = any("直播中" in item.get("text", "") for item in ui_elements)
+        live_ended = any("确认" in item.get("text", "") and "弹窗" in str(ui_elements) for item in ui_elements)
+
+        if not live_started:
+            context += "📌 当前目标：找到并点击「开播」或「开始直播」按钮。\n"
+        elif live_started and not live_ended:
+            context += "📌 当前目标：直播已开始，请等待10秒后，找到并点击右上角的「关闭」按钮。\n"
+        else:
+            context += "📌 所有子任务已完成。\n"
+
+        context += "请根据当前页面，仅输出接下来 1~2 个最合理的动作（不要 done）。\n"
+        context += "注意：只使用下面列出的UI元素，不要编造不存在的元素。\n"
 
         messages = [
             SystemMessage(content=PLANNER_SYSTEM_PROMPT),
             HumanMessage(content=[
                 {
                     "type": "text",
-                    "text": context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False, indent=2)}"
+                    "text": context + f"\n\n当前屏幕可用元素（共{len(ui_elements)}个）:\n{json.dumps(ui_elements, ensure_ascii=False, indent=2)}"
                 },
                 {
                     "type": "image_url",
@@ -614,112 +631,71 @@ def llm_planner(state: AgentState) -> dict:
 
     except Exception as e:
         print(f"❌ LLM 规划调用或解析失败: {repr(e)}")
-        print("🔍 原始 content:", content)
         traceback.print_exc()
-
-        # 自动兜底一次
-        try:
-            print("🔁 尝试进行一次兜底重试...")
-            ui_elements = state.get("ui_elements", [])[:40]
-            retry_context = f"任务: {state['task']}\n"
-            if state.get('error_message'):
-                retry_context += f"上一步操作失败: {state['error_message']}\n"
-            retry_context += "你上一次输出不符合要求。现在只允许输出一个合法的 JSON 数组。"
-
-            retry_messages = [
-                SystemMessage(content=PLANNER_SYSTEM_PROMPT),
-                HumanMessage(content=[
-                    {"type": "text",
-                     "text": retry_context + f"\n\n当前UI元素:\n{json.dumps(ui_elements, ensure_ascii=False)}"},
-                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}}
-                ])
-            ]
-            retry_resp = llm.invoke(retry_messages)
-            retry_text = safe_extract_text_content(retry_resp.content)
-            planned_actions = parse_llm_plan(retry_text)
-            print(f"✅ 兜底重试成功，动作计划: {planned_actions}")
-            return {"planned_actions": planned_actions, "error_message": None}
-        except Exception as retry_e:
-            print(f"❌ 兜底重试仍失败: {repr(retry_e)}")
-            traceback.print_exc()
-            return {
-                "planned_actions": [],
-                "error_message": f"LLM planning error: {repr(e)}",
-                "history": state["history"] + [f"LLM planning error: {repr(e)}"]
-            }
+        return {
+            "planned_actions": [{"type": "wait", "value": "2"}],
+            "error_message": f"LLM planning error: {repr(e)}",
+            "history": state["history"] + [f"LLM planning error: {repr(e)}"]
+        }
 
 
 # =========================
-# 13. LangGraph 工作流 (已重构)
+# 13. 新的决策节点 (Reactive Mode Core)
 # =========================
-def should_continue_or_replan(state: AgentState):
-    """决定下一步是继续执行、结束还是需要重规划。"""
-    error = state.get('error_message')
-    planned_actions = state.get('planned_actions', [])
-    executed_count = len(state.get('executed_actions', []))
+def should_end_or_observe(state: AgentState):
+    """决定下一步是结束，还是重新观察（截图）"""
     step_count = state.get('step_count', 0)
-    max_steps = state.get('max_steps', 10)
+    max_steps = state.get('max_steps', 15)  # 增加最大步数以适应更多步骤
 
-    # 检查步数限制
+    # 条件1: 达到最大步数（防死循环）
     if step_count >= max_steps:
         print(f"🛑 达到最大步数限制: {max_steps}")
         return "end"
 
-    # 如果有错误，需要重规划
-    if error:
-        print("🔄 检测到执行错误，触发重规划流程")
-        return "replan"
-
-    # 如果所有动作都执行完了
-    if executed_count >= len(planned_actions):
-        last_action = planned_actions[-1] if planned_actions else {}
-        if last_action.get('type') == 'done':
-            print("🏁 检测到结束条件，终止循环")
-            return "end"
-        else:
-            print("🏁 所有计划动作已执行完毕")
+    # 条件2: 检查业务目标是否达成 (简单示例)
+    executed_actions = state.get('executed_actions', [])
+    if len(executed_actions) >= 2:
+        last_two = executed_actions[-2:]
+        if (any('close' in str(a.get('value', '')) for a in last_two) and
+                any('confirm' in str(a.get('value', '')) or '确认' in str(a.get('value', '')) for a in last_two)):
+            print("🎯 业务目标达成：检测到关闭和确认操作")
             return "end"
 
-    # 否则，继续执行下一个动作
-    print("➡️ 继续执行下一个计划动作")
-    return "continue"
+    # 否则，总是需要重新观察
+    return "observe"
 
 
-# 构建新的工作流
+# =========================
+# 14. LangGraph 工作流 (Reactive Mode - New Flow)
+# =========================
 workflow = StateGraph(AgentState)
 
 # 添加节点
-workflow.add_node("initial_screenshot", take_screenshot)
-workflow.add_node("plan", llm_planner)
-workflow.add_node("execute", execute_planned_action)
-workflow.add_node("re_screenshot", take_screenshot)
-workflow.add_node("replan", llm_planner)
+workflow.add_node("take_screenshot", take_screenshot)
+workflow.add_node("plan_next_step", llm_planner)
+workflow.add_node("execute_action", execute_planned_action)
 
 # 设置入口
-workflow.set_entry_point("initial_screenshot")
-workflow.add_edge("initial_screenshot", "plan")
+workflow.set_entry_point("take_screenshot")
 
-# 主执行循环
-workflow.add_edge("plan", "execute")
+# 核心循环: observe -> plan -> execute -> decide
+workflow.add_edge("take_screenshot", "plan_next_step")
+workflow.add_edge("plan_next_step", "execute_action")
+
 workflow.add_conditional_edges(
-    "execute",
-    should_continue_or_replan,
+    "execute_action",
+    should_end_or_observe,
     {
-        "continue": "execute",  # 继续执行下一个动作
-        "replan": "re_screenshot",  # 出错，重新截图并规划
-        "end": END
+        "end": END,
+        "observe": "take_screenshot",
     }
 )
-
-# 重规划路径
-workflow.add_edge("re_screenshot", "replan")
-workflow.add_edge("replan", "execute")  # 重规划后，回到执行节点
 
 app = workflow.compile()
 
 
 # =========================
-# 14. 调试辅助 (完全保留)
+# 15. 调试辅助 (完全保留)
 # =========================
 def print_top_ui_elements(elements: List[Dict[str, Any]], limit: int = 20):
     print(f"🔎 当前 UI 元素（最多显示 {limit} 个）:")
@@ -750,11 +726,10 @@ def debug_dump_current_screen():
 
 
 # =========================
-# 15. 主程序 (微调以适应新状态)
+# 16. 主程序 (微调以适应新状态)
 # =========================
 if __name__ == "__main__":
-    # task = input(f"请输入任务（直接回车则使用默认任务: {DEFAULT_TASK}）: ").strip()
-    task = "点击当前页面的live按钮，再接着点击开始直播按钮，播10s钟，先点击关闭直播间在点击弹窗确认按钮"
+    task = "进入到首页之后，先点击开播按钮，再点击“开始直播”按钮，播10s钟，点击直播间右上角的关闭按钮，弹出弹窗，在点击弹窗确认按钮"
 
     if not task:
         task = DEFAULT_TASK
@@ -765,18 +740,15 @@ if __name__ == "__main__":
         "screenshot_path": "",
         "page_source_path": "",
         "ui_elements": [],
-        # --- 初始化新增字段 ---
         "planned_actions": [],
         "executed_actions": [],
         "error_message": None,
-        # ----------------------
         "is_complete": False,
         "step_count": 0,
-        "max_steps": 10,
+        "max_steps": 15,
     }
 
     print("🚀 智能体启动...")
-
     print(f'开始时间：{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     print(f"📝 当前任务: {task}")
 
