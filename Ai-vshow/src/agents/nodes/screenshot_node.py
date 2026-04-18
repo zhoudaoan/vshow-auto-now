@@ -21,7 +21,7 @@ def take_screenshot(state: Dict[str, Any]) -> dict:
         live_ended = state.get("live_ended", False)
 
         new_live_started, new_live_ended, is_task_complete, verify_reason = verify_live_task_progress(
-            task=state.get("task", ""),
+            task=state.get("original_task", ""),
             ui_elements=ui_elements,
             live_started=live_started,
             live_ended=live_ended,

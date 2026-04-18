@@ -43,9 +43,12 @@ def run_single_test_case(test_case: TestCaseConfig):
         print(f"\n{'='*60}")
         print(f"🧪 开始执行测试用例: {test_case['name']}")
         print(f"📝 描述: {test_case['description']}")
+        print(f"🎯 完整任务: {test_case['task']}")
         print(f"{'='*60}")
 
+    # --- 关键修改在这里 ---
     initial_state: AgentState = {
+        "original_task": test_case["task"],  # <-- 新增这一行！
         "task": test_case["task"],
         "history": [],
         "screenshot_path": "",
@@ -59,6 +62,7 @@ def run_single_test_case(test_case: TestCaseConfig):
         "max_steps": test_case["max_steps"],
         "test_case": test_case
     }
+    # -----------------------
 
     try:
         final_state = _execute_ai_planned_steps(initial_state)

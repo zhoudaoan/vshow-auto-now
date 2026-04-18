@@ -413,7 +413,7 @@ def search_user(driver, user_id):
         xpath='//android.widget.LinearLayout[@resource-id="'+app_package+':id/topBarLayout"]/android.widget.ImageView[1]',
         step_name="点击搜索按钮"
     )
-    send_keys_to_element(driver, element_id=app_package+":id/etContent", text=user_id, step_name="输入用户id")
+    send_keys_to_element(driver, element_id=app_package+":id/etKeyword", text=user_id, step_name="输入用户id")
     driver.execute_script('mobile: performEditorAction', {'action': 'search'})  # 触发模拟键盘上的搜索动作
 
 # @with_popup_dismiss

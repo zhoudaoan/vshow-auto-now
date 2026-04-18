@@ -1,7 +1,16 @@
 {
     "name": "直播功能测试",
     "description": "验证用户能否成功开始并结束一次直播。",
-    "task": "点击当前页面的live按钮，再接着点击开始直播按钮，播10s钟，先点击关闭直播间再点击弹窗确认按钮",
-    "max_steps": 5,
+    "task": "1、在首页点击:id/openLive2、停留2s3、再点击:id/action_before_live_start4、停留10s5、点击:id/liveClose6、点击:id/positiveButton7、最后，确认页面上出现了“直播已关闭”的文本",
+    "predefined_actions": [
+    {"type": "click_id", "value": "com.baitu.qingshu:id/openLive"},
+    {"type": "wait", "value": "2"},
+    {"type": "click_id", "value": "com.baitu.qingshu:id/action_before_live_start"},
+    {"type": "wait", "value": "10"},
+    {"type": "click_id", "value": "com.baitu.qingshu:id/liveClose"},
+    {"type": "click_id", "value": "com.baitu.qingshu:id/positiveButton"},
+    {"type": "assert_text", "value": "直播已关闭"}
+    ],
+    "max_steps": 20,
     "timeout_seconds": 60
 }
