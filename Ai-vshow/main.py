@@ -46,36 +46,43 @@ def run_single_test_case(test_case: TestCaseConfig):
         print(f"🎯 完整任务: {test_case['task']}")
         print(f"{'='*60}")
 
-    # --- 关键修改在这里 ---
-    initial_state: AgentState = {
-        "original_task": test_case["task"],  # <-- 新增这一行！
-        "task": test_case["task"],
-        "history": [],
-        "screenshot_path": "",
-        "page_source_path": "",
-        "ui_elements": [],
-        "planned_actions": [],
-        "executed_actions": [],
-        "error_message": None,
-        "is_complete": False,
-        "step_count": 0,
-        "max_steps": test_case["max_steps"],
-        "test_case": test_case
-    }
-    # -----------------------
-
     try:
-        final_state = _execute_ai_planned_steps(initial_state)
-        is_passed = final_state.get("is_complete", False)
+        # --- 关键修改：判断执行模式 ---
+        if "predefined_actions" in test_case and test_case["predefined_actions"]:
+            # 使用新的预设动作执行器
+            from src.agents.predefined_executor import execute_predefined_test_case
+            is_passed = execute_predefined_test_case(test_case)
+        else:
+            # 使用原有的 AI 规划模式
+            initial_state: AgentState = {
+                "original_task": test_case["task"],  # <-- 新增这一行！
+                "task": test_case["task"],
+                "history": [],
+                "screenshot_path": "",
+                "page_source_path": "",
+                "ui_elements": [],
+                "planned_actions": [],
+                "executed_actions": [],
+                "error_message": None,
+                "is_complete": False,
+                "step_count": 0,
+                "max_steps": test_case["max_steps"],
+                "test_case": test_case
+            }
+            final_state = _execute_ai_planned_steps(initial_state)
+            is_passed = final_state.get("is_complete", False)
+
+            if not is_passed:
+                _attach_debug_artifacts()
+                if final_state.get("error_message"):
+                    allure.attach(
+                        final_state["error_message"],
+                        name="Execution Error",
+                        attachment_type=AttachmentType.TEXT
+                    )
 
         if not is_passed:
             _attach_debug_artifacts()
-            if final_state.get("error_message"):
-                allure.attach(
-                    final_state["error_message"],
-                    name="Execution Error",
-                    attachment_type=AttachmentType.TEXT
-                )
 
         print(f"✅ 用例 '{test_case['name']}' 执行完毕。状态: {'PASSED' if is_passed else 'FAILED'}")
 
@@ -107,7 +114,7 @@ if __name__ == "__main__":
 
         print("\n✅ 所有用例执行完毕。")
         print("📊 要查看Allure报告，请在项目根目录运行:")
-        print("   allure serve allure-results")
+        print("allure serve allure-results")
 
     finally:
         try:
