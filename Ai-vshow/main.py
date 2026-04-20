@@ -1,9 +1,7 @@
 # main.py
 import argparse
 import os
-import shutil
 import traceback
-from datetime import datetime
 from test_cases.loader import load_test_cases
 from src.config.settings import settings
 from src.agents.workflow import app
@@ -47,15 +45,12 @@ def run_single_test_case(test_case: TestCaseConfig):
         print(f"{'='*60}")
 
     try:
-        # --- 关键修改：判断执行模式 ---
         if "predefined_actions" in test_case and test_case["predefined_actions"]:
-            # 使用新的预设动作执行器
             from src.agents.predefined_executor import execute_predefined_test_case
             is_passed = execute_predefined_test_case(test_case)
         else:
-            # 使用原有的 AI 规划模式
             initial_state: AgentState = {
-                "original_task": test_case["task"],  # <-- 新增这一行！
+                "original_task": test_case["task"],
                 "task": test_case["task"],
                 "history": [],
                 "screenshot_path": "",
@@ -94,7 +89,18 @@ def run_single_test_case(test_case: TestCaseConfig):
         )
         _attach_debug_artifacts()
         print(f"❌ 用例 '{test_case['name']}' 执行出错: {repr(e)}")
-        raise # 重新抛出异常，让Allure捕获为失败
+        raise
+
+def reset_app():
+    """重置被测应用：终止并重新激活"""
+    with allure.step("🔄 重置被测应用 (Terminate & Activate)"):
+        try:
+            print(f"🔄 正在重置应用: {settings.APP_PACKAGE}")
+            driver_manager.driver.terminate_app(settings.APP_PACKAGE)
+            driver_manager.driver.activate_app(settings.APP_PACKAGE)
+            print("✅ 应用已成功重置！")
+        except Exception as reset_err:
+            print(f"⚠️ 重置应用时发生错误: {reset_err}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="运行移动端AI自动化测试用例 (Allure版)")
@@ -103,19 +109,35 @@ if __name__ == "__main__":
 
     print("🚀 启动AI自动化测试执行器 (Allure Report)...")
 
+    test_cases = []
     try:
         test_cases = load_test_cases(args.cases)
         if not test_cases:
             print("⚠️ 未找到任何测试用例。")
             exit(1)
 
-        for case in test_cases:
+        total = len(test_cases)
+        for idx, case in enumerate(test_cases):
             run_single_test_case(case)
+
+            # ✅ 关键逻辑：如果不是最后一个用例，则重置App
+            if idx < total - 1:
+                reset_app()
+            else:
+                print("🏁 所有用例已执行完毕，跳过最后的App重置。")
 
         print("\n✅ 所有用例执行完毕。")
         print("📊 要查看Allure报告，请在项目根目录运行:")
-        print("allure serve allure-results")
+        print("   allure serve allure-results")
 
+    except KeyboardInterrupt:
+        print("\n🛑 用户中断了测试执行。")
+        # 可选：在这里也可以调用 reset_app() 做清理，但通常不需要
+        raise
+    except Exception as e:
+        print(f"💥 主流程发生未预期错误: {e}")
+        # 如果已经跑了一些用例，也可以选择重置，但非必须
+        raise
     finally:
         try:
             if driver_manager._driver is not None:

@@ -2,10 +2,12 @@ import time
 import traceback
 from typing import Optional
 from appium.webdriver.common.appiumby import AppiumBy
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException, \
+    WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from ..drivers.appium_driver import driver_manager  # ✅ 正确导入管理器
+from ..drivers.appium_driver import driver_manager
+from ..utils.logger import logger
 
 
 # --- 关键修复：使用 driver_manager.driver 获取 driver ---
@@ -55,11 +57,11 @@ def click_by_id(resource_id: str, timeout: int = 10) -> bool:
         # 点击第一个可见元素
         element = visible_elements[0]
         element.click()
-        print(f"   -> 动作执行成功: Clicked VISIBLE element with ID: {resource_id}")
+        logger.info(f"   -> 动作执行成功: Clicked VISIBLE element with ID: {resource_id}")
         return True
 
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 
@@ -71,10 +73,10 @@ def click_by_text(text: str, timeout: int = 10) -> bool:
             EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR, f'new UiSelector().text("{text}")'))
         )
         element.click()
-        print(f"   -> 动作执行成功: Clicked element with text: {text}")
+        logger.info(f"   -> 动作执行成功: Clicked element with text: {text}")
         return True
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 
@@ -86,10 +88,10 @@ def click_by_xpath(xpath: str, timeout: int = 10) -> bool:
             EC.element_to_be_clickable((AppiumBy.XPATH, xpath))
         )
         element.click()
-        print(f"   -> 动作执行成功: Clicked element with xpath: {xpath}")
+        logger.info(f"   -> 动作执行成功: Clicked element with xpath: {xpath}")
         return True
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 
@@ -100,17 +102,17 @@ def click_by_bounds(bounds_str: str, timeout: int = 10) -> bool:
         from ..utils.element_handler import bounds_to_center
         x, y = bounds_to_center(bounds_str)
         drv.tap([(x, y)])
-        print(f"   -> 动作执行成功: Tapped at center of bounds: {bounds_str} -> ({x}, {y})")
+        logger.info(f"   -> 动作执行成功: Tapped at center of bounds: {bounds_str} -> ({x}, {y})")
         return True
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 
 def wait_for_seconds(seconds: int) -> bool:
     """等待指定秒数"""
     time.sleep(seconds)
-    print(f"   -> 动作执行成功: Waited for {seconds} seconds")
+    logger.info(f"   -> 动作执行成功: Waited for {seconds} seconds")
     return True
 
 
@@ -119,12 +121,48 @@ def perform_back() -> bool:
     drv = _get_driver()
     try:
         drv.back()
-        print("   -> 动作执行成功: Performed back action")
+        logger.info("   -> 动作执行成功: Performed back action")
         return True
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
+
+def send_content(resource_id: str, text: str, timeout: int = 10) -> bool:
+    """
+    在指定 resource-id 的输入框中输入文本。
+    会先点击该元素以聚焦，然后清除原有内容并输入新文本。
+    """
+    drv = _get_driver()
+    try:
+        # 等待元素出现并可点击
+        elements = WebDriverWait(drv, timeout).until(
+            lambda d: d.find_elements(AppiumBy.ID, resource_id)
+        )
+
+        # 过滤出真正可见且尺寸有效的元素
+        visible_elements = [e for e in elements if _is_element_visible_and_sized(e)]
+
+        if not visible_elements:
+            raise TimeoutException(f"No VISIBLE element found for ID: {resource_id}")
+
+        element = visible_elements[0]
+
+        # 点击以聚焦（某些应用需要）
+        element.click()
+
+        # 清除已有内容（Appium 的 clear() 有时不可靠，可选增强）
+        element.clear()
+
+        # 输入新文本
+        element.send_keys(text)
+
+        logger.info(f"   -> 动作执行成功: Input text '{text}' into element with ID: {resource_id}")
+        return True
+
+    except Exception as e:
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        raise
 
 def perform_swipe(direction: str) -> bool:
     """执行滑动操作"""
@@ -147,10 +185,10 @@ def perform_swipe(direction: str) -> bool:
             raise ValueError(f"Unknown swipe direction: {direction}")
 
         drv.swipe(start_x, start_y, end_x, end_y, 500)
-        print(f"   -> 动作执行成功: Swiped {direction}")
+        logger.info(f"   -> 动作执行成功: Swiped {direction}")
         return True
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 def assert_text_exists(expected_text: str) -> bool:
@@ -179,14 +217,14 @@ def assert_text_exists(expected_text: str) -> bool:
         # 检查期望的文本是否在任何元素中
         for text in all_texts:
             if expected_text in text:
-                print(f"   -> 断言成功: 页面包含文本 '{expected_text}'")
+                logger.info(f"   -> 断言成功: 页面包含文本 '{expected_text}'")
                 return True
 
         # 如果未找到，抛出异常
         raise AssertionError(f"断言失败: 未在页面上找到文本 '{expected_text}'. 扫描了 {len(all_texts)} 个文本元素。")
 
     except Exception as e:
-        print(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
+        logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 def perform_single_action(action: dict) -> bool:
@@ -210,5 +248,11 @@ def perform_single_action(action: dict) -> bool:
         return perform_swipe(value)
     elif action_type == "assert_text":
         return assert_text_exists(value)
+    elif action_type == "send_content":
+        # 约定 value 格式为: "resource_id||text_to_input"
+        if "||" not in value:
+            raise ValueError("send_content 的 value 必须为 'resource_id||text' 格式")
+        resource_id, text = value.split("||", 50)
+        return send_content(resource_id.strip(), text.strip())
     else:
         raise ValueError(f"Unsupported action type: {action_type}")

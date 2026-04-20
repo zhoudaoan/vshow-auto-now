@@ -6,6 +6,8 @@ from typing import List, Dict, Any, Optional
 from ..config.settings import settings
 from ..drivers.appium_driver import driver_manager
 import time
+from ..utils.logger import logger
+
 
 def parse_bounds(bounds: str) -> Optional[Dict[str, int]]:
     match = re.match(r"\[(\d+),(\d+)\]\[(\d+),(\d+)\]", bounds or "")
@@ -59,10 +61,10 @@ def extract_ui_elements() -> List[Dict[str, Any]]:
             if parsed:
                 item.update(parsed)
             elements.append(item)
-        print(f"🧩 已提取 UI 元素: {len(elements)} 个")
+        logger.info(f"🧩 已提取 UI 元素: {len(elements)} 个")
         return elements
     except Exception as e:
-        print(f"❌ 提取 UI 元素失败: {repr(e)}")
+        logger.error(f"❌ 提取 UI 元素失败: {repr(e)}")
         traceback.print_exc()
         return []
 
@@ -77,7 +79,7 @@ def try_click_text_once(text: str) -> bool:
     for sel in selectors:
         try:
             drv.find_element("android uiautomator", sel).click()
-            print(f"✅ 已点击弹窗元素: {text}")
+            logger.info(f"✅ 已点击弹窗元素: {text}")
             return True
         except Exception:
             pass

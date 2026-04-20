@@ -4,6 +4,7 @@ from appium.options.android import UiAutomator2Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from ..config.settings import settings
+from ..utils.logger import logger
 
 class AppiumDriverManager:
     def __init__(self):
@@ -25,27 +26,27 @@ class AppiumDriverManager:
         try:
             options = self._build_options()
             drv = webdriver.Remote(settings.APPIUM_SERVER_URL, options=options)
-            print("✅ Appium Session 创建成功")
+            logger.info("✅ Appium Session 创建成功")
 
             try:
                 WebDriverWait(drv, 20).until(
                     EC.presence_of_element_located(("id", settings.HOME_READY_ID))
                 )
-                print("✅ 已进入首页")
+                logger.info("✅ 已进入首页")
             except Exception as e:
-                print(f"⚠️ 首页校验失败，但 driver 仍可用: {repr(e)}")
+                logger.warning(f"⚠️ 首页校验失败，但 driver 仍可用: {repr(e)}")
 
             try:
                 drv.get_screenshot_as_file(settings.STARTUP_DEBUG_SCREEN_PATH)
-                print(f"📷 已保存启动截图: {settings.STARTUP_DEBUG_SCREEN_PATH}")
+                logger.info(f"📷 已保存启动截图: {settings.STARTUP_DEBUG_SCREEN_PATH}")
             except Exception as se:
-                print(f"⚠️ 保存启动截图失败: {repr(se)}")
+                logger.error(f"⚠️ 保存启动截图失败: {repr(se)}")
 
             self._save_page_source(drv, settings.STARTUP_PAGE_SOURCE_PATH)
             return drv
 
         except Exception as e:
-            print(f"❌ Driver 初始化失败: {repr(e)}")
+            logger.error(f"❌ Driver 初始化失败: {repr(e)}")
             traceback.print_exc()
             return None
 
@@ -54,9 +55,9 @@ class AppiumDriverManager:
             source = drv.page_source
             with open(path, "w", encoding="utf-8") as f:
                 f.write(source)
-            print(f"🧾 已保存 page_source: {path}")
+            logger.info(f"🧾 已保存 page_source: {path}")
         except Exception as e:
-            print(f"⚠️ 保存 page_source 失败: {repr(e)}")
+            logger.error(f"⚠️ 保存 page_source 失败: {repr(e)}")
 
     @property
     def driver(self):

@@ -11,6 +11,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 import json
 import re
+from ..utils.logger import logger
 
 
 def _call_llm_for_recovery(
@@ -67,11 +68,11 @@ def _call_llm_for_recovery(
         except json.JSONDecodeError:
             pass
 
-        print(f"⚠️ LLM 恢复动作解析失败，原始响应: {raw_text}")
+        logger.warning(f"⚠️ LLM 恢复动作解析失败，原始响应: {raw_text}")
         return []
 
     except Exception as e:
-        print(f"❌ 调用 LLM 进行恢复失败: {repr(e)}")
+        logger.error(f"❌ 调用 LLM 进行恢复失败: {repr(e)}")
         traceback.print_exc()
         return []
 
@@ -86,22 +87,22 @@ def execute_predefined_test_case(test_case: Dict[str, Any]) -> bool:
 
     for idx, action in enumerate(predefined_actions):
         act_str = f"{action['type']} → '{action['value']}'"
-        print(f"\n🤖 执行步骤 {idx + 1}/{len(predefined_actions)}: {act_str}")
+        logger.info(f"\n🤖 执行步骤 {idx + 1}/{len(predefined_actions)}: {act_str}")
 
         success = False
         for attempt in range(max_retries_per_step + 1):
             try:
                 result = perform_single_action(action)
-                print(f"   ✅ 成功: {result}")
+                logger.info(f"   ✅ 成功: {result}")
                 success = True
                 break
 
             except Exception as e:
                 error_msg = str(e).replace("\n", " ")
-                print(f"   ❌ 失败 (尝试 {attempt + 1}/{max_retries_per_step + 1}): {error_msg}")
+                logger.error(f"   ❌ 失败 (尝试 {attempt + 1}/{max_retries_per_step + 1}): {error_msg}")
 
                 if attempt < max_retries_per_step:
-                    print("   🧠 尝试自动恢复（弹窗/遮挡检测）...")
+                    logger.info("   🧠 尝试自动恢复（弹窗/遮挡检测）...")
                     driver_manager.driver.get_screenshot_as_file(settings.CURRENT_SCREEN_PATH)
 
                     repair_actions = _call_llm_for_recovery(
@@ -111,18 +112,18 @@ def execute_predefined_test_case(test_case: Dict[str, Any]) -> bool:
                     )
 
                     if repair_actions:
-                        print(f"   🛠️ 执行 {len(repair_actions)} 个修复动作:")
+                        logger.info(f"   🛠️ 执行 {len(repair_actions)} 个修复动作:")
                         for ra in repair_actions:
-                            print(f"      - {ra['type']}: '{ra['value']}'")
+                            logger.info(f"      - {ra['type']}: '{ra['value']}'")
                             try:
                                 perform_single_action(ra)
                             except Exception as re:
-                                print(f"        ⚠️ 修复动作失败: {re}")
+                                logger.warning(f"        ⚠️ 修复动作失败: {re}")
                         time.sleep(1)
                     else:
-                        print("   💡 无匹配修复方案，稍后重试...")
+                        logger.warning("   💡 无匹配修复方案，稍后重试...")
                         time.sleep(2)
                 else:
-                    print(f"   💥 步骤 {idx + 1} 彻底失败，终止执行。")
+                    logger.error(f"   💥 步骤 {idx + 1} 彻底失败，终止执行。")
                     return False
     return True

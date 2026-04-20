@@ -1,6 +1,6 @@
 import traceback
 from typing import Dict, Any
-
+from ...utils.logger import logger
 from ...config.settings import settings
 from ...drivers.appium_driver import driver_manager
 from ...drivers.element_handler import extract_ui_elements, dismiss_common_popups
@@ -8,7 +8,7 @@ from ...utils.task_verifier import verify_live_task_progress
 
 
 def take_screenshot(state: Dict[str, Any]) -> dict:
-    print("📸 正在截取屏幕...")
+    logger.info("📸 正在截取屏幕...")
     try:
         drv = driver_manager.driver
 
@@ -27,9 +27,9 @@ def take_screenshot(state: Dict[str, Any]) -> dict:
             live_ended=live_ended,
         )
 
-        print(f"🧩 已提取 UI 元素: {len(ui_elements)} 个")
-        print(f"🔎 任务验证结果: {verify_reason}")
-        print(f"✅ 截图保存至: {settings.CURRENT_SCREEN_PATH}")
+        logger.info(f"🧩 已提取 UI 元素: {len(ui_elements)} 个")
+        logger.info(f"🔎 任务验证结果: {verify_reason}")
+        logger.info(f"✅ 截图保存至: {settings.CURRENT_SCREEN_PATH}")
 
         return {
             "screenshot_path": settings.CURRENT_SCREEN_PATH,
@@ -43,7 +43,7 @@ def take_screenshot(state: Dict[str, Any]) -> dict:
         }
 
     except Exception as e:
-        print(f"❌ 截图失败: {repr(e)}")
+        logger.error(f"❌ 截图失败: {repr(e)}")
         traceback.print_exc()
 
         return {

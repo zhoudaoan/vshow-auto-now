@@ -6,6 +6,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from ...config.settings import settings
 from ...utils.image_processor import compress_image_to_base64
+from ...utils.logger import logger
 
 # --- 关键修改：强化系统提示词 ---
 PLANNER_SYSTEM_PROMPT = """
@@ -159,7 +160,7 @@ def build_success_result(planned_actions: List[Dict[str, Any]]) -> dict:
     """构建成功规划结果：不自动追加 done"""
     if not planned_actions:
         planned_actions = fallback_plan()
-    print(f"🛠️ build_success_result 最终 planned_actions: {planned_actions}")
+    logger.info(f"🛠️ build_success_result 最终 planned_actions: {planned_actions}")
     return {
         "planned_actions": planned_actions,
         "current_step_index": 0,
@@ -219,7 +220,7 @@ def invoke_text_only(llm: ChatOpenAI, context_text: str) -> str:
 
 def llm_planner(state: Dict[str, Any]) -> dict:
     """LLM 动作规划器节点（支持多模态 + 文本降级）"""
-    print("🧠 LLM 正在规划整个任务...")
+    logger.info("🧠 LLM 正在规划整个任务...")
     if not state.get("screenshot_path"):
         return {
             "planned_actions": [],
@@ -240,31 +241,31 @@ def llm_planner(state: Dict[str, Any]) -> dict:
         )
         ui_elements = state.get("ui_elements", [])[:30]
         context_text = build_context(state, ui_elements)
-        print(f"🧾 发送给 LLM 的 UI 元素数量: {len(ui_elements)}")
+        logger.info(f"🧾 发送给 LLM 的 UI 元素数量: {len(ui_elements)}")
         # 第一阶段：多模态
         try:
             base64_image = compress_image_to_base64(state["screenshot_path"])
-            print(f"🖼️ base64 图片长度: {len(base64_image)}")
-            print("🚀 尝试使用 多模态规划（图片 + UI元素）...")
+            logger.info(f"🖼️ base64 图片长度: {len(base64_image)}")
+            logger.info("🚀 尝试使用 多模态规划（图片 + UI元素）...")
             raw_text = invoke_with_image(llm, context_text, base64_image)
-            print(f"📝 LLM 原始返回（多模态）:\n{raw_text}")
+            logger.info(f"📝 LLM 原始返回（多模态）:\n{raw_text}")
             planned_actions = parse_llm_plan(raw_text)
-            print(f"✅ 多模态规划成功: {planned_actions}")
-            print(f"🛠️ 准备返回给 workflow 的 planned_actions: {planned_actions}")
+            logger.info(f"✅ 多模态规划成功: {planned_actions}")
+            logger.info(f"🛠️ 准备返回给 workflow 的 planned_actions: {planned_actions}")
             result = build_success_result(planned_actions)
             result["history"] = history + ["LLM 规划成功（多模态）"]
             return result
         except Exception as image_error:
-            print(f"⚠️ 多模态规划失败，准备降级到纯文本模式: {repr(image_error)}")
+            logger.error(f"⚠️ 多模态规划失败，准备降级到纯文本模式: {repr(image_error)}")
             traceback.print_exc()
             # 第二阶段：纯文本降级
             try:
-                print("🚀 尝试使用 纯文本规划（仅UI元素）...")
+                logger.info("🚀 尝试使用 纯文本规划（仅UI元素）...")
                 raw_text = invoke_text_only(llm, context_text)
-                print(f"📝 LLM 原始返回（纯文本）:\n{raw_text}")
+                logger.info(f"📝 LLM 原始返回（纯文本）:\n{raw_text}")
                 planned_actions = parse_llm_plan(raw_text)
-                print(f"✅ 纯文本规划成功: {planned_actions}")
-                print(f"🛠️ 准备返回给 workflow 的 planned_actions: {planned_actions}")
+                logger.info(f"✅ 纯文本规划成功: {planned_actions}")
+                logger.info(f"🛠️ 准备返回给 workflow 的 planned_actions: {planned_actions}")
                 result = build_success_result(planned_actions)
                 result["history"] = history + [
                     f"多模态规划失败: {repr(image_error)}",
@@ -272,7 +273,7 @@ def llm_planner(state: Dict[str, Any]) -> dict:
                 ]
                 return result
             except Exception as text_error:
-                print(f"❌ 纯文本规划也失败: {repr(text_error)}")
+                logger.error(f"❌ 纯文本规划也失败: {repr(text_error)}")
                 traceback.print_exc()
                 result = build_error_result(text_error)
                 result["history"] = history + [
@@ -282,7 +283,7 @@ def llm_planner(state: Dict[str, Any]) -> dict:
                 ]
                 return result
     except Exception as e:
-        print(f"❌ LLM 初始化或规划流程失败: {repr(e)}")
+        logger.error(f"❌ LLM 初始化或规划流程失败: {repr(e)}")
         traceback.print_exc()
         result = build_error_result(e)
         result["history"] = history + [f"LLM 初始化失败: {repr(e)}"]

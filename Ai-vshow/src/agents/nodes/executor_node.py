@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 import json
 import re
 from ...drivers.element_handler import extract_ui_elements
+from ...utils.logger import logger
 
 
 def _get_current_ui_elements() -> List[Dict[str, Any]]:
@@ -19,7 +20,7 @@ def _get_current_ui_elements() -> List[Dict[str, Any]]:
     try:
         return extract_ui_elements()
     except Exception as e:
-        print(f"⚠️ 调用 extract_ui_elements 失败: {repr(e)}")
+        logger.error(f"⚠️ 调用 extract_ui_elements 失败: {repr(e)}")
         traceback.print_exc()
         return []
 
@@ -79,11 +80,11 @@ def _call_llm_for_recovery(
         except json.JSONDecodeError:
             pass
 
-        print(f"⚠️ LLM 恢复动作解析失败，原始响应: {raw_text}")
+        logger.warning(f"⚠️ LLM 恢复动作解析失败，原始响应: {raw_text}")
         return []
 
     except Exception as e:
-        print(f"❌ 调用 LLM 进行恢复失败: {repr(e)}")
+        logger.error(f"❌ 调用 LLM 进行恢复失败: {repr(e)}")
         traceback.print_exc()
         return []
 
@@ -95,7 +96,7 @@ def execute_planned_action(state: Dict[str, Any]) -> dict:
     from ...drivers.appium_driver import driver_manager
     driver = driver_manager.driver
 
-    print("🤖 执行器节点被调用")
+    logger.info("🤖 执行器节点被调用")
 
     # --- 新增逻辑：检查是否存在预设动作 ---
     test_case = state.get("test_case", {})
@@ -120,7 +121,7 @@ def _execute_llm_planned_actions(state: Dict[str, Any]) -> dict:
     is_complete = False
 
     if not planned_actions or current_index >= len(planned_actions):
-        print("⚠️ 没有可执行的动作或已执行完毕")
+        logger.warning("⚠️ 没有可执行的动作或已执行完毕")
         return {
             "executed_actions": executed_actions,
             "current_step_index": current_index,
@@ -131,7 +132,7 @@ def _execute_llm_planned_actions(state: Dict[str, Any]) -> dict:
         }
 
     action = planned_actions[current_index]
-    print(f"🤖 第 {current_index + 1} 步，准备执行动作: {action['type']} - {action['value']}")
+    logger.info(f"🤖 第 {current_index + 1} 步，准备执行动作: {action['type']} - {action['value']}")
     try:
         result = perform_single_action(action)
         print(f"   -> 动作执行成功: {result}")
@@ -140,10 +141,10 @@ def _execute_llm_planned_actions(state: Dict[str, Any]) -> dict:
         current_index += 1
         if action.get("type") == "done":
             is_complete = True
-            print("✅ 检测到 'done' 动作，任务标记为完成")
+            logger.info("✅ 检测到 'done' 动作，任务标记为完成")
     except Exception as e:
         error_msg = f"{action['type']}({action['value']}) -> {repr(e)}"
-        print(f"❌ 执行动作失败: {error_msg}")
+        logger.error(f"❌ 执行动作失败: {error_msg}")
         error_message = error_msg
 
     return {
@@ -173,7 +174,7 @@ def _execute_predefined_actions(
     # 如果所有预设动作都已执行完毕
     if current_index >= len(predefined_actions):
         is_complete = True
-        print("✅ 所有预设动作已执行完毕")
+        logger.info("✅ 所有预设动作已执行完毕")
         return {
             "executed_actions": executed_actions,
             "current_step_index": current_index,
@@ -184,13 +185,13 @@ def _execute_predefined_actions(
         }
 
     action = predefined_actions[current_index]
-    print(f"🤖 (预设模式) 第 {current_index + 1} 步，准备执行动作: {action['type']} - {action['value']}")
+    logger.info(f"🤖 (预设模式) 第 {current_index + 1} 步，准备执行动作: {action['type']} - {action['value']}")
 
     max_retries = 2
     for attempt in range(max_retries + 1):
         try:
             result = perform_single_action(action)
-            print(f"   -> 动作执行成功: {result}")
+            logger.info(f"   -> 动作执行成功: {result}")
             executed_actions.append(action)
             step_count += 1
 
@@ -209,11 +210,11 @@ def _execute_predefined_actions(
 
         except Exception as e:
             error_msg = f"{action['type']}({action['value']}) -> {repr(e)}"
-            print(f"   ❌ 尝试 {attempt + 1}/{max_retries + 1} 失败: {error_msg}")
+            logger.error(f"   ❌ 尝试 {attempt + 1}/{max_retries + 1} 失败: {error_msg}")
 
             if attempt < max_retries:
                 # --- 调用 LLM 进行恢复 ---
-                print("   🧠 调用 LLM 分析异常并生成修复动作...")
+                logger.info("   🧠 调用 LLM 分析异常并生成修复动作...")
                 ui_elements = _get_current_ui_elements(driver)
                 screenshot_path = settings.CURRENT_SCREEN_PATH
 
@@ -225,22 +226,22 @@ def _execute_predefined_actions(
                 )
 
                 if repair_actions:
-                    print(f"   🛠️ 执行 {len(repair_actions)} 个修复动作:")
+                    logger.info(f"   🛠️ 执行 {len(repair_actions)} 个修复动作:")
                     for ra in repair_actions:
-                        print(f"      - {ra['type']}: '{ra['value']}'")
+                        logger.info(f"      - {ra['type']}: '{ra['value']}'")
                         try:
                             perform_single_action(ra)
                         except Exception as re:
-                            print(f"        ⚠️ 修复动作失败: {re}")
+                            logger.info(f"        ⚠️ 修复动作失败: {re}")
                     # 修复后，等待一下再重试
                     time.sleep(1)
                 else:
-                    print("   💡 LLM 未提供有效修复方案，稍后重试...")
+                    logger.warning("   💡 LLM 未提供有效修复方案，稍后重试...")
                     time.sleep(2)
             else:
                 # 所有重试都失败了
                 error_message = error_msg
-                print("   💥 所有重试均失败，终止执行。")
+                logger.error("   💥 所有重试均失败，终止执行。")
                 break
 
     return {
