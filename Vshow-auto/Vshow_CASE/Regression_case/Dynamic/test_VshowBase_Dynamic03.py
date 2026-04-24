@@ -43,7 +43,8 @@ class Test_VSHOWBASE_Dynamic03:
                              step_name="输入发布内容")
         topic = get_text_by_id(new_driver, element_id=self.driver_data_2.get("appPackage")+":id/tvTag")
         click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/tvTag","选择话题并点击")
-        click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/topBarRightBtnTxt", step_name="点击发布按钮")
+        click_text_by_resource_id(new_driver, topic, self.driver_data_2.get("appPackage")+":id/ivToggle","点击收缩页面，展示发布按钮")
+        click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/publishTv", step_name="点击发布按钮")
         # 去我的页面进入到动态详情页面
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/navMe", step_name="进如【我的】页面")
         click_element_by_id(new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/mine_user_info_view", step_name="进入到我的详情页面")

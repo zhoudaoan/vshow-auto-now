@@ -1,34 +1,28 @@
-2026-04-16 14:26:03 [ INFO ] test_VshowBase_Search01.py:18 | 初始化--获取app的配置信息用于退出后台
-2026-04-16 14:26:03 [ INFO ] test_VshowBase_Search01.py:26 | 主播端--登录app，进入首页获取userid
-2026-04-16 14:26:03 [ INFO ] more_devices.py:26 | 
---- Setup: Initializing  More Appium Driver ---
-2026-04-16 14:26:09 [ INFO ] more_devices.py:44 | ✅ Appium driver initialized successfully.
-2026-04-16 14:26:09 [ INFO ] common_actions.py:30 | --- 进入【我的】页面 ---
-2026-04-16 14:26:11 [ WARNING ] common_actions.py:45 | ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navMe' 失败 (NoSuchElementException)，0.20s 后重试...
-2026-04-16 14:26:14 [ INFO ] common_actions.py:38 | ✅ 成功点击: 进入【我的】页面
-2026-04-16 14:26:14 [ INFO ] vshow_task_h5.py:368 | --- 获取用户ID和昵称 ---
-2026-04-16 14:26:14 [ INFO ] vshow_task_h5.py:380 | ✅ 成功获取用户信息: UID=37147245, 昵称=N25ii2
-2026-04-16 14:26:14 [ INFO ] vshow_conf.py:64 | 
---- Setup: Initializing Appium Driver ---
-2026-04-16 14:26:15 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
-2026-04-16 14:26:26 [ INFO ] vshow_conf.py:89 | ✅ Appium driver connected. Waiting for app to be ready...
-2026-04-16 14:26:29 [ INFO ] vshow_conf.py:99 | ✅ App is ready! Home indicator detected.
-2026-04-16 14:26:29 [ INFO ] test_VshowBase_Search01.py:37 | 观众端--登录app，搜索发布动态的用户-由详情页进行
-2026-04-16 14:26:29 [ INFO ] common_actions.py:760 | --- 点击搜索按钮 ---
-2026-04-16 14:26:30 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击搜索按钮
-2026-04-16 14:26:30 [ INFO ] common_actions.py:72 | --- 输入用户id ---
-2026-04-16 14:26:31 [ WARNING ] common_actions.py:95 | ⚠️ 第 1/21 次输入 'com.baitu.poppo:id/etKeyword' 失败 (NoSuchElementException)，0.20s 后重试...
-2026-04-16 14:26:34 [ WARNING ] common_actions.py:85 | 输入用户id: clear() failed, fallback to backspace: clear() did not work
-2026-04-16 14:26:36 [ INFO ] common_actions.py:89 | ✅ 输入用户id: 输入完成 -> '37147245'
-2026-04-16 14:26:37 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['N25ii2', '37147245']] ---
-2026-04-16 14:26:39 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 2.34s）: ['N25ii2', '37147245']
-2026-04-16 14:26:39 [ INFO ] common_actions.py:30 | --- 点击主播头像进入详情页 ---
-2026-04-16 14:26:39 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击主播头像进入详情页
-2026-04-16 14:26:39 [ INFO ] common_actions.py:381 | --- [等待页面包含文本: ['N25ii2', '37147245', '资料', '荣誉墙']] ---
-2026-04-16 14:26:42 [ INFO ] common_actions.py:400 | ✅ 页面加载成功，所有文本已出现（等待 2.42s）: ['N25ii2', '37147245', '资料', '荣誉墙']
-2026-04-16 14:26:42 [ INFO ] vshow_conf.py:112 | 
---- Teardown: Quitting Appium Driver ---
-2026-04-16 14:26:42 [ INFO ] vshow_conf.py:116 | ✅ Appium driver quit successfully.
-2026-04-16 14:26:42 [ INFO ] test_VshowBase_Search01.py:46 | 清除手机后台指定APP应用
-2026-04-16 14:26:42 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
-2026-04-16 14:26:42 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo
+2026-04-24 18:50:24 [ INFO ] test_VshowBase_Dynamic03.py:23 | 获取app的配置信息用于退出后台
+2026-04-24 18:50:24 [ INFO ] test_VshowBase_Dynamic03.py:34 | 登录app，进入动态，选择话题发布
+2026-04-24 18:50:24 [ INFO ] more_devices.py:30 | 
+--- Setup: more Driver Initializing Appium Driver ---
+2026-04-24 18:50:24 [ INFO ] vshow_conf.py:31 | ✅ Force-stopped com.baitu.poppo
+2026-04-24 18:50:29 [ INFO ] more_devices.py:53 | ✅ Appium driver connected. Waiting for app to be ready...
+2026-04-24 18:50:35 [ INFO ] more_devices.py:63 | ✅ App is ready! Home indicator detected.
+2026-04-24 18:50:35 [ INFO ] common_actions.py:30 | --- 点击底部发布动态的按钮 ---
+2026-04-24 18:50:36 [ INFO ] common_actions.py:38 | ✅ 成功点击: 点击底部发布动态的按钮
+2026-04-24 18:50:36 [ INFO ] common_actions.py:760 | --- 点击广场按钮 ---
+2026-04-24 18:50:36 [ WARNING ] common_actions.py:772 | ⚠️ 第 1 次点击 '//android.widget.TextView[@text="广场"]' 失败 (NoSuchElementException)，0.30s 后重试...
+2026-04-24 18:50:37 [ WARNING ] common_actions.py:772 | ⚠️ 第 2 次点击 '//android.widget.TextView[@text="广场"]' 失败 (NoSuchElementException)，0.40s 后重试...
+2026-04-24 18:50:37 [ WARNING ] common_actions.py:772 | ⚠️ 第 3 次点击 '//android.widget.TextView[@text="广场"]' 失败 (NoSuchElementException)，0.50s 后重试...
+2026-04-24 18:50:39 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场按钮
+2026-04-24 18:50:39 [ INFO ] common_actions.py:760 | --- 点击广场动态发布页面的发布按钮 ---
+2026-04-24 18:50:40 [ INFO ] common_actions.py:768 | ✅ 成功点击: 点击广场动态发布页面的发布按钮
+2026-04-24 18:50:40 [ INFO ] common_actions.py:72 | --- 输入发布内容 ---
+2026-04-24 18:50:40 [ WARNING ] common_actions.py:95 | ⚠️ 第 1/21 次输入 'com.baitu.poppo:id/content' 失败 (NoSuchElementException)，0.20s 后重试...
+2026-04-24 18:50:42 [ WARNING ] common_actions.py:85 | 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+2026-04-24 18:50:44 [ INFO ] common_actions.py:89 | ✅ 输入发布内容: 输入完成 -> '摺崅吃宽熑熥霍杢腮鵘鳂櫡伢諷驠譚媌漂懂叝媠鋜髐邗嗿厳劽膌毻瓚片蒄受磩臄釟嵵嘊篢鶴甑庁奞萵轮宿屜牾豴馊婪'
+2026-04-24 18:50:44 [ INFO ] common_actions.py:454 | --- 尝试获取文本 (ID: com.baitu.poppo:id/tvTag) ---
+2026-04-24 18:50:48 [ INFO ] common_actions.py:468 | ✅ 通过 .text 获取到文本: '新建一个活动话题' (ID: com.baitu.poppo:id/tvTag)
+2026-04-24 18:50:48 [ INFO ] common_actions.py:323 | --- 选择话题并点击 ---
+2026-04-24 18:50:49 [ INFO ] common_actions.py:336 | ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/tvTag" and @text="新建一个活动话题"]
+2026-04-24 18:50:49 [ INFO ] common_actions.py:323 | --- 点击收缩页面，展示发布按钮 ---
+2026-04-24 18:50:59 [ ERROR ] common_actions.py:347 | ❌ 超时 10 秒或耗尽 20 次重试，未能点击元素: //android.widget.TextView[@resource-id="com.baitu.poppo:id/ivToggle" and @text="新建一个活动话题"]
+2026-04-24 18:51:00 [ INFO ] test_VshowBase_Dynamic03.py:65 | 清除手机后台指定APP应用
+2026-04-24 18:51:00 [ INFO ] clear_app.py:29 | ✅ force-stop com.baitu.poppo

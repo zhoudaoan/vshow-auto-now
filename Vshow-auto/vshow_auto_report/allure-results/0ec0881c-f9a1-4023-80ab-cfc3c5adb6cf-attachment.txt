@@ -1,0 +1,39 @@
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:23 获取app的配置信息用于退出后台
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:34 登录app，进入动态，选择话题发布
+INFO     Vshow_TOOLS.more_devices:more_devices.py:26 
+--- Setup: Initializing  More Appium Driver ---
+INFO     Vshow_TOOLS.more_devices:more_devices.py:44 ✅ Appium driver initialized successfully.
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击底部发布动态的按钮 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/navDynamic' 失败 (NoSuchElementException)，0.20s 后重试...
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击底部发布动态的按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击广场按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击广场按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击广场动态发布页面的发布按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击广场动态发布页面的发布按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:72 --- 输入发布内容 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:85 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+INFO     Vshow_TOOLS.common_actions:common_actions.py:89 ✅ 输入发布内容: 输入完成 -> '龑锁儯荒俋垎攲稖篮隌嶈劓尡鬜坔顖錻蕯啈崸腗脜執拓檸壆慍乆燴旒軇畝昐臼馳揎咸凓韋埣澴箅嵹燏浝处矿塠鿜藈鋓'
+INFO     Vshow_TOOLS.common_actions:common_actions.py:454 --- 尝试获取文本 (ID: com.baitu.poppo:id/tvTag) ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:468 ✅ 通过 .text 获取到文本: '新建一个活动话题' (ID: com.baitu.poppo:id/tvTag)
+INFO     Vshow_TOOLS.common_actions:common_actions.py:323 --- 选择话题并点击 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:336 ✅ 成功点击: //android.widget.TextView[@resource-id="com.baitu.poppo:id/tvTag" and @text="新建一个活动话题"]
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击发布按钮 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 1/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.20s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 2/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.35s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 3/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.50s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 4/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.65s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 5/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.80s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 6/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，0.95s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 7/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，1.10s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 8/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，1.25s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 9/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，1.40s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:45 ⚠️ 第 10/21 次点击 'com.baitu.poppo:id/publishTv' 失败 (NoSuchElementException)，1.55s 后重试...
+ERROR    Vshow_TOOLS.common_actions:common_actions.py:51 💥 所有重试失败或超时: 点击发布按钮 | 最终错误: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/vshow/node_modules/appium-uiautomator2-driver/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+INFO     test_VshowBase_Dynamic03:test_VshowBase_Dynamic03.py:64 清除手机后台指定APP应用
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.poppo

@@ -38,7 +38,7 @@ class Test_VSHOWBASE_Dynamic04:
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/ivA", step_name="点击发布动态页面的@按钮")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/iv_check", step_name="选择好友")
         click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/topBarRightBtnTxt", step_name="点击完成按钮")
-        click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/topBarRightBtnTxt", step_name="点击发布按钮")
+        click_element_by_id(self.new_driver, element_id=self.driver_data_2.get("appPackage") + ":id/publishTv", step_name="点击发布按钮")
 
     def test_produce(self, driver):
         """

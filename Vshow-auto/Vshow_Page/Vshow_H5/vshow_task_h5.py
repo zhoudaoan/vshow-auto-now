@@ -341,7 +341,7 @@ def dynamic_put_video_or_photo(driver, tag=1):
     if tag == 2:
         click_element_by_id(driver, element_id=app_package + ":id/activity_trim_video_confirm", step_name="点击选择视频的下一步")
 
-    click_element_by_id(driver, element_id=app_package + ":id/topBarRightBtnTxt", step_name="点击发布按钮")
+    click_element_by_id(driver, element_id=app_package + ":id/publishTv", step_name="点击发布按钮")
     time.sleep(5)
     # wait_for_toast(driver, "发布成功", "发布动态成功，返回发布动态页面")
 

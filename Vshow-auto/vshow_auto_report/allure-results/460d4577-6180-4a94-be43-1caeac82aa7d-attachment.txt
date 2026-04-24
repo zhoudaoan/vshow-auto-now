@@ -1,0 +1,33 @@
+INFO     test_VshowBase_Dynamic01:test_VshowBase_Dynamic01.py:19 获取app的配置信息用于退出后台
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:64 
+--- Setup: Initializing Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:31 ✅ Force-stopped com.baitu.poppo
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:49 🧹 Removed 5 recent/hidden tasks for com.baitu.poppo
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:89 ✅ Appium driver connected. Waiting for app to be ready...
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:99 ✅ App is ready! Home indicator detected.
+INFO     test_VshowBase_Dynamic01:test_VshowBase_Dynamic01.py:29 登录app，进入动态，上传图片
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击底部发布动态的按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击底部发布动态的按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击广场按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击广场按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击广场动态发布页面的发布按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击广场动态发布页面的发布按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:72 --- 输入发布内容 ---
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:95 ⚠️ 第 1/21 次输入 'com.baitu.poppo:id/content' 失败 (NoSuchElementException)，0.20s 后重试...
+WARNING  Vshow_TOOLS.common_actions:common_actions.py:85 输入发布内容: clear() failed, fallback to backspace: clear() did not work
+INFO     Vshow_TOOLS.common_actions:common_actions.py:89 ✅ 输入发布内容: 输入完成 -> '依潪陜虝悬輀叿倚鑪豑袼躧狏瘵晩靤棄谴冲洼捵脿篸鵣罃毼浸倛滍輸愉霮揾牺遏伿芙髧鈣簰胢粮羾使恡锱胨逶戈鲷隑'
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击添加照片按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击添加照片按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 点击添加照片按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 点击添加照片按钮
+INFO     Vshow_TOOLS.common_actions:common_actions.py:760 --- 选择头像图片/视频--默认选择第一个 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:768 ✅ 成功点击: 选择头像图片/视频--默认选择第一个
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击选择图片/视频的下一步 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击选择图片/视频的下一步
+INFO     Vshow_TOOLS.common_actions:common_actions.py:30 --- 点击发布按钮 ---
+INFO     Vshow_TOOLS.common_actions:common_actions.py:38 ✅ 成功点击: 点击发布按钮
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:112 
+--- Teardown: Quitting Appium Driver ---
+INFO     Vshow_Page.vshow_conf:vshow_conf.py:116 ✅ Appium driver quit successfully.
+INFO     test_VshowBase_Dynamic01:test_VshowBase_Dynamic01.py:36 清除手机后台指定APP应用
+INFO     Vshow_TOOLS.clear_app:clear_app.py:29 ✅ force-stop com.baitu.poppo
