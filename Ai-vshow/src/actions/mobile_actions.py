@@ -148,13 +148,10 @@ def send_content(resource_id: str, text: str, timeout: int = 10) -> bool:
 
         element = visible_elements[0]
 
-        # 点击以聚焦（某些应用需要）
         element.click()
 
-        # 清除已有内容（Appium 的 clear() 有时不可靠，可选增强）
         element.clear()
 
-        # 输入新文本
         element.send_keys(text)
 
         logger.info(f"   -> 动作执行成功: Input text '{text}' into element with ID: {resource_id}")
@@ -163,6 +160,7 @@ def send_content(resource_id: str, text: str, timeout: int = 10) -> bool:
     except Exception as e:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
+
 
 def perform_swipe(direction: str) -> bool:
     """执行滑动操作"""
@@ -190,6 +188,7 @@ def perform_swipe(direction: str) -> bool:
     except Exception as e:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
+
 
 def assert_text_exists(expected_text: str) -> bool:
     """
@@ -227,6 +226,65 @@ def assert_text_exists(expected_text: str) -> bool:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
+
+# --- 自定义动作支持 (Custom Action Support) ---
+
+# 1. 定义一个全局字典作为自定义函数的注册表
+_CUSTOM_ACTION_REGISTRY = {}
+
+
+def register_custom_action(name: str):
+    """
+    装饰器：用于向注册表中注册自定义动作函数。
+
+    使用示例:
+        @register_custom_action("my_special_task")
+        def my_special_task(driver, params: dict):
+            # 您的业务逻辑
+            pass
+    """
+
+    def decorator(func):
+        if name in _CUSTOM_ACTION_REGISTRY:
+            raise ValueError(f"Custom action '{name}' is already registered.")
+        _CUSTOM_ACTION_REGISTRY[name] = func
+        logger.info(f"Registered custom action: {name}")
+        return func
+
+    return decorator
+
+
+def _execute_custom_action(action_config: dict) -> bool:
+    """
+    执行一个自定义动作。
+
+    :param action_config: 来自JSON的动作定义，必须包含 'name' 键。
+        示例: {"type": "custom", "name": "my_special_task", "params": {"arg1": "value1"}}
+    :return: 动作执行结果，通常为 True。
+    """
+    drv = _get_driver()
+    action_name = action_config.get("name")
+    if not action_name:
+        raise ValueError("Custom action missing required 'name' field.")
+
+    params = action_config.get("params", {})
+
+    if action_name not in _CUSTOM_ACTION_REGISTRY:
+        raise ValueError(
+            f"Custom action '{action_name}' is not registered. Available actions: {list(_CUSTOM_ACTION_REGISTRY.keys())}")
+
+    try:
+        logger.info(f"   -> 正在执行自定义动作: {action_name} with params: {params}")
+        # 调用注册的函数，并传入 driver 和 params
+        result = _CUSTOM_ACTION_REGISTRY[action_name](driver=drv, params=params)
+        logger.info(f"   -> 自定义动作执行成功: {action_name}")
+        # 如果您的自定义函数不返回值，我们默认返回 True
+        return result if result is not None else True
+    except Exception as e:
+        logger.error(f"   -> 自定义动作执行失败: {action_name}, Error: {repr(e)}\n{traceback.format_exc()}")
+        raise
+
+
 def perform_single_action(action: dict) -> bool:
     """执行单个动作"""
     action_type = action.get("type")
@@ -254,5 +312,30 @@ def perform_single_action(action: dict) -> bool:
             raise ValueError("send_content 的 value 必须为 'resource_id||text' 格式")
         resource_id, text = value.split("||", 50)
         return send_content(resource_id.strip(), text.strip())
+    # --- 新增：处理自定义动作 ---
+    elif action_type == "custom":
+        return _execute_custom_action(action)
     else:
         raise ValueError(f"Unsupported action type: {action_type}")
+
+
+# --- 在此处定义您的自定义动作函数 ---
+@register_custom_action("log_current_activity")
+def log_current_activity(driver, params: dict):
+    """一个简单的自定义动作：记录当前 Activity"""
+    current_activity = driver.current_activity
+    logger.info(f"[Custom Action] Current Activity: {current_activity}")
+
+
+@register_custom_action("safe_hide_keyboard")
+def safe_hide_keyboard(driver):
+    """
+    安全收起键盘：优先尝试标准方法，失败则点击空白区域
+    """
+    try:
+        if driver.is_keyboard_shown():
+            driver.hide_keyboard()
+    except Exception as e:
+        logger.debug(f"hide_keyboard() 失败，改用点击空白区域: {e}")
+        size = driver.get_window_size()
+        driver.tap([(size['width'] // 2, size['height'] - 150)], 100)

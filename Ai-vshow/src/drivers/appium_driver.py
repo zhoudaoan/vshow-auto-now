@@ -30,7 +30,7 @@ class AppiumDriverManager:
 
             try:
                 WebDriverWait(drv, 20).until(
-                    EC.presence_of_element_located(("id", settings.HOME_READY_ID))
+                    EC.presence_of_element_located(("id", settings.VSHOW_READY_ID))
                 )
                 logger.info("✅ 已进入首页")
             except Exception as e:

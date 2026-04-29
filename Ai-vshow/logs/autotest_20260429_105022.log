@@ -1,0 +1,76 @@
+2026-04-29 10:50:29 | INFO     | vshow_auto_test | appium_driver.py:29 - create_session() | ✅ Appium Session 创建成功
+2026-04-29 10:50:29 | WARNING  | vshow_auto_test | appium_driver.py:37 - create_session() | ⚠️ 首页校验失败，但 driver 仍可用: AttributeError("'Settings' object has no attribute 'HOME_READY_ID'")
+2026-04-29 10:50:30 | INFO     | vshow_auto_test | appium_driver.py:41 - create_session() | 📷 已保存启动截图: /Users/vshow/Downloads/code/Ai-vshow/startup_debug.png
+2026-04-29 10:50:30 | INFO     | vshow_auto_test | appium_driver.py:58 - _save_page_source() | 🧾 已保存 page_source: /Users/vshow/Downloads/code/Ai-vshow/startup_page_source.xml
+2026-04-29 10:50:30 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 1/7: click_id → 'com.baitu.qingshu:id/openLive'
+2026-04-29 10:50:35 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/openLive
+2026-04-29 10:50:35 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:35 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 2/7: wait → '2'
+2026-04-29 10:50:37 | INFO     | vshow_auto_test | mobile_actions.py:115 - wait_for_seconds() |    -> 动作执行成功: Waited for 2 seconds
+2026-04-29 10:50:37 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:37 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 3/7: click_id → 'com.baitu.qingshu:id/action_before_live_start'
+2026-04-29 10:50:38 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/action_before_live_start
+2026-04-29 10:50:38 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:38 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 4/7: wait → '10'
+2026-04-29 10:50:48 | INFO     | vshow_auto_test | mobile_actions.py:115 - wait_for_seconds() |    -> 动作执行成功: Waited for 10 seconds
+2026-04-29 10:50:48 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:48 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 5/7: click_id → 'com.baitu.qingshu:id/liveClose'
+2026-04-29 10:50:50 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/liveClose
+2026-04-29 10:50:50 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:50 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 6/7: click_id → 'com.baitu.qingshu:id/positiveButton'
+2026-04-29 10:50:51 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/positiveButton
+2026-04-29 10:50:51 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:50:51 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 7/7: assert_text → '直播已关闭'
+2026-04-29 10:51:02 | INFO     | vshow_auto_test | mobile_actions.py:217 - assert_text_exists() |    -> 断言成功: 页面包含文本 '直播已关闭'
+2026-04-29 10:51:02 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:02 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 1/7: click_id → 'com.baitu.qingshu:id/navDynamic'
+2026-04-29 10:51:07 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/navDynamic
+2026-04-29 10:51:07 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:07 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 2/7: wait → '2'
+2026-04-29 10:51:09 | INFO     | vshow_auto_test | mobile_actions.py:115 - wait_for_seconds() |    -> 动作执行成功: Waited for 2 seconds
+2026-04-29 10:51:09 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:09 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 3/7: click_text → '创作者'
+2026-04-29 10:51:11 | INFO     | vshow_auto_test | mobile_actions.py:76 - click_by_text() |    -> 动作执行成功: Clicked element with text: 创作者
+2026-04-29 10:51:11 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:11 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 4/7: wait → '2'
+2026-04-29 10:51:13 | INFO     | vshow_auto_test | mobile_actions.py:115 - wait_for_seconds() |    -> 动作执行成功: Waited for 2 seconds
+2026-04-29 10:51:13 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:13 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 5/7: click_xpath → '//android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBar"]/android.widget.ImageView[2]
+'
+2026-04-29 10:51:14 | INFO     | vshow_auto_test | mobile_actions.py:91 - click_by_xpath() |    -> 动作执行成功: Clicked element with xpath: //android.widget.LinearLayout[@resource-id="com.baitu.qingshu:id/topBar"]/android.widget.ImageView[2]
+
+2026-04-29 10:51:14 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:14 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 6/7: send_content → 'com.baitu.qingshu:id/content||这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK'
+2026-04-29 10:51:19 | INFO     | vshow_auto_test | mobile_actions.py:157 - send_content() |    -> 动作执行成功: Input text '这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK' into element with ID: com.baitu.qingshu:id/content
+2026-04-29 10:51:19 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 10:51:19 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 7/7: click_id → 'com.baitu.qingshu:id/publishTv'
+2026-04-29 10:51:29 | ERROR    | vshow_auto_test | mobile_actions.py:64 - click_by_id() |    -> 尝试失败: TimeoutException(Message: 
+)
+2026-04-29 10:51:29 | ERROR    | vshow_auto_test | predefined_executor.py:102 - execute_predefined_test_case() |    ❌ 失败 (尝试 1/3): Message:  
+2026-04-29 10:51:29 | INFO     | vshow_auto_test | predefined_executor.py:105 - execute_predefined_test_case() |    🧠 尝试自动恢复（弹窗/遮挡检测）...
+2026-04-29 10:51:31 | INFO     | vshow_auto_test | element_handler.py:64 - extract_ui_elements() | 🧩 已提取 UI 元素: 47 个
+2026-04-29 10:51:40 | WARNING  | vshow_auto_test | predefined_executor.py:124 - execute_predefined_test_case() |    💡 无匹配修复方案，稍后重试...
+2026-04-29 10:51:53 | ERROR    | vshow_auto_test | mobile_actions.py:64 - click_by_id() |    -> 尝试失败: TimeoutException(Message: 
+)
+2026-04-29 10:51:53 | ERROR    | vshow_auto_test | predefined_executor.py:102 - execute_predefined_test_case() |    ❌ 失败 (尝试 2/3): Message:  
+2026-04-29 10:51:53 | INFO     | vshow_auto_test | predefined_executor.py:105 - execute_predefined_test_case() |    🧠 尝试自动恢复（弹窗/遮挡检测）...
+2026-04-29 10:51:53 | INFO     | vshow_auto_test | element_handler.py:64 - extract_ui_elements() | 🧩 已提取 UI 元素: 47 个
+2026-04-29 10:52:00 | WARNING  | vshow_auto_test | predefined_executor.py:124 - execute_predefined_test_case() |    💡 无匹配修复方案，稍后重试...
+2026-04-29 10:52:13 | ERROR    | vshow_auto_test | mobile_actions.py:64 - click_by_id() |    -> 尝试失败: TimeoutException(Message: 
+)
+2026-04-29 10:52:13 | ERROR    | vshow_auto_test | predefined_executor.py:102 - execute_predefined_test_case() |    ❌ 失败 (尝试 3/3): Message:  
+2026-04-29 10:52:13 | ERROR    | vshow_auto_test | predefined_executor.py:127 - execute_predefined_test_case() |    💥 步骤 7 彻底失败，终止执行。
