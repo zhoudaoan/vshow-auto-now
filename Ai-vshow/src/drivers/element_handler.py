@@ -23,6 +23,15 @@ def parse_bounds(bounds: str) -> Optional[Dict[str, int]]:
         "center_y": (y1 + y2) // 2,
     }
 
+def bounds_to_center(bounds_str: str) -> tuple[int, int]:
+    """
+    将 bounds 字符串（如 '[100,200][300,400]'）转换为中心点坐标 (x, y)
+    """
+    parsed = parse_bounds(bounds_str)
+    if not parsed:
+        raise ValueError(f"Invalid bounds string: {bounds_str}")
+    return parsed["center_x"], parsed["center_y"]
+
 def normalize_text(text: str) -> str:
     return (text or "").strip()
 

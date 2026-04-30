@@ -107,13 +107,14 @@ def reset_app():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="运行移动端AI自动化测试用例 (Allure版)")
     parser.add_argument("--cases", type=str, default="test_cases", help="测试用例目录路径")
+    parser.add_argument("--case-name", type=str, default=None, help="（可选）指定要执行的测试用例名称（精确匹配 'name' 字段）")
     args = parser.parse_args()
 
     logger.info("🚀 启动AI自动化测试执行器 (Allure Report)...")
 
     test_cases = []
     try:
-        test_cases = load_test_cases(args.cases)
+        test_cases = load_test_cases(directory=args.cases, case_name=args.case_name)
         if not test_cases:
             logger.warning("⚠️ 未找到任何测试用例。")
             exit(1)

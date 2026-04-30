@@ -1,0 +1,28 @@
+2026-04-29 15:26:04 | INFO     | vshow_auto_test | mobile_actions.py:251 - decorator() | Registered custom action: log_current_activity
+2026-04-29 15:26:04 | INFO     | vshow_auto_test | mobile_actions.py:251 - decorator() | Registered custom action: safe_hide_keyboard
+2026-04-29 15:26:11 | INFO     | vshow_auto_test | appium_driver.py:29 - create_session() | ✅ Appium Session 创建成功
+2026-04-29 15:26:28 | INFO     | vshow_auto_test | appium_driver.py:35 - create_session() | ✅ 已进入首页
+2026-04-29 15:26:28 | INFO     | vshow_auto_test | appium_driver.py:41 - create_session() | 📷 已保存启动截图: /Users/vshow/Downloads/code/Ai-vshow/startup_debug.png
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | appium_driver.py:58 - _save_page_source() | 🧾 已保存 page_source: /Users/vshow/Downloads/code/Ai-vshow/startup_page_source.xml
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:112 - <module>() | 🚀 启动AI自动化测试执行器 (Allure Report)...
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:44 - run_single_test_case() | 
+============================================================
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:45 - run_single_test_case() | 🧪 开始执行测试用例: 直播功能测试
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:46 - run_single_test_case() | 📝 描述: 验证用户能否成功开始并结束一次直播。
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:47 - run_single_test_case() | 🎯 完整任务: 1、在首页点击:id/openLive2、停留2s3、再点击:id/action_before_live_start4、停留10s5、点击:id/liveClose6、点击:id/positiveButton7、最后，确认页面上出现了“直播已关闭”的文本
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | main.py:48 - run_single_test_case() | ============================================================
+2026-04-29 15:26:29 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 1/7: click_id → 'com.baitu.qingshu:id/openLive'
+2026-04-29 15:26:30 | INFO     | vshow_auto_test | mobile_actions.py:60 - click_by_id() |    -> 动作执行成功: Clicked VISIBLE element with ID: com.baitu.qingshu:id/openLive
+2026-04-29 15:26:30 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 15:26:30 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 2/7: wait → '2'
+2026-04-29 15:26:32 | INFO     | vshow_auto_test | mobile_actions.py:115 - wait_for_seconds() |    -> 动作执行成功: Waited for 2 seconds
+2026-04-29 15:26:32 | INFO     | vshow_auto_test | predefined_executor.py:96 - execute_predefined_test_case() |    ✅ 成功: True
+2026-04-29 15:26:32 | INFO     | vshow_auto_test | predefined_executor.py:90 - execute_predefined_test_case() | 
+🤖 执行步骤 3/7: click_id → 'com.baitu.qingshu:id/action_before_live_start'
+2026-04-29 15:26:43 | ERROR    | vshow_auto_test | mobile_actions.py:64 - click_by_id() |    -> 尝试失败: TimeoutException(Message: 
+)
+2026-04-29 15:26:43 | ERROR    | vshow_auto_test | predefined_executor.py:102 - execute_predefined_test_case() |    ❌ 失败 (尝试 1/3): Message:  
+2026-04-29 15:26:43 | INFO     | vshow_auto_test | predefined_executor.py:105 - execute_predefined_test_case() |    🧠 尝试自动恢复（弹窗/遮挡检测）...
+2026-04-29 15:26:45 | INFO     | vshow_auto_test | element_handler.py:64 - extract_ui_elements() | 🧩 已提取 UI 元素: 20 个

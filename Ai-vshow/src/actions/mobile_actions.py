@@ -1,14 +1,14 @@
 import time
 import traceback
-from typing import Optional
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException, \
     WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.remote.webelement import WebElement
 from ..drivers.appium_driver import driver_manager
 from ..utils.logger import logger
-
+from ..drivers.element_handler import bounds_to_center
 
 # --- 关键修复：使用 driver_manager.driver 获取 driver ---
 def _get_driver():
@@ -19,60 +19,70 @@ def _get_driver():
         raise RuntimeError(f"无法获取 Appium Driver: {repr(e)}")
 
 
-def _is_element_visible_and_sized(element) -> bool:
-    """
-    辅助函数：判断元素是否真正可见且有有效尺寸
-    """
-    try:
-        # 检查 is_displayed 是否为 True
-        if not element.is_displayed():
-            return False
-        # 检查元素尺寸是否有效 (宽高都大于0)
-        size = element.size
-        if size.get('width', 0) <= 0 or size.get('height', 0) <= 0:
-            return False
-        return True
-    except Exception:
-        # 如果任何检查失败，认为元素不可见
-        return False
+def _is_click_retryable(exception: Exception) -> bool:
+    """判断点击失败是否值得重试"""
+    msg = str(exception).lower()
+    retry_keywords = [
+        "not clickable",
+        "not interactable",
+        "would receive the click",
+        "element is not visible",
+        "stale element",
+        "unable to click",
+        "element could not be scrolled into view",
+        "other element would receive the click",
+    ]
+    return any(kw in msg for kw in retry_keywords)
+
+
+def _robust_click(element: WebElement, max_retries: int = 2) -> bool:
+    """安全点击：支持重试 + 指数退避 + 精准异常捕获"""
+    last_exception = None
+    for attempt in range(max_retries + 1):
+        try:
+            element.click()
+            return True
+        except WebDriverException as e:
+            last_exception = e
+            if _is_click_retryable(e) and attempt < max_retries:
+                wait_time = 0.3 * (2 ** attempt)  # 指数退避：0.3s, 0.6s, 1.2s...
+                logger.warning(
+                    f"      ⚠️ 点击失败（尝试 {attempt+1}/{max_retries+1}），"
+                    f"等待 {wait_time:.1f}s 后重试: {type(e).__name__}: {e}"
+                )
+                time.sleep(wait_time)
+                continue
+            # 不可重试或已达上限，跳出循环
+            break
+    # 所有尝试失败，抛出最后一次异常
+    if last_exception:
+        raise last_exception
+    raise WebDriverException("点击失败：未知原因")
 
 
 def click_by_id(resource_id: str, timeout: int = 10) -> bool:
-    """
-    点击指定 resource-id 的元素，并确保它是可见的
-    """
-    drv = _get_driver()  # ✅ 正确获取 driver
+    """点击指定 resource-id 的元素（智能等待可点击状态）"""
+    drv = _get_driver()
     try:
-        # 使用 WebDriverWait 等待元素出现
-        elements = WebDriverWait(drv, timeout).until(
-            lambda d: d.find_elements(AppiumBy.ID, resource_id)
+        element = WebDriverWait(drv, timeout).until(
+            EC.element_to_be_clickable((AppiumBy.ID, resource_id))
         )
-
-        # 过滤出真正可见且尺寸有效的元素
-        visible_elements = [e for e in elements if _is_element_visible_and_sized(e)]
-
-        if not visible_elements:
-            raise TimeoutException(f"No VISIBLE element found for ID: {resource_id}")
-
-        # 点击第一个可见元素
-        element = visible_elements[0]
-        element.click()
-        logger.info(f"   -> 动作执行成功: Clicked VISIBLE element with ID: {resource_id}")
+        _robust_click(element)
+        logger.info(f"   -> 动作执行成功: Clicked element with ID: {resource_id}")
         return True
-
     except Exception as e:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
 
 
 def click_by_text(text: str, timeout: int = 10) -> bool:
-    """点击指定文本的元素"""
+    """点击指定文本的元素（智能等待可点击状态）"""
     drv = _get_driver()
     try:
         element = WebDriverWait(drv, timeout).until(
             EC.element_to_be_clickable((AppiumBy.ANDROID_UIAUTOMATOR, f'new UiSelector().text("{text}")'))
         )
-        element.click()
+        _robust_click(element)
         logger.info(f"   -> 动作执行成功: Clicked element with text: {text}")
         return True
     except Exception as e:
@@ -81,13 +91,13 @@ def click_by_text(text: str, timeout: int = 10) -> bool:
 
 
 def click_by_xpath(xpath: str, timeout: int = 10) -> bool:
-    """点击指定 xpath 的元素"""
+    """点击指定 xpath 的元素（智能等待可点击状态）"""
     drv = _get_driver()
     try:
         element = WebDriverWait(drv, timeout).until(
             EC.element_to_be_clickable((AppiumBy.XPATH, xpath))
         )
-        element.click()
+        _robust_click(element)
         logger.info(f"   -> 动作执行成功: Clicked element with xpath: {xpath}")
         return True
     except Exception as e:
@@ -99,7 +109,6 @@ def click_by_bounds(bounds_str: str, timeout: int = 10) -> bool:
     """点击指定 bounds 的中心点"""
     drv = _get_driver()
     try:
-        from ..utils.element_handler import bounds_to_center
         x, y = bounds_to_center(bounds_str)
         drv.tap([(x, y)])
         logger.info(f"   -> 动作执行成功: Tapped at center of bounds: {bounds_str} -> ({x}, {y})")
@@ -130,33 +139,17 @@ def perform_back() -> bool:
 
 def send_content(resource_id: str, text: str, timeout: int = 10) -> bool:
     """
-    在指定 resource-id 的输入框中输入文本。
-    会先点击该元素以聚焦，然后清除原有内容并输入新文本。
+    在指定 resource-id 的输入框中输入文本（智能等待可交互状态）
     """
     drv = _get_driver()
     try:
-        # 等待元素出现并可点击
-        elements = WebDriverWait(drv, timeout).until(
-            lambda d: d.find_elements(AppiumBy.ID, resource_id)
+        element = WebDriverWait(drv, timeout).until(
+            EC.element_to_be_clickable((AppiumBy.ID, resource_id))
         )
-
-        # 过滤出真正可见且尺寸有效的元素
-        visible_elements = [e for e in elements if _is_element_visible_and_sized(e)]
-
-        if not visible_elements:
-            raise TimeoutException(f"No VISIBLE element found for ID: {resource_id}")
-
-        element = visible_elements[0]
-
-        element.click()
-
         element.clear()
-
         element.send_keys(text)
-
         logger.info(f"   -> 动作执行成功: Input text '{text}' into element with ID: {resource_id}")
         return True
-
     except Exception as e:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
@@ -190,38 +183,19 @@ def perform_swipe(direction: str) -> bool:
         raise
 
 
-def assert_text_exists(expected_text: str) -> bool:
+def assert_text_exists(expected_text: str, timeout: int = 10) -> bool:
     """
-    断言指定的文本存在于当前页面上。
-    如果存在，返回 True；如果不存在，抛出 AssertionError。
+    断言指定的文本存在于当前页面上（使用智能等待）
     """
     drv = _get_driver()
     try:
-        # 获取当前页面的所有文本元素
-        all_elements = drv.find_elements(AppiumBy.XPATH, "//*")
-        all_texts = []
-
-        for el in all_elements:
-            try:
-                text = el.text.strip()
-                content_desc = el.get_attribute("content-desc") or ""
-                if text:
-                    all_texts.append(text)
-                if content_desc.strip():
-                    all_texts.append(content_desc.strip())
-            except Exception:
-                # 忽略无法读取的元素
-                continue
-
-        # 检查期望的文本是否在任何元素中
-        for text in all_texts:
-            if expected_text in text:
-                logger.info(f"   -> 断言成功: 页面包含文本 '{expected_text}'")
-                return True
-
-        # 如果未找到，抛出异常
-        raise AssertionError(f"断言失败: 未在页面上找到文本 '{expected_text}'. 扫描了 {len(all_texts)} 个文本元素。")
-
+        WebDriverWait(drv, timeout).until(
+            lambda d: expected_text in d.page_source
+        )
+        logger.info(f"   -> 断言成功: 页面包含文本 '{expected_text}'")
+        return True
+    except TimeoutException:
+        raise AssertionError(f"断言失败: 未在页面上找到文本 '{expected_text}' (超时 {timeout} 秒)")
     except Exception as e:
         logger.error(f"   -> 尝试失败: {type(e).__name__}({str(e)})")
         raise
@@ -229,39 +203,20 @@ def assert_text_exists(expected_text: str) -> bool:
 
 # --- 自定义动作支持 (Custom Action Support) ---
 
-# 1. 定义一个全局字典作为自定义函数的注册表
 _CUSTOM_ACTION_REGISTRY = {}
 
 
 def register_custom_action(name: str):
-    """
-    装饰器：用于向注册表中注册自定义动作函数。
-
-    使用示例:
-        @register_custom_action("my_special_task")
-        def my_special_task(driver, params: dict):
-            # 您的业务逻辑
-            pass
-    """
-
     def decorator(func):
         if name in _CUSTOM_ACTION_REGISTRY:
             raise ValueError(f"Custom action '{name}' is already registered.")
         _CUSTOM_ACTION_REGISTRY[name] = func
         logger.info(f"Registered custom action: {name}")
         return func
-
     return decorator
 
 
 def _execute_custom_action(action_config: dict) -> bool:
-    """
-    执行一个自定义动作。
-
-    :param action_config: 来自JSON的动作定义，必须包含 'name' 键。
-        示例: {"type": "custom", "name": "my_special_task", "params": {"arg1": "value1"}}
-    :return: 动作执行结果，通常为 True。
-    """
     drv = _get_driver()
     action_name = action_config.get("name")
     if not action_name:
@@ -275,10 +230,8 @@ def _execute_custom_action(action_config: dict) -> bool:
 
     try:
         logger.info(f"   -> 正在执行自定义动作: {action_name} with params: {params}")
-        # 调用注册的函数，并传入 driver 和 params
         result = _CUSTOM_ACTION_REGISTRY[action_name](driver=drv, params=params)
         logger.info(f"   -> 自定义动作执行成功: {action_name}")
-        # 如果您的自定义函数不返回值，我们默认返回 True
         return result if result is not None else True
     except Exception as e:
         logger.error(f"   -> 自定义动作执行失败: {action_name}, Error: {repr(e)}\n{traceback.format_exc()}")
@@ -287,8 +240,24 @@ def _execute_custom_action(action_config: dict) -> bool:
 
 def perform_single_action(action: dict) -> bool:
     """执行单个动作"""
-    action_type = action.get("type")
-    value = action.get("value", "")
+    if "type" not in action:
+        raise ValueError(f"Action missing 'type' field: {action}")
+
+    action_type = action["type"]
+
+    # 对于 custom 动作，必须有 value 且为 dict
+    if action_type == "custom":
+        if "value" not in action:
+            raise ValueError("Custom action missing 'value' field")
+        value = action["value"]
+        if not isinstance(value, dict):
+            raise TypeError(f"Custom action 'value' must be a dict, got {type(value).__name__}: {value}")
+        return _execute_custom_action(value)
+
+    # 其他动作：value 应为字符串（或可转为字符串）
+    if "value" not in action:
+        raise ValueError(f"Action '{action_type}' missing 'value' field")
+    value = str(action["value"])  # 统一转为字符串，避免 int/float 等问题
 
     if action_type == "click_id":
         return click_by_id(value)
@@ -305,33 +274,30 @@ def perform_single_action(action: dict) -> bool:
     elif action_type == "swipe":
         return perform_swipe(value)
     elif action_type == "assert_text":
-        return assert_text_exists(value)
+        if "||" in value:
+            text, to = value.split("||", 1)
+            return assert_text_exists(text.strip(), timeout=int(to.strip()))
+        else:
+            return assert_text_exists(value)
     elif action_type == "send_content":
-        # 约定 value 格式为: "resource_id||text_to_input"
         if "||" not in value:
             raise ValueError("send_content 的 value 必须为 'resource_id||text' 格式")
-        resource_id, text = value.split("||", 50)
+        resource_id, text = value.split("||", 1)
         return send_content(resource_id.strip(), text.strip())
-    # --- 新增：处理自定义动作 ---
-    elif action_type == "custom":
-        return _execute_custom_action(action)
     else:
         raise ValueError(f"Unsupported action type: {action_type}")
 
 
-# --- 在此处定义您的自定义动作函数 ---
+
+# --- 自定义动作示例 ---
 @register_custom_action("log_current_activity")
 def log_current_activity(driver, params: dict):
-    """一个简单的自定义动作：记录当前 Activity"""
     current_activity = driver.current_activity
     logger.info(f"[Custom Action] Current Activity: {current_activity}")
 
 
 @register_custom_action("safe_hide_keyboard")
-def safe_hide_keyboard(driver):
-    """
-    安全收起键盘：优先尝试标准方法，失败则点击空白区域
-    """
+def safe_hide_keyboard(driver, params: dict = None):
     try:
         if driver.is_keyboard_shown():
             driver.hide_keyboard()

@@ -40,4 +40,4 @@ AI-vshow/
 │ ├── planner_node.py # LLM规划节点
 │ └── executor_node.py # 动作执行节点
 │
-└── allure-results/ # 📁 (运行后自动生成) Allure测试结果数据
+└── allure-results/ # 📁 Allure测试结果数据

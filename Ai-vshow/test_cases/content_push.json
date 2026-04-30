@@ -9,7 +9,7 @@
       {"type": "wait", "value": "2"},
       {"type": "click_xpath", "value": "//android.widget.LinearLayout[@resource-id=\"com.baitu.qingshu:id/topBar\"]/android.widget.ImageView[2]\n"},
       {"type": "send_content", "value": "com.baitu.qingshu:id/content||这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK这是一个测试文案OK"},
-      {"type": "custom", "value": "safe_hide_keyboard"},
+      {"type": "custom", "value": {"name":"safe_hide_keyboard"}},
       {"type": "click_id", "value": "com.baitu.qingshu:id/publishTv"},
       {"type": "assert_text", "value": "收益"}
     ],
